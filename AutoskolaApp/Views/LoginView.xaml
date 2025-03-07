@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="AutoskolaApp.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoskolaApp.Views"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+             Background="{DynamicResource ApplicationBackgroundBrush}"
+             ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+             Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Label Content="Dobro došli!" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>-->
+        <Label Margin="0 0 5 0" Content="Odaberite vrstu računa:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label Margin="0 0 5 0" Content="Korisničko ime:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label Margin="0 0 5 0" Content="Lozinka:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Label Margin="0 0 5 0" Content="Vid Piljek, 2025." Grid.Row="7" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <ui:TextBox Grid.Row="4" Grid.Column="1"/>
+        <ui:PasswordBox Grid.Row="6" Grid.Column="1"/>
+        <ui:Button Command="{Binding}" Grid.Column="1" Content="Login" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
+        <ui:HyperlinkButton HorizontalAlignment="Center" Command="{Binding}" Content="Klikni ovdje da kreiraš račun." Grid.Row="5" Grid.Column="2"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <RadioButton Content="Korisnik"/>
+            <RadioButton Content="Instruktor"/>
+            <RadioButton Content="Administrator"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="To Do List App" VerticalAlignment="Center" FontSize="40"/>
+            <Label Content="Molimo vas da se prijavite." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
