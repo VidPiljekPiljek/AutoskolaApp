@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoskolaApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a1cb30dc0935d798b8ffc3cab9b68ecee395181")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoskolaApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoskolaApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
