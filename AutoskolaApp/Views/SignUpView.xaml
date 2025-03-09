@@ -46,5 +46,6 @@
         </StackPanel>
         <ui:HyperlinkButton HorizontalAlignment="Center" Command="{Binding}" Content="Već imam račun." Grid.Row="5" Grid.Column="2"/>
         <Label Content="Odaberite vrstu računa:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="118,0,0,0"/>
+        <ui:Button Command="{Binding}" Grid.Column="1" Content="Sign Up" Grid.Row="7" HorizontalAlignment="Center" Width="100"/>
     </Grid>
 </UserControl>
