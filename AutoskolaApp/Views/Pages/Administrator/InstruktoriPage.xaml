@@ -30,7 +30,7 @@
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
-        <ui:Label Content="Instruktori" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
+        <Label Content="Instruktori" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
         <DataGrid Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
             <ui:Button x:Name="btnDodajUpis" Content="Novi upis" />

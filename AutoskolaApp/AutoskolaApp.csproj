@@ -24,9 +24,6 @@
     <Folder Include="Stores\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\Pages\Administrator\" />
-    <Folder Include="Views\Pages\Instruktor\" />
-    <Folder Include="Views\Pages\Student\" />
   </ItemGroup>
 
 </Project>
