@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
-41997567375
+18-1309234081
 
-71679609411
-2431737384669
-MainWindow.xaml;Views\DashboardView.xaml;Views\LoginView.xaml;Views\SignUpView.xaml;
+35-324886953
+2501180832576
+MainWindow.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\LoginView.xaml;Views\Pages\Administrator\InstruktoriPage.xaml;Views\Pages\Administrator\IspitiPage.xaml;Views\Pages\Administrator\StudentiPage.xaml;Views\Pages\Administrator\UplatePage.xaml;Views\Pages\Administrator\VoznjePage.xaml;Views\Pages\Instruktor\IspitiPage.xaml;Views\Pages\Instruktor\VoznjePage.xaml;Views\Pages\Student\IspitiPage.xaml;Views\Pages\Student\UplatePage.xaml;Views\Pages\Student\VoznjePage.xaml;Views\SignUpView.xaml;
 
 False
 
