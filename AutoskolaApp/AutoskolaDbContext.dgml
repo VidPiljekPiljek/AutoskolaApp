@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Administrator" Category="EntityType" Annotations="Relational:TableName: Administratori RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="137.138333333334,639.6,330.166666666667,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Administrator" Name="Administrator" />
+    <Node Id="Administrator.IDAdministratora" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="301.905,791.52,145.4,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDAdministratora (Guid)" MaxLength="None" Name="IDAdministratora" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Administrator.IDKorisnika" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="157.138333333334,791.52,114.766666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDKorisnika (Guid)" MaxLength="None" Name="IDKorisnika" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Administrator.Ime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="157.138333333334,735.56,80.43,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Ime (string)" MaxLength="None" Name="Ime" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Administrator.Korisnik" Category="Navigation Property" Bounds="157.138333333334,679.6,78.5266666666667,25.96" Dependent="" Field="" Inverse="Administrator" Label="Korisnik (1)" Name="Korisnik" Principal="Korisnik" PropertyAccessMode="PropertyAccessMode.Default" Type="Korisnik" />
+    <Node Id="Administrator.OIB" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="265.665,679.6,79.7433333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OIB (string)" MaxLength="None" Name="OIB" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Administrator.Prezime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="267.568333333334,735.56,102.74,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Prezime (string)" MaxLength="None" Name="Prezime" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="IModel" Category="Model" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]] InversePropertyAttributeConvention:InverseNavigations: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]] NonNullableConventionState: System.Reflection.NullabilityInfoContext" Bounds="0,0,1510.68333333333,1401.12" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" Label="AutoskolaDbContext" ProductVersion="9.0.3" PropertyAccessMode="PropertyAccessMode.Default" />
+    <Node Id="Instruktor" Category="EntityType" Annotations="Relational:TableName: Instruktori RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="497.765,611.62,408.913333333333,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Instruktor" Name="Instruktor" />
+    <Node Id="Instruktor.DatumZaposlenja" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="672.341666666667,819.5,174.023333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DatumZaposlenja (DateTime)" MaxLength="None" Name="DatumZaposlenja" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Instruktor.IDInstruktora" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="517.765,819.5,124.576666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDInstruktora (Guid)" MaxLength="None" Name="IDInstruktora" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Instruktor.IDKorisnika" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="517.765,763.54,114.766666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDKorisnika (Guid)" MaxLength="None" Name="IDKorisnika" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Instruktor.Ime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="627.508333333334,707.58,80.4299999999999,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Ime (string)" MaxLength="None" Name="Ime" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Instruktor.Ispiti" Category="Navigation Collection" Bounds="517.765,651.62,60.75,25.96" Dependent="Ispit" Field="" Inverse="Instruktor" Label="Ispiti (*)" Name="Ispiti" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Ispit&gt;" />
+    <Node Id="Instruktor.Korisnik" Category="Navigation Property" Bounds="808.151666666667,651.62,78.5266666666666,25.96" Dependent="" Field="" Inverse="Instruktor" Label="Korisnik (1)" Name="Korisnik" Principal="Korisnik" PropertyAccessMode="PropertyAccessMode.Default" Type="Korisnik" />
+    <Node Id="Instruktor.Napomena" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="662.531666666667,763.54,119.3,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="Napomena (string)" MaxLength="None" Name="Napomena" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Instruktor.OIB" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="517.765,707.58,79.7433333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OIB (string)" MaxLength="None" Name="OIB" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Instruktor.Prezime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="737.938333333334,707.58,102.74,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Prezime (string)" MaxLength="None" Name="Prezime" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Instruktor.Vozilo" Category="Navigation Property" Bounds="608.515,651.62,68.9866666666667,25.96" Dependent="Vozilo" Field="" Inverse="Instruktor" Label="Vozilo (1)" Name="Vozilo" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="Vozilo" />
+    <Node Id="Instruktor.Voznje" Category="Navigation Collection" Bounds="707.501666666667,651.62,70.6500000000001,25.96" Dependent="Voznja" Field="" Inverse="Instruktor" Label="Voznje (*)" Name="Voznje" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Voznja&gt;" />
+    <Node Id="Ispit" Category="EntityType" Annotations="Relational:TableName: Ispiti RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="20,311.82,326.443333333333,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Ispit" Name="Ispit" />
+    <Node Id="Ispit.DateTime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="194.576666666667,463.74,131.866666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DateTime (DateTime)" MaxLength="None" Name="DateTime" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Ispit.IDInstruktora" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,463.74,124.576666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDInstruktora (Guid)" MaxLength="None" Name="IDInstruktora" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Ispit.IDIspita" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="158.336666666667,351.82,95.55,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDIspita (Guid)" MaxLength="None" Name="IDIspita" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Ispit.Instruktor" Category="Navigation Property" Bounds="40,351.82,88.3366666666667,25.96" Dependent="" Field="" Inverse="Ispiti" Label="Instruktor (1)" Name="Instruktor" Principal="Instruktor" PropertyAccessMode="PropertyAccessMode.Default" Type="Instruktor" />
+    <Node Id="Ispit.PolazniciIspita" Category="Navigation Collection" Bounds="40,407.78,109.843333333333,25.96" Dependent="PolaznikIspita" Field="" Inverse="Ispit" Label="PolazniciIspita (*)" Name="PolazniciIspita" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;PolaznikIspita&gt;" />
+    <Node Id="Ispit.VrstaIspita" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="179.843333333333,407.78,115.49,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="VrstaIspita (string)" MaxLength="None" Name="VrstaIspita" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Korisnik" Category="EntityType" Annotations="Relational:TableName: Korisnici RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="534.858333333334,939.400000000001,334.726666666667,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Korisnik" Name="Korisnik" />
+    <Node Id="Korisnik.Administrator" Category="Navigation Property" Bounds="554.858333333334,1091.32,109.453333333333,25.96" Dependent="Administrator" Field="" Inverse="Korisnik" Label="Administrator (1)" Name="Administrator" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="Administrator" />
+    <Node Id="Korisnik.IDKorisnika" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="694.311666666667,1091.32,114.766666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDKorisnika (Guid)" MaxLength="None" Name="IDKorisnika" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Korisnik.IDUloge" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="554.858333333334,1035.36,98.6533333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDUloge (Guid)" MaxLength="None" Name="IDUloge" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Korisnik.Instruktor" Category="Navigation Property" Bounds="761.248333333334,979.400000000001,88.3366666666667,25.96" Dependent="Instruktor" Field="" Inverse="Korisnik" Label="Instruktor (1)" Name="Instruktor" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="Instruktor" />
+    <Node Id="Korisnik.KorisnickoIme" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="554.858333333334,1147.28,134.533333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="KorisnickoIme (string)" MaxLength="None" Name="KorisnickoIme" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Korisnik.Lozinka" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="683.511666666667,1035.36,100.496666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Lozinka (string)" MaxLength="None" Name="Lozinka" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Korisnik.Student" Category="Navigation Property" Bounds="653.208333333334,979.400000000001,78.04,25.96" Dependent="Student" Field="" Inverse="Korisnik" Label="Student (1)" Name="Student" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="Student" />
+    <Node Id="Korisnik.Uloga" Category="Navigation Property" Bounds="554.858333333334,979.400000000001,68.35,25.96" Dependent="" Field="" Inverse="Korisnici" Label="Uloga (1)" Name="Uloga" Principal="Uloga" PropertyAccessMode="PropertyAccessMode.Default" Type="Uloga" />
+    <Node Id="PolaznikIspita" Category="EntityType" Annotations="Relational:TableName: PolazniciIspita RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="1189.76,40,300.923333333333,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="PolaznikIspita" Name="PolaznikIspita" />
+    <Node Id="PolaznikIspita.IDIspita" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1209.76,135.96,95.55,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDIspita (Guid)" MaxLength="None" Name="IDIspita" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="PolaznikIspita.IDPolaznika" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1354.04,191.92,116.643333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDPolaznika (Guid)" MaxLength="None" Name="IDPolaznika" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="PolaznikIspita.IDStudenta" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1209.76,191.92,114.28,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDStudenta (Guid)" MaxLength="None" Name="IDStudenta" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="PolaznikIspita.Ispit" Category="Navigation Property" Bounds="1209.76,80,59.3099999999999,25.96" Dependent="" Field="" Inverse="PolazniciIspita" Label="Ispit (1)" Name="Ispit" Principal="Ispit" PropertyAccessMode="PropertyAccessMode.Default" Type="Ispit" />
+    <Node Id="PolaznikIspita.Rezultat" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1335.31,135.96,103.09,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Rezultat (string)" MaxLength="None" Name="Rezultat" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="PolaznikIspita.Student" Category="Navigation Property" Bounds="1299.07,80,78.0400000000002,25.96" Dependent="" Field="" Inverse="PolazniciIspita" Label="Student (1)" Name="Student" Principal="Student" PropertyAccessMode="PropertyAccessMode.Default" Type="Student" />
+    <Node Id="Student" Category="EntityType" Annotations="Relational:TableName: Studenti RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="937.670000000001,583.64,429.103333333333,309.8" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Student" Name="Student" />
+    <Node Id="Student.DatumPocetka" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1102.43666666667,791.52,158.173333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DatumPocetka (DateTime)" MaxLength="None" Name="DatumPocetka" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Student.DatumRodjenja" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="957.670000000001,847.48,162.82,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DatumRodjenja (DateTime)" MaxLength="None" Name="DatumRodjenja" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Student.IDKorisnika" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="957.67,791.52,114.766666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDKorisnika (Guid)" MaxLength="None" Name="IDKorisnika" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Student.IDStudenta" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1097.51333333333,735.56,114.28,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDStudenta (Guid)" MaxLength="None" Name="IDStudenta" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Student.Ime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="957.670000000001,679.6,80.4300000000001,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Ime (string)" MaxLength="None" Name="Ime" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Student.Korisnik" Category="Navigation Property" Bounds="1158.50333333333,623.64,78.5266666666666,25.96" Dependent="" Field="" Inverse="Student" Label="Korisnik (1)" Name="Korisnik" Principal="Korisnik" PropertyAccessMode="PropertyAccessMode.Default" Type="Korisnik" />
+    <Node Id="Student.OIB" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1267.03,623.64,79.7433333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OIB (string)" MaxLength="None" Name="OIB" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Student.PolazniciIspita" Category="Navigation Collection" Bounds="957.670000000001,735.56,109.843333333333,25.96" Dependent="PolaznikIspita" Field="" Inverse="Student" Label="PolazniciIspita (*)" Name="PolazniciIspita" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;PolaznikIspita&gt;" />
+    <Node Id="Student.Prezime" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1196.96333333333,679.6,102.74,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Prezime (string)" MaxLength="None" Name="Prezime" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Student.SatiVoznje" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1068.1,679.6,98.8633333333335,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="SatiVoznje (int)" MaxLength="None" Name="SatiVoznje" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Student.Uplate" Category="Navigation Collection" Bounds="957.670000000001,623.64,70.1833333333334,25.96" Dependent="Uplata" Field="" Inverse="Student" Label="Uplate (*)" Name="Uplate" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Uplata&gt;" />
+    <Node Id="Student.Voznje" Category="Navigation Collection" Bounds="1057.85333333333,623.64,70.6500000000001,25.96" Dependent="Voznja" Field="" Inverse="Student" Label="Voznje (*)" Name="Voznje" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Voznja&gt;" />
+    <Node Id="Uloga" Category="EntityType" Annotations="Relational:TableName: Uloge RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="578.121666666667,1239.2,248.2,141.92" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Uloga" Name="Uloga" />
+    <Node Id="Uloga.IDUloge" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="707.668333333334,1279.2,98.6533333333334,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDUloge (Guid)" MaxLength="None" Name="IDUloge" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Uloga.ImeUloge" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="598.121666666667,1335.16,111.953333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ImeUloge (string)" MaxLength="None" Name="ImeUloge" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Uloga.Korisnici" Category="Navigation Collection" Bounds="598.121666666667,1279.2,79.5466666666666,25.96" Dependent="Korisnik" Field="" Inverse="Uloga" Label="Korisnici (*)" Name="Korisnici" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="ICollection&lt;Korisnik&gt;" />
+    <Node Id="Uplata" Category="EntityType" Annotations="Relational:TableName: Uplate RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="1009.19,283.84,286.063333333334,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Uplata" Name="Uplata" />
+    <Node Id="Uplata.DatumUplate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1029.19,491.72,151.563333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DatumUplate (DateTime)" MaxLength="None" Name="DatumUplate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Uplata.IDStudenta" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1160.97333333333,379.8,114.28,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDStudenta (Guid)" MaxLength="None" Name="IDStudenta" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Uplata.IDUplate" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1029.19,379.8,101.783333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDUplate (Guid)" MaxLength="None" Name="IDUplate" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Uplata.Iznos" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1137.23,323.84,99.2033333333334,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Iznos (decimal)" MaxLength="None" Name="Iznos" PropertyAccessMode="PropertyAccessMode.Default" Type="decimal" ValueGenerated="None" />
+    <Node Id="Uplata.NacinUplate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1029.19,435.76,125.6,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="NacinUplate (string)" MaxLength="None" Name="NacinUplate" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Uplata.Student" Category="Navigation Property" Bounds="1029.19,323.84,78.04,25.96" Dependent="" Field="" Inverse="Uplate" Label="Student (1)" Name="Student" Principal="Student" PropertyAccessMode="PropertyAccessMode.Default" Type="Student" />
+    <Node Id="Vozilo" Category="EntityType" Annotations="Relational:TableName: Vozila RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="376.58,311.82,285.283333333333,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Vozilo" Name="Vozilo" />
+    <Node Id="Vozilo.IDInstruktora" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="396.58,463.74,124.576666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDInstruktora (Guid)" MaxLength="None" Name="IDInstruktora" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Vozilo.Instruktor" Category="Navigation Property" Bounds="396.58,351.82,88.3366666666667,25.96" Dependent="" Field="" Inverse="Vozilo" Label="Instruktor (1)" Name="Instruktor" Principal="Instruktor" PropertyAccessMode="PropertyAccessMode.Default" Type="Instruktor" />
+    <Node Id="Vozilo.Marka" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="514.916666666667,351.82,93.75,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Marka (string)" MaxLength="None" Name="Marka" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Vozilo.Model" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="396.58,407.78,94.68,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Model (string)" MaxLength="None" Name="Model" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Vozilo.Registracija" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="521.26,407.78,120.603333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Registracija (string)" MaxLength="None" Name="Registracija" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Voznja" Category="EntityType" Annotations="" BaseClass="" Bounds="692.103333333334,283.84,286.236666666667,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Voznja" Name="Voznja" />
+    <Node Id="Voznja.DatumVoznje" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="712.103333333334,491.72,152.03,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="DatumVoznje (DateTime)" MaxLength="None" Name="DatumVoznje" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="None" />
+    <Node Id="Voznja.IDInstruktora" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="712.103333333334,435.76,124.576666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDInstruktora (Guid)" MaxLength="None" Name="IDInstruktora" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Voznja.IDStudenta" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="844.060000000001,379.8,114.28,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDStudenta (Guid)" MaxLength="None" Name="IDStudenta" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Voznja.IDVoznje" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="712.103333333334,379.8,101.956666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IDVoznje (Guid)" MaxLength="None" Name="IDVoznje" PropertyAccessMode="PropertyAccessMode.Default" Type="Guid" ValueGenerated="None" />
+    <Node Id="Voznja.Instruktor" Category="Navigation Property" Bounds="820.143333333334,323.84,88.3366666666667,25.96" Dependent="" Field="" Inverse="Voznje" Label="Instruktor (1)" Name="Instruktor" Principal="Instruktor" PropertyAccessMode="PropertyAccessMode.Default" Type="Instruktor" />
+    <Node Id="Voznja.Student" Category="Navigation Property" Bounds="712.103333333334,323.84,78.04,25.96" Dependent="" Field="" Inverse="Voznje" Label="Student (1)" Name="Student" Principal="Student" PropertyAccessMode="PropertyAccessMode.Default" Type="Student" />
+  </Nodes>
+  <Links>
+    <Link Source="Administrator" Target="Administrator.IDAdministratora" Category="Contains" />
+    <Link Source="Administrator" Target="Administrator.IDKorisnika" Category="Contains" />
+    <Link Source="Administrator" Target="Administrator.Ime" Category="Contains" />
+    <Link Source="Administrator" Target="Administrator.Korisnik" Category="Contains" />
+    <Link Source="Administrator" Target="Administrator.OIB" Category="Contains" />
+    <Link Source="Administrator" Target="Administrator.Prezime" Category="Contains" />
+    <Link Source="Administrator" Target="Korisnik" Category="Foreign Key" Annotations="" Bounds="422.961181640625,837.47998046875,117.414794921875,96.215576171875" From="Administrator.IDKorisnika" IsUnique="True" Label="1:1" LabelBounds="519.294093294283,908.440000000001,15.54,15.96" Name="Administrator -&gt; Korisnik" To="Korisnik.IDKorisnika" />
+    <Link Source="IModel" Target="Administrator" Category="Contains" />
+    <Link Source="IModel" Target="Instruktor" Category="Contains" />
+    <Link Source="IModel" Target="Ispit" Category="Contains" />
+    <Link Source="IModel" Target="Korisnik" Category="Contains" />
+    <Link Source="IModel" Target="PolaznikIspita" Category="Contains" />
+    <Link Source="IModel" Target="Student" Category="Contains" />
+    <Link Source="IModel" Target="Uloga" Category="Contains" />
+    <Link Source="IModel" Target="Uplata" Category="Contains" />
+    <Link Source="IModel" Target="Vozilo" Category="Contains" />
+    <Link Source="IModel" Target="Voznja" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.DatumZaposlenja" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.IDInstruktora" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.IDKorisnika" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Ime" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Ispiti" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Korisnik" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Napomena" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.OIB" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Prezime" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Vozilo" Category="Contains" />
+    <Link Source="Instruktor" Target="Instruktor.Voznje" Category="Contains" />
+    <Link Source="Instruktor" Target="Korisnik" Category="Foreign Key" Annotations="" Bounds="702.2216796875,865.460021972656,0,64.9400024414063" From="Instruktor.IDKorisnika" IsUnique="True" Label="1:1" LabelBounds="686.681666666667,908.440000000001,15.54,15.96" Name="Instruktor -&gt; Korisnik" To="Korisnik.IDKorisnika" />
+    <Link Source="Ispit" Target="Instruktor" Category="Foreign Key" Annotations="" Bounds="339.881195068359,509.700012207031,154.021209716797,97.2737426757813" From="Ispit.IDIspita" IsUnique="False" Label="1:*" LabelBounds="420.570193117335,552.68,14.0733333333333,15.96" Name="Ispit -&gt; Instruktor" To="Instruktor.IDInstruktora" />
+    <Link Source="Ispit" Target="Ispit.DateTime" Category="Contains" />
+    <Link Source="Ispit" Target="Ispit.IDInstruktora" Category="Contains" />
+    <Link Source="Ispit" Target="Ispit.IDIspita" Category="Contains" />
+    <Link Source="Ispit" Target="Ispit.Instruktor" Category="Contains" />
+    <Link Source="Ispit" Target="Ispit.PolazniciIspita" Category="Contains" />
+    <Link Source="Ispit" Target="Ispit.VrstaIspita" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.Administrator" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.IDKorisnika" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.IDUloge" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.Instruktor" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.KorisnickoIme" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.Lozinka" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.Student" Category="Contains" />
+    <Link Source="Korisnik" Target="Korisnik.Uloga" Category="Contains" />
+    <Link Source="Korisnik" Target="Uloga" Category="Foreign Key" Annotations="" Bounds="702.2216796875,1193.23999023438,0,36.9599609375" From="Korisnik.IDUloge" IsUnique="False" Label="1:*" LabelBounds="688.148333333334,1208.24,14.0733333333333,15.96" Name="Korisnik -&gt; Uloga" To="Uloga.IDUloge" />
+    <Link Source="PolaznikIspita" Target="Ispit" Category="Foreign Key" Annotations="" Bounds="354.726684570313,174.28874206543,835.033325195313,141.639450073242" From="PolaznikIspita.IDIspita" IsUnique="False" Label="1:*" LabelBounds="821.270007480441,252.88,14.0733333333334,15.96" Name="PolaznikIspita -&gt; Ispit" To="Ispit.IDIspita" />
+    <Link Source="PolaznikIspita" Target="PolaznikIspita.IDIspita" Category="Contains" />
+    <Link Source="PolaznikIspita" Target="PolaznikIspita.IDPolaznika" Category="Contains" />
+    <Link Source="PolaznikIspita" Target="PolaznikIspita.IDStudenta" Category="Contains" />
+    <Link Source="PolaznikIspita" Target="PolaznikIspita.Ispit" Category="Contains" />
+    <Link Source="PolaznikIspita" Target="PolaznikIspita.Rezultat" Category="Contains" />
+    <Link Source="PolaznikIspita" Target="PolaznikIspita.Student" Category="Contains" />
+    <Link Source="PolaznikIspita" Target="Student" Category="Foreign Key" Annotations="" Bounds="1299.01123046875,237.880004882813,41.21044921875,337.700317382813" From="PolaznikIspita.IDStudenta" IsUnique="False" Label="1:*" LabelBounds="1326.14833333333,402.78,14.0733333333333,15.96" Name="PolaznikIspita -&gt; Student" To="Student.IDStudenta" />
+    <Link Source="Student" Target="Korisnik" Category="Foreign Key" Annotations="" Bounds="876.859741210938,892.868408203125,63.48876953125,46.2452392578125" From="Student.IDKorisnika" IsUnique="True" Label="1:1" LabelBounds="892.475186710599,908.440000000001,15.54,15.96" Name="Student -&gt; Korisnik" To="Korisnik.IDKorisnika" />
+    <Link Source="Student" Target="Student.DatumPocetka" Category="Contains" />
+    <Link Source="Student" Target="Student.DatumRodjenja" Category="Contains" />
+    <Link Source="Student" Target="Student.IDKorisnika" Category="Contains" />
+    <Link Source="Student" Target="Student.IDStudenta" Category="Contains" />
+    <Link Source="Student" Target="Student.Ime" Category="Contains" />
+    <Link Source="Student" Target="Student.Korisnik" Category="Contains" />
+    <Link Source="Student" Target="Student.OIB" Category="Contains" />
+    <Link Source="Student" Target="Student.PolazniciIspita" Category="Contains" />
+    <Link Source="Student" Target="Student.Prezime" Category="Contains" />
+    <Link Source="Student" Target="Student.SatiVoznje" Category="Contains" />
+    <Link Source="Student" Target="Student.Uplate" Category="Contains" />
+    <Link Source="Student" Target="Student.Voznje" Category="Contains" />
+    <Link Source="Uloga" Target="Uloga.IDUloge" Category="Contains" />
+    <Link Source="Uloga" Target="Uloga.ImeUloge" Category="Contains" />
+    <Link Source="Uloga" Target="Uloga.Korisnici" Category="Contains" />
+    <Link Source="Uplata" Target="Student" Category="Foreign Key" Annotations="" Bounds="1152.2216796875,537.679992675781,0,36.9600219726563" From="Uplata.IDStudenta" IsUnique="False" Label="1:*" LabelBounds="1138.14833333333,552.68,14.0733333333333,15.96" Name="Uplata -&gt; Student" To="Student.IDStudenta" />
+    <Link Source="Uplata" Target="Uplata.DatumUplate" Category="Contains" />
+    <Link Source="Uplata" Target="Uplata.IDStudenta" Category="Contains" />
+    <Link Source="Uplata" Target="Uplata.IDUplate" Category="Contains" />
+    <Link Source="Uplata" Target="Uplata.Iznos" Category="Contains" />
+    <Link Source="Uplata" Target="Uplata.NacinUplate" Category="Contains" />
+    <Link Source="Uplata" Target="Uplata.Student" Category="Contains" />
+    <Link Source="Vozilo" Target="Instruktor" Category="Foreign Key" Annotations="" Bounds="574.460021972656,509.700012207031,52.5147705078125,94.061767578125" From="Vozilo.IDInstruktora" IsUnique="True" Label="1:1" LabelBounds="602.911031484533,552.68,15.54,15.96" Name="Vozilo -&gt; Instruktor" To="Instruktor.IDInstruktora" />
+    <Link Source="Vozilo" Target="Vozilo.IDInstruktora" Category="Contains" />
+    <Link Source="Vozilo" Target="Vozilo.Instruktor" Category="Contains" />
+    <Link Source="Vozilo" Target="Vozilo.Marka" Category="Contains" />
+    <Link Source="Vozilo" Target="Vozilo.Model" Category="Contains" />
+    <Link Source="Vozilo" Target="Vozilo.Registracija" Category="Contains" />
+    <Link Source="Voznja" Target="Instruktor" Category="Foreign Key" Annotations="" Bounds="757.104614257813,537.679992675781,26.6179809570313,65.6004028320313" From="Voznja.IDVoznje" IsUnique="False" Label="1:*" LabelBounds="760.324915187016,552.68,14.0733333333333,15.96" Name="Voznja -&gt; Instruktor" To="Instruktor.IDInstruktora" />
+    <Link Source="Voznja" Target="Student" Category="Foreign Key" Annotations="" Bounds="957.967529296875,537.679992675781,38.1917724609375,39.4905395507813" From="Voznja.IDVoznje" IsUnique="False" Label="1:*" LabelBounds="980.191768564281,552.68,14.0733333333333,15.96" Name="Voznja -&gt; Student" To="Student.IDStudenta" />
+    <Link Source="Voznja" Target="Voznja.DatumVoznje" Category="Contains" />
+    <Link Source="Voznja" Target="Voznja.IDInstruktora" Category="Contains" />
+    <Link Source="Voznja" Target="Voznja.IDStudenta" Category="Contains" />
+    <Link Source="Voznja" Target="Voznja.IDVoznje" Category="Contains" />
+    <Link Source="Voznja" Target="Voznja.Instruktor" Category="Contains" />
+    <Link Source="Voznja" Target="Voznja.Student" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="EntityType" />
+    <Category Id="Foreign Key" />
+    <Category Id="Model" />
+    <Category Id="Navigation Collection" />
+    <Category Id="Navigation Property" />
+    <Category Id="Property Foreign" />
+    <Category Id="Property Optional" />
+    <Category Id="Property Primary" />
+    <Category Id="Property Required" />
+  </Categories>
+  <Properties>
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass" Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Field" Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsAbstract" Label="IsAbstract" Description="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="MaxLength" DataType="System.String" />
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type" Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

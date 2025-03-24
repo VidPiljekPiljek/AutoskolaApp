@@ -10,31 +10,37 @@ namespace AutoskolaApp.Models
 {
     public class Instruktor
     {
-        [Key, ForeignKey("Korisnik")]
-        public Guid IDInstruktor { get; set; }
+        [Key]
+        public Guid IDInstruktora { get; set; }
 
         public string OIB { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public DateTime DatumZaposlenja { get; set; }
         public string? Napomena { get; set; }
-        public Korisnik Korisnik { get; set; }
+        public Guid IDKorisnika { get; set; } // Foreign key
+        public Korisnik Korisnik { get; set; } // Navigation property
+        public Vozilo? Vozilo { get; set; } // Navigation property to dependent entity
         public ICollection<Ispit>? Ispiti { get; set; }
+        public ICollection<Voznja>? Voznje { get; set; }
 
-        public Instruktor(Guid iDInstruktor, string oib, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Korisnik korisnik, ICollection<Ispit>? ispiti)
+        public Instruktor()
         {
-            IDInstruktor = iDInstruktor;
-            OIB = oib;
+        }
+
+        public Instruktor(Guid iDInstruktora, string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Guid iDKorisnika, Korisnik korisnik, Vozilo? vozilo, ICollection<Ispit>? ispiti, ICollection<Voznja>? voznje)
+        {
+            IDInstruktora = iDInstruktora;
+            OIB = oIB;
             Ime = ime;
             Prezime = prezime;
             DatumZaposlenja = datumZaposlenja;
             Napomena = napomena;
+            IDKorisnika = iDKorisnika;
             Korisnik = korisnik;
+            Vozilo = vozilo;
             Ispiti = ispiti;
-        }
-
-        public Instruktor()
-        {
+            Voznje = voznje;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace AutoskolaApp.Models
 {
     public class Student
     {
-        [Key, ForeignKey("Korisnik")]
+        [Key]
         public Guid IDStudenta { get; set; }
 
         public string OIB { get; set; }
@@ -19,26 +19,30 @@ namespace AutoskolaApp.Models
         public DateTime DatumRodjenja { get; set; }
         public DateTime DatumPocetka { get; set; }
         public int SatiVoznje { get; set; }
-        public Korisnik Korisnik { get; set; }
+        public Guid IDKorisnika { get; set; } // Foreign key
+        public Korisnik Korisnik { get; set; } // Navigation property
         public ICollection<PolaznikIspita>? PolazniciIspita { get; set; }
         public ICollection<Uplata>? Uplate { get; set; }
+        public ICollection<Voznja>? Voznje { get; set; }
 
-        public Student(Guid iDStudenta, string oib, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, Korisnik korisnik, ICollection<PolaznikIspita>? polazniciIspita, ICollection<Uplata>? uplate)
+        public Student()
+        {
+        }
+        
+        public Student(Guid iDStudenta, string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, Guid iDKorisnika, Korisnik korisnik, ICollection<PolaznikIspita>? polazniciIspita, ICollection<Uplata>? uplate, ICollection<Voznja>? voznje)
         {
             IDStudenta = iDStudenta;
-            OIB = oib;
+            OIB = oIB;
             Ime = ime;
             Prezime = prezime;
             DatumRodjenja = datumRodjenja;
             DatumPocetka = datumPocetka;
             SatiVoznje = satiVoznje;
+            IDKorisnika = iDKorisnika;
             Korisnik = korisnik;
             PolazniciIspita = polazniciIspita;
             Uplate = uplate;
-        }
-
-        public Student()
-        {
+            Voznje = voznje;
         }
     }
 }

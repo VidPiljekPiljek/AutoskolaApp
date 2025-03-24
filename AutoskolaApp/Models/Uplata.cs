@@ -15,19 +15,21 @@ namespace AutoskolaApp.Models
         public DateTime DatumUplate { get; set; }
         public decimal Iznos { get; set; }
         public string NacinUplate { get; set; }
-        public Student Student { get; set; }
+        public Guid IDStudenta { get; set; } // Foreign key
+        public Student Student { get; set; } // Navigation property
 
-        public Uplata(Guid iDUplate, DateTime datumUplate, decimal iznos, string nacinUplate, Student student)
+        public Uplata()
+        {
+        }
+
+        public Uplata(Guid iDUplate, DateTime datumUplate, decimal iznos, string nacinUplate, Guid iDStudenta, Student student)
         {
             IDUplate = iDUplate;
             DatumUplate = datumUplate;
             Iznos = iznos;
             NacinUplate = nacinUplate;
+            IDStudenta = iDStudenta;
             Student = student;
-        }
-
-        public Uplata()
-        {
         }
     }
 }

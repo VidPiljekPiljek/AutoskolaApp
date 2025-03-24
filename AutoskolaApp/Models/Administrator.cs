@@ -10,25 +10,27 @@ namespace AutoskolaApp.Models
 {
     public class Administrator
     {
-        [Key, ForeignKey("Korisnik")]
+        [Key]
         public Guid IDAdministratora { get; set; }
 
         public string OIB { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public Korisnik Korisnik { get; set; }
-
-        public Administrator(Guid iDAdministratora, string oib, string ime, string prezime, Korisnik korisnik)
-        {
-            IDAdministratora = iDAdministratora;
-            OIB = oib;
-            Ime = ime;
-            Prezime = prezime;
-            Korisnik = korisnik;
-        }
+        public Guid IDKorisnika { get; set; } // Foreign key
+        public Korisnik Korisnik { get; set; } // Navigation property
 
         public Administrator()
         {
+        }
+
+        public Administrator(Guid iDAdministratora, string oIB, string ime, string prezime, Guid iDKorisnika, Korisnik korisnik)
+        {
+            IDAdministratora = iDAdministratora;
+            OIB = oIB;
+            Ime = ime;
+            Prezime = prezime;
+            IDKorisnika = iDKorisnika;
+            Korisnik = korisnik;
         }
     }
 }

@@ -14,18 +14,20 @@ namespace AutoskolaApp.Models
 
         public string Marka { get; set; }
         public string Model { get; set; }
-        public Instruktor Instruktor { get; set; }
+        public Guid IDInstruktora { get; set; } // Foreign key
+        public Instruktor Instruktor { get; set; } // Navigation property
 
-        public Vozilo(string registracija, string marka, string model, Instruktor instruktor)
+        public Vozilo()
+        {
+        }
+
+        public Vozilo(string registracija, string marka, string model, Guid iDInstruktora, Instruktor instruktor)
         {
             Registracija = registracija;
             Marka = marka;
             Model = model;
+            IDInstruktora = iDInstruktora;
             Instruktor = instruktor;
-        }
-
-        public Vozilo()
-        {
         }
     }
 }

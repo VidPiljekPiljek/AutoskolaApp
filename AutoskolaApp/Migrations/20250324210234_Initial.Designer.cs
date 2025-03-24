@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoskolaApp.Migrations
 {
     [DbContext(typeof(AutoskolaDbContext))]
-    [Migration("20250323181620_Initial")]
+    [Migration("20250324210234_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -23,6 +23,10 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Administrator", b =>
                 {
                     b.Property<Guid>("IDAdministratora")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("IDKorisnika")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Ime")
@@ -39,15 +43,22 @@ namespace AutoskolaApp.Migrations
 
                     b.HasKey("IDAdministratora");
 
+                    b.HasIndex("IDKorisnika")
+                        .IsUnique();
+
                     b.ToTable("Administratori");
                 });
 
             modelBuilder.Entity("AutoskolaApp.Models.Instruktor", b =>
                 {
-                    b.Property<Guid>("IDInstruktor")
+                    b.Property<Guid>("IDInstruktora")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DatumZaposlenja")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("IDKorisnika")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Ime")
@@ -65,7 +76,10 @@ namespace AutoskolaApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("IDInstruktor");
+                    b.HasKey("IDInstruktora");
+
+                    b.HasIndex("IDKorisnika")
+                        .IsUnique();
 
                     b.ToTable("Instruktori");
                 });
@@ -73,13 +87,12 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Ispit", b =>
                 {
                     b.Property<Guid>("IDIspita")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("InstruktorIDInstruktor")
+                    b.Property<Guid>("IDInstruktora")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("VrstaIspita")
@@ -87,8 +100,6 @@ namespace AutoskolaApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("IDIspita");
-
-                    b.HasIndex("InstruktorIDInstruktor");
 
                     b.ToTable("Ispiti");
                 });
@@ -99,6 +110,9 @@ namespace AutoskolaApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("IDUloge")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("KorisnickoIme")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -107,12 +121,9 @@ namespace AutoskolaApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("UlogaIDUloge")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("IDKorisnika");
 
-                    b.HasIndex("UlogaIDUloge");
+                    b.HasIndex("IDUloge");
 
                     b.ToTable("Korisnici");
                 });
@@ -123,21 +134,21 @@ namespace AutoskolaApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IspitIDIspita")
+                    b.Property<Guid>("IDIspita")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("IDStudenta")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rezultat")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("StudentIDStudenta")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("IDPolaznika");
 
-                    b.HasIndex("IspitIDIspita");
+                    b.HasIndex("IDIspita");
 
-                    b.HasIndex("StudentIDStudenta");
+                    b.HasIndex("IDStudenta");
 
                     b.ToTable("PolazniciIspita");
                 });
@@ -145,12 +156,16 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Student", b =>
                 {
                     b.Property<Guid>("IDStudenta")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DatumPocetka")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DatumRodjenja")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("IDKorisnika")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Ime")
@@ -169,6 +184,9 @@ namespace AutoskolaApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IDStudenta");
+
+                    b.HasIndex("IDKorisnika")
+                        .IsUnique();
 
                     b.ToTable("Studenti");
                 });
@@ -190,17 +208,17 @@ namespace AutoskolaApp.Migrations
                     b.HasData(
                         new
                         {
-                            IDUloge = new Guid("bbb87d3f-4ca2-46e9-bc0b-7fd0e3d25d77"),
+                            IDUloge = new Guid("b8ff1bec-f067-4d02-921a-e2b531f18c13"),
                             ImeUloge = "Administrator"
                         },
                         new
                         {
-                            IDUloge = new Guid("33eae27b-fb07-4267-bba0-2e5d16e056a4"),
+                            IDUloge = new Guid("dc3cc85e-1b19-4b8c-b363-ce4443b6004e"),
                             ImeUloge = "Instruktor"
                         },
                         new
                         {
-                            IDUloge = new Guid("7ff139de-2cdc-421c-853c-c9b7773a89f6"),
+                            IDUloge = new Guid("9dd065de-3e61-4c26-9d75-b94b0e932e4b"),
                             ImeUloge = "Student"
                         });
                 });
@@ -214,6 +232,9 @@ namespace AutoskolaApp.Migrations
                     b.Property<DateTime>("DatumUplate")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("IDStudenta")
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("Iznos")
                         .HasColumnType("TEXT");
 
@@ -221,12 +242,9 @@ namespace AutoskolaApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("StudentIDStudenta")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("IDUplate");
 
-                    b.HasIndex("StudentIDStudenta");
+                    b.HasIndex("IDStudenta");
 
                     b.ToTable("Uplate");
                 });
@@ -236,7 +254,7 @@ namespace AutoskolaApp.Migrations
                     b.Property<string>("Registracija")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("InstruktorIDInstruktor")
+                    b.Property<Guid>("IDInstruktora")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Marka")
@@ -249,7 +267,8 @@ namespace AutoskolaApp.Migrations
 
                     b.HasKey("Registracija");
 
-                    b.HasIndex("InstruktorIDInstruktor");
+                    b.HasIndex("IDInstruktora")
+                        .IsUnique();
 
                     b.ToTable("Vozila");
                 });
@@ -257,23 +276,18 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Voznja", b =>
                 {
                     b.Property<Guid>("IDVoznje")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DatumVoznje")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("InstruktorIDInstruktor")
+                    b.Property<Guid>("IDInstruktora")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("StudentIDStudenta")
+                    b.Property<Guid>("IDStudenta")
                         .HasColumnType("TEXT");
 
                     b.HasKey("IDVoznje");
-
-                    b.HasIndex("InstruktorIDInstruktor");
-
-                    b.HasIndex("StudentIDStudenta");
 
                     b.ToTable("Voznje");
                 });
@@ -281,8 +295,8 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Administrator", b =>
                 {
                     b.HasOne("AutoskolaApp.Models.Korisnik", "Korisnik")
-                        .WithMany()
-                        .HasForeignKey("IDAdministratora")
+                        .WithOne("Administrator")
+                        .HasForeignKey("AutoskolaApp.Models.Administrator", "IDKorisnika")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -292,8 +306,8 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Instruktor", b =>
                 {
                     b.HasOne("AutoskolaApp.Models.Korisnik", "Korisnik")
-                        .WithMany()
-                        .HasForeignKey("IDInstruktor")
+                        .WithOne("Instruktor")
+                        .HasForeignKey("AutoskolaApp.Models.Instruktor", "IDKorisnika")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -304,7 +318,7 @@ namespace AutoskolaApp.Migrations
                 {
                     b.HasOne("AutoskolaApp.Models.Instruktor", "Instruktor")
                         .WithMany("Ispiti")
-                        .HasForeignKey("InstruktorIDInstruktor")
+                        .HasForeignKey("IDIspita")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -315,7 +329,7 @@ namespace AutoskolaApp.Migrations
                 {
                     b.HasOne("AutoskolaApp.Models.Uloga", "Uloga")
                         .WithMany("Korisnici")
-                        .HasForeignKey("UlogaIDUloge")
+                        .HasForeignKey("IDUloge")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -326,13 +340,13 @@ namespace AutoskolaApp.Migrations
                 {
                     b.HasOne("AutoskolaApp.Models.Ispit", "Ispit")
                         .WithMany("PolazniciIspita")
-                        .HasForeignKey("IspitIDIspita")
+                        .HasForeignKey("IDIspita")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoskolaApp.Models.Student", "Student")
                         .WithMany("PolazniciIspita")
-                        .HasForeignKey("StudentIDStudenta")
+                        .HasForeignKey("IDStudenta")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -344,8 +358,8 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Student", b =>
                 {
                     b.HasOne("AutoskolaApp.Models.Korisnik", "Korisnik")
-                        .WithMany()
-                        .HasForeignKey("IDStudenta")
+                        .WithOne("Student")
+                        .HasForeignKey("AutoskolaApp.Models.Student", "IDKorisnika")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -356,7 +370,7 @@ namespace AutoskolaApp.Migrations
                 {
                     b.HasOne("AutoskolaApp.Models.Student", "Student")
                         .WithMany("Uplate")
-                        .HasForeignKey("StudentIDStudenta")
+                        .HasForeignKey("IDStudenta")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -366,8 +380,8 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Vozilo", b =>
                 {
                     b.HasOne("AutoskolaApp.Models.Instruktor", "Instruktor")
-                        .WithMany()
-                        .HasForeignKey("InstruktorIDInstruktor")
+                        .WithOne("Vozilo")
+                        .HasForeignKey("AutoskolaApp.Models.Vozilo", "IDInstruktora")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -377,14 +391,14 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Voznja", b =>
                 {
                     b.HasOne("AutoskolaApp.Models.Instruktor", "Instruktor")
-                        .WithMany()
-                        .HasForeignKey("InstruktorIDInstruktor")
+                        .WithMany("Voznje")
+                        .HasForeignKey("IDVoznje")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoskolaApp.Models.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentIDStudenta")
+                        .WithMany("Voznje")
+                        .HasForeignKey("IDVoznje")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -396,6 +410,10 @@ namespace AutoskolaApp.Migrations
             modelBuilder.Entity("AutoskolaApp.Models.Instruktor", b =>
                 {
                     b.Navigation("Ispiti");
+
+                    b.Navigation("Vozilo");
+
+                    b.Navigation("Voznje");
                 });
 
             modelBuilder.Entity("AutoskolaApp.Models.Ispit", b =>
@@ -403,11 +421,22 @@ namespace AutoskolaApp.Migrations
                     b.Navigation("PolazniciIspita");
                 });
 
+            modelBuilder.Entity("AutoskolaApp.Models.Korisnik", b =>
+                {
+                    b.Navigation("Administrator");
+
+                    b.Navigation("Instruktor");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("AutoskolaApp.Models.Student", b =>
                 {
                     b.Navigation("PolazniciIspita");
 
                     b.Navigation("Uplate");
+
+                    b.Navigation("Voznje");
                 });
 
             modelBuilder.Entity("AutoskolaApp.Models.Uloga", b =>

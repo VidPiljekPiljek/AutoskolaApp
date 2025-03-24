@@ -14,18 +14,26 @@ namespace AutoskolaApp.Models
 
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
-        public Uloga Uloga { get; set; }
+        public Guid IDUloge { get; set; } // Foreign key
+        public Uloga Uloga { get; set; } // Navigation to principal entity
+        public Administrator? Administrator { get; set; } // Navigation to dependent entity
+        public Instruktor? Instruktor { get; set; } // Navigation to dependent entity
+        public Student? Student { get; set; } // Navigation to dependent entity
 
-        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, Uloga uloga)
+        public Korisnik()
+        {
+        }
+
+        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, Guid iDUloge, Uloga uloga, Administrator? administrator, Instruktor? instruktor, Student? student)
         {
             IDKorisnika = iDKorisnika;
             KorisnickoIme = korisnickoIme;
             Lozinka = lozinka;
+            IDUloge = iDUloge;
             Uloga = uloga;
-        }
-
-        public Korisnik()
-        {
+            Administrator = administrator;
+            Instruktor = instruktor;
+            Student = student;
         }
     }
 }

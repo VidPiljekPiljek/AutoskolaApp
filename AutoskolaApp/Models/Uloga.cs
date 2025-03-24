@@ -15,16 +15,15 @@ namespace AutoskolaApp.Models
         public string ImeUloge { get; set; }
         public ICollection<Korisnik>? Korisnici { get; set; }
 
+        public Uloga()
+        {
+        }
 
         public Uloga(Guid iDUloge, string imeUloge, ICollection<Korisnik>? korisnici)
         {
             IDUloge = iDUloge;
             ImeUloge = imeUloge;
             Korisnici = korisnici;
-        }
-
-        public Uloga()
-        {
         }
     }
 }
