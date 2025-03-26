@@ -23,10 +23,8 @@
 
   <ItemGroup>
     <Folder Include="DTOs\" />
-    <Folder Include="Commands\" />
-    <Folder Include="Stores\" />
     <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

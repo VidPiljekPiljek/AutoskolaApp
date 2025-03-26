@@ -8,6 +8,9 @@
     <Compile Update="Views\Forms\InstruktoriForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Forms\SignUpForms\InstruktorSignUpForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Forms\StudentiForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

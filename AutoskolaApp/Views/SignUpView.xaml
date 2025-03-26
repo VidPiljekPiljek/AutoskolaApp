@@ -31,21 +31,27 @@
         <Label Content="Korisničko ime:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
         <Label Content="Lozinka:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
         <Label Content="Vid Piljek, 2024." Grid.Row="7" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="5"/>
-        <ui:TextBox Grid.Row="4" Grid.Column="1"/>
-        <ui:PasswordBox Grid.Row="6" Grid.Column="1"/>
+        <ui:TextBox Text="{Binding KorisnickoIme, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.Column="1"/>
+        <ui:PasswordBox Text="{Binding Lozinka, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="1"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom">
+        <!--<StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom">
             <RadioButton Margin="5 0" Content="Korisnik"/>
             <RadioButton Margin="5 0" Content="Instruktor"/>
             <RadioButton Margin="5 0" Content="Administrator"/>
-        </StackPanel>
+        </StackPanel>-->
+
+        <ComboBox Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Uloga, UpdateSourceTrigger=PropertyChanged}">
+            <ComboBoxItem>Student</ComboBoxItem>
+            <ComboBoxItem>Instruktor</ComboBoxItem>
+            <ComboBoxItem>Administrator</ComboBoxItem>
+        </ComboBox>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Autoškola" VerticalAlignment="Center" FontSize="40"/>
             <Label Content="Molimo vas da napravite račun." HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <ui:HyperlinkButton HorizontalAlignment="Center" Command="{Binding}" Content="Već imam račun." Grid.Row="5" Grid.Column="2"/>
+        <ui:HyperlinkButton HorizontalAlignment="Center" Command="{Binding BackToLoginCommand}" Content="Već imam račun." Grid.Row="5" Grid.Column="2"/>
         <Label Content="Odaberite vrstu računa:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="118,0,0,0"/>
-        <ui:Button Command="{Binding}" Grid.Column="1" Content="Sign Up" Grid.Row="7" HorizontalAlignment="Center" Width="100"/>
+        <ui:Button Command="{Binding CreateAccountCommand}" Grid.Column="1" Content="Sign Up" Grid.Row="7" HorizontalAlignment="Center" Width="100"/>
     </Grid>
 </UserControl>
