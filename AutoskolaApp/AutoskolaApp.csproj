@@ -21,10 +21,4 @@
     <PackageReference Include="WPF-UI" Version="4.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoskolaApp.DbContexts;
+using AutoskolaApp.DTOs;
 using AutoskolaApp.Models;
 
 namespace AutoskolaApp.Services.KorisnikCreators
@@ -21,8 +22,22 @@ namespace AutoskolaApp.Services.KorisnikCreators
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
+                KorisnikDTO korisnikDTO = MapToDTO(korisnik);
 
+                dbContext.Korisnici.Add(korisnik);
+                await dbContext.SaveChangesAsync();
             }
+        }
+
+        private KorisnikDTO MapToDTO(Korisnik korisnik)
+        {
+            return new KorisnikDTO()
+            {
+                IDKorisnika = korisnik.IDKorisnika,
+                KorisnickoIme = korisnik.KorisnickoIme,
+                Lozinka = korisnik.Lozinka,
+                IDUloge = korisnik.IDUloge
+            };
         }
     }
 }

@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using AutoskolaApp.Commands;
+using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels
 {
@@ -48,8 +51,10 @@ namespace AutoskolaApp.ViewModels
         public AsyncCommandBase SubmitCommand { get; }
         public ICommand BackToLoginCommand { get; }
 
-        public SignUpViewModel()
+        public SignUpViewModel(KorisnikStore korisnikStore, NavigationService<DashboardViewModel> dashboardNavigationService)
         {
+            SubmitCommand = new MakeReservationCommand(this, korisnikStore, dashboardNavigationService);
+            BackToLoginCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
         }
     }
 }

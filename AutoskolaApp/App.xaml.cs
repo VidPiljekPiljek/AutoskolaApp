@@ -9,6 +9,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wpf.Ui;
+using AutoskolaApp.Services;
+using AutoskolaApp.Services.KorisnikProviders;
+using AutoskolaApp.Services.KorisnikCreators;
+using AutoskolaApp.Models;
+using AutoskolaApp.Stores;
+using AutoskolaApp.DbContexts;
+using AutoskolaApp.ViewModels;
 
 namespace AutoskolaApp;
 
@@ -27,7 +34,21 @@ public partial class App : Application
         .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
         .ConfigureServices((context, services) =>
         {
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<MainWindow>(s => new MainWindow()
+            {
+                DataContext = s.GetRequiredService<LoginViewModel>()
+            });
+
+            services.AddSingleton<IAutoskolaDbContextFactory>(new InMemoryAutoskolaDbContextFactory());
+
+            services.AddSingleton<IKorisnikProvider, DatabaseKorisnikProvider>();
+            services.AddSingleton<IKorisnikCreator, DatabaseKorisnikCreator>();
+
+            services.AddTransient<KorisnikManager>();
+
+            services.AddSingleton<NavigationStore>();
+            services.AddSingleton<KorisnikStore>();
+
         }).Build();
 
     /// <summary>
