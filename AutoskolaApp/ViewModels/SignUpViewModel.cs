@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using AutoskolaApp.Commands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Repositories;
 using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
 
@@ -13,6 +16,26 @@ namespace AutoskolaApp.ViewModels
 {
     public class SignUpViewModel : ViewModelBase
     {
+        private readonly UlogaStore _ulogaStore;
+        private ObservableCollection<Uloga> _uloge;
+
+        public ObservableCollection<Uloga> Uloge
+        {
+            get { return _uloge; }
+            set
+            {
+                _uloge = value;
+                OnPropertyChanged(nameof(Uloge));
+            }
+        }
+
+        private void LoadUloge()
+        {
+            var uloge = _ulogaStore.Uloge;
+
+            Uloge = new ObservableCollection<Uloga>(uloge);
+        }
+
         public string _korisnickoIme;
         public string KorisnickoIme
         {
@@ -37,8 +60,8 @@ namespace AutoskolaApp.ViewModels
                 OnPropertyChanged(nameof(Lozinka)); 
             }
         }
-        public string _uloga;
-        public string Uloga
+        public Uloga _uloga;
+        public Uloga Uloga
         {
             get { return _uloga; }
             set 
@@ -51,10 +74,10 @@ namespace AutoskolaApp.ViewModels
         public AsyncCommandBase SubmitCommand { get; }
         public ICommand BackToLoginCommand { get; }
 
-        public SignUpViewModel(KorisnikStore korisnikStore, NavigationService<DashboardViewModel> dashboardNavigationService)
+        public SignUpViewModel(KorisnikService korisnikService, NavigationService<DashboardViewModel> dashboardNavigationService, NavigationService<LoginViewModel> loginNavigationService)
         {
-            SubmitCommand = new MakeReservationCommand(this, korisnikStore, dashboardNavigationService);
-            BackToLoginCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            SubmitCommand = new CreateAccountCommand(this, korisnikService, dashboardNavigationService);
+            BackToLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
         }
     }
 }

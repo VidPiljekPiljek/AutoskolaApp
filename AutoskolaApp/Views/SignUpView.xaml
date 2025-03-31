@@ -40,10 +40,7 @@
             <RadioButton Margin="5 0" Content="Administrator"/>
         </StackPanel>-->
 
-        <ComboBox Grid.Row="2" Grid.Column="1" SelectedItem="{Binding Uloga, UpdateSourceTrigger=PropertyChanged}">
-            <ComboBoxItem>Student</ComboBoxItem>
-            <ComboBoxItem>Instruktor</ComboBoxItem>
-            <ComboBoxItem>Administrator</ComboBoxItem>
+        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Uloge, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="ImeUloge" SelectedValue="{Binding Uloga, UpdateSourceTrigger=PropertyChanged}">
         </ComboBox>
 
         <StackPanel Grid.Column="1" Grid.Row="0">

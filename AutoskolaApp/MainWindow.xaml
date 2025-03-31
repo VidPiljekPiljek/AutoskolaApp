@@ -13,6 +13,6 @@
         Title="MainWindow" Height="450" Width="800"
         ResizeMode="NoResize">
     <Grid>
-        <ContentControl x:Name="MainContent"/>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

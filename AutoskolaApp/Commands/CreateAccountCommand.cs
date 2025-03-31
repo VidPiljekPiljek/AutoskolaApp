@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AutoskolaApp.Models;
 using AutoskolaApp.Services;
 using AutoskolaApp.ViewModels;
@@ -33,8 +34,22 @@ namespace AutoskolaApp.Commands
                     new Guid(),
                     _signUpViewModel.KorisnickoIme,
                     _signUpViewModel.Lozinka,
-                    _signUpViewModel.Uloga
+                    _signUpViewModel.Uloga.IDUloge,
+                    _signUpViewModel.Uloga,
+                    null,
+                    null,
+                    null
                 );
+
+            try
+            {
+                await _korisnikService.RegisterKorisnik(korisnik);
+                _dashboardViewModelNavigationService.Navigate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

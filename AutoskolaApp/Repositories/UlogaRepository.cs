@@ -7,24 +7,24 @@ using AutoskolaApp.DbContexts;
 using AutoskolaApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AutoskolaApp.Services.KorisnikProviders
+namespace AutoskolaApp.Repositories
 {
-    public class DatabaseKorisnikProvider : IKorisnikProvider
+    public class UlogaRepository
     {
         private readonly IAutoskolaDbContextFactory _dbContextFactory;
 
-        public DatabaseKorisnikProvider(IAutoskolaDbContextFactory dbContextFactory)
+        public UlogaRepository(IAutoskolaDbContextFactory dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task<IEnumerable<Korisnik>> GetAllKorisnici()
+        public async Task<IEnumerable<Uloga>> GetAllUloge()
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
-                IEnumerable<Korisnik> korisnici = await dbContext.Korisnici.ToListAsync();
+                IEnumerable<Uloga> uloge = await dbContext.Uloge.ToListAsync();
 
-                return korisnici;
+                return uloge;
             }
         }
     }

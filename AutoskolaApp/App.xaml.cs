@@ -10,12 +10,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wpf.Ui;
 using AutoskolaApp.Services;
-using AutoskolaApp.Services.KorisnikProviders;
-using AutoskolaApp.Services.KorisnikCreators;
 using AutoskolaApp.Models;
 using AutoskolaApp.Stores;
 using AutoskolaApp.DbContexts;
 using AutoskolaApp.ViewModels;
+using AutoskolaApp.Repositories;
 
 namespace AutoskolaApp;
 
@@ -39,12 +38,13 @@ public partial class App : Application
                 DataContext = s.GetRequiredService<LoginViewModel>()
             });
 
+            string connectionString = context.Configuration.GetConnectionString("Default");
+
+            services.AddSingleton(new AutoskolaDbContextFactory(connectionString));
             services.AddSingleton<IAutoskolaDbContextFactory>(new InMemoryAutoskolaDbContextFactory());
 
-            services.AddSingleton<IKorisnikProvider, DatabaseKorisnikProvider>();
-            services.AddSingleton<IKorisnikCreator, DatabaseKorisnikCreator>();
-
-            services.AddTransient<KorisnikManager>();
+            services.AddSingleton<KorisnikRepository>();
+            services.AddTransient<KorisnikService>();
 
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<KorisnikStore>();
@@ -68,10 +68,20 @@ public partial class App : Application
     private void OnStartup(object sender, StartupEventArgs e)
     {
         _host.Start();
-        //DbContextOptions options = new DbContextOptionsBuilder().UseSqlite("Data Source=toDoListApp.db").Options;
-        //WPFUI_ToDoListDBContext dbContext = new WPFUI_ToDoListDBContext(options);
+        
+        IAutoskolaDbContextFactory autoskolaDbContextFactory = _host.Services.GetService<IAutoskolaDbContextFactory>();
+        using (AutoskolaDbContext dbContext = autoskolaDbContextFactory.CreateDbContext())
+        {
+            dbContext.Database.Migrate();
+        }
 
-        //dbContext.Database.Migrate();
+        NavigationService<LoginViewModel> navigationService = _host.Services.GetService<NavigationService<LoginViewModel>>();
+        navigationService.Navigate();
+
+        MainWindow = _host.Services.GetService<MainWindow>();
+        MainWindow.Show();
+
+        base.OnStartup(e);
     }
 
     /// <summary>

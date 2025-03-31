@@ -21,7 +21,6 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        MainContent.Content = new LoginView();
         SystemThemeWatcher.Watch(this as System.Windows.Window);
     }
 }
