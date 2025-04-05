@@ -424,3 +424,6 @@ C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\A
 C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Autoskol.C21DAD80.Up2Date
 C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\AutoskolaApp.genruntimeconfig.cache
 C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\ref\AutoskolaApp.dll
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\SignUpForms\InstruktorSignUpForm.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\SignUpForms\InstruktorSignUpForm.baml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs

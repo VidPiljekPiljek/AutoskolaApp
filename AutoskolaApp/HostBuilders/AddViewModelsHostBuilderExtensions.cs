@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
 using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,11 +23,21 @@ namespace AutoskolaApp.HostBuilders
                 services.AddSingleton<Func<LoginViewModel>>(s => () => s.GetRequiredService<LoginViewModel>());
                 services.AddSingleton<NavigationService<LoginViewModel>>();
 
+                services.AddTransient<SignUpViewModel>();
+                services.AddSingleton<Func<SignUpViewModel>>(s => () => s.GetRequiredService<SignUpViewModel>());
+                services.AddSingleton<NavigationService<SignUpViewModel>>();
 
+                services.AddSingleton<MainViewModel>();
             });
 
             return hostBuilder;
         }
 
+        private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
+        {
+            return LoginViewModel.LoadViewModel(
+                services.GetRequiredService<KorisnikService>(),
+                services.GetRequiredService<NavigationService<SignUpViewModel>>());
+        }
     }
 }

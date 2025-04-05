@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\
 AutoskolaApp
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
-C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
 19801701457
 
-58202737522
-2501728494542
+6030990892
+2501180832576
 MainWindow.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\SignUpForms\InstruktorSignUpForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\LoginView.xaml;Views\Pages\Administrator\InstruktoriPage.xaml;Views\Pages\Administrator\IspitiPage.xaml;Views\Pages\Administrator\StudentiPage.xaml;Views\Pages\Administrator\UplatePage.xaml;Views\Pages\Administrator\VoznjePage.xaml;Views\Pages\Instruktor\IspitiPage.xaml;Views\Pages\Instruktor\VoznjePage.xaml;Views\Pages\Student\IspitiPage.xaml;Views\Pages\Student\UplatePage.xaml;Views\Pages\Student\VoznjePage.xaml;Views\SignUpView.xaml;
 
 False

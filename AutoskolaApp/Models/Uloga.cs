@@ -10,7 +10,7 @@ namespace AutoskolaApp.Models
     public class Uloga
     {
         [Key]
-        public Guid IDUloge { get; set; }
+        public int IDUloge { get; set; }
 
         public string ImeUloge { get; set; }
         public ICollection<Korisnik>? Korisnici { get; set; }
@@ -19,7 +19,7 @@ namespace AutoskolaApp.Models
         {
         }
 
-        public Uloga(Guid iDUloge, string imeUloge, ICollection<Korisnik>? korisnici)
+        public Uloga(int iDUloge, string imeUloge, ICollection<Korisnik>? korisnici)
         {
             IDUloge = iDUloge;
             ImeUloge = imeUloge;

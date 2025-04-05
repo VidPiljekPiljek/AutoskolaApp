@@ -14,7 +14,7 @@ namespace AutoskolaApp.Models
 
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
-        public Guid IDUloge { get; set; } // Foreign key
+        public int IDUloge { get; set; } // Foreign key
         public Uloga Uloga { get; set; } // Navigation to principal entity
         public Administrator? Administrator { get; set; } // Navigation to dependent entity
         public Instruktor? Instruktor { get; set; } // Navigation to dependent entity
@@ -24,7 +24,7 @@ namespace AutoskolaApp.Models
         {
         }
 
-        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, Guid iDUloge, Uloga uloga, Administrator? administrator, Instruktor? instruktor, Student? student)
+        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, int iDUloge, Uloga uloga, Administrator? administrator, Instruktor? instruktor, Student? student)
         {
             IDKorisnika = iDKorisnika;
             KorisnickoIme = korisnickoIme;

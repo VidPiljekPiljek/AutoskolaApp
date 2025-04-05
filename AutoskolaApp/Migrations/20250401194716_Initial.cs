@@ -17,7 +17,8 @@ namespace AutoskolaApp.Migrations
                 name: "Uloge",
                 columns: table => new
                 {
-                    IDUloge = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDUloge = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     ImeUloge = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -32,7 +33,7 @@ namespace AutoskolaApp.Migrations
                     IDKorisnika = table.Column<Guid>(type: "TEXT", nullable: false),
                     KorisnickoIme = table.Column<string>(type: "TEXT", nullable: false),
                     Lozinka = table.Column<string>(type: "TEXT", nullable: false),
-                    IDUloge = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDUloge = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -231,9 +232,9 @@ namespace AutoskolaApp.Migrations
                 columns: new[] { "IDUloge", "ImeUloge" },
                 values: new object[,]
                 {
-                    { new Guid("9dd065de-3e61-4c26-9d75-b94b0e932e4b"), "Student" },
-                    { new Guid("b8ff1bec-f067-4d02-921a-e2b531f18c13"), "Administrator" },
-                    { new Guid("dc3cc85e-1b19-4b8c-b363-ce4443b6004e"), "Instruktor" }
+                    { 1, "Administrator" },
+                    { 2, "Instruktor" },
+                    { 3, "Student" }
                 });
 
             migrationBuilder.CreateIndex(

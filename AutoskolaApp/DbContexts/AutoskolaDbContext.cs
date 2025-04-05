@@ -19,9 +19,9 @@ namespace AutoskolaApp.DbContexts
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Uloga>().HasData(
-                new Uloga(Guid.NewGuid(), "Administrator", null),
-                new Uloga(Guid.NewGuid(), "Instruktor", null),
-                new Uloga(Guid.NewGuid(), "Student", null)
+                new Uloga(1, "Administrator", null),
+                new Uloga(2, "Instruktor", null),
+                new Uloga(3, "Student", null)
             );
 
             modelBuilder.Entity<Uloga>()

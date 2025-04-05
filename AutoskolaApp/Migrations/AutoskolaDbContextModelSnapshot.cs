@@ -107,8 +107,8 @@ namespace AutoskolaApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDUloge")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDUloge")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("KorisnickoIme")
                         .IsRequired()
@@ -190,9 +190,9 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Uloga", b =>
                 {
-                    b.Property<Guid>("IDUloge")
+                    b.Property<int>("IDUloge")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ImeUloge")
                         .IsRequired()
@@ -205,17 +205,17 @@ namespace AutoskolaApp.Migrations
                     b.HasData(
                         new
                         {
-                            IDUloge = new Guid("b8ff1bec-f067-4d02-921a-e2b531f18c13"),
+                            IDUloge = 1,
                             ImeUloge = "Administrator"
                         },
                         new
                         {
-                            IDUloge = new Guid("dc3cc85e-1b19-4b8c-b363-ce4443b6004e"),
+                            IDUloge = 2,
                             ImeUloge = "Instruktor"
                         },
                         new
                         {
-                            IDUloge = new Guid("9dd065de-3e61-4c26-9d75-b94b0e932e4b"),
+                            IDUloge = 3,
                             ImeUloge = "Student"
                         });
                 });

@@ -15,6 +15,7 @@ using AutoskolaApp.Stores;
 using AutoskolaApp.DbContexts;
 using AutoskolaApp.ViewModels;
 using AutoskolaApp.Repositories;
+using AutoskolaApp.HostBuilders;
 
 namespace AutoskolaApp;
 
@@ -30,12 +31,13 @@ public partial class App : Application
     // https://docs.microsoft.com/dotnet/core/extensions/logging
     private static readonly IHost _host = Host
         .CreateDefaultBuilder()
+        .AddViewModels()
         .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
         .ConfigureServices((context, services) =>
         {
             services.AddSingleton<MainWindow>(s => new MainWindow()
             {
-                DataContext = s.GetRequiredService<LoginViewModel>()
+                DataContext = s.GetRequiredService<MainViewModel>()
             });
 
             string connectionString = context.Configuration.GetConnectionString("Default");
@@ -45,9 +47,10 @@ public partial class App : Application
 
             services.AddSingleton<KorisnikRepository>();
             services.AddTransient<KorisnikService>();
+            services.AddSingleton<KorisnikStore>();
 
             services.AddSingleton<NavigationStore>();
-            services.AddSingleton<KorisnikStore>();
+            
 
         }).Build();
 
@@ -56,16 +59,24 @@ public partial class App : Application
     /// </summary>
     /// <typeparam name="T">Type of the service to get.</typeparam>
     /// <returns>Instance of the service or <see langword="null"/>.</returns>
-    public static T GetService<T>()
-        where T : class
+    //public static T GetService<T>()
+    //    where T : class
+    //{
+    //    return _host.Services.GetService(typeof(T)) as T;
+    //}
+
+    public static IServiceProvider Services
     {
-        return _host.Services.GetService(typeof(T)) as T;
+        get
+        {
+            return _host.Services;
+        }
     }
 
     /// <summary>
     /// Occurs when the application is loading.
     /// </summary>
-    private void OnStartup(object sender, StartupEventArgs e)
+    private async void OnStartup(object sender, StartupEventArgs e)
     {
         _host.Start();
         
@@ -80,8 +91,6 @@ public partial class App : Application
 
         MainWindow = _host.Services.GetService<MainWindow>();
         MainWindow.Show();
-
-        base.OnStartup(e);
     }
 
     /// <summary>

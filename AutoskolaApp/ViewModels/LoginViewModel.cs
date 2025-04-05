@@ -16,12 +16,32 @@ namespace AutoskolaApp.ViewModels
         private readonly KorisnikService _korisnikService;
         public ICommand GoToAccountCreationCommand { get; }
         public ICommand LoginCommand { get; }
+        public ICommand LoadKorisniciCommand { get; } // On the start of the app
 
-        public LoginViewModel(KorisnikService korisnikService, NavigationService<SignUpViewModel> signUpNavigationService, LoginCommand loginCommand)
+        private bool _isLoading;
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set
+            {
+                _isLoading = value;
+                OnPropertyChanged(nameof(IsLoading));
+            }
+        }
+
+        public LoginViewModel(KorisnikService korisnikService, NavigationService<SignUpViewModel> signUpNavigationService)
         {
             _korisnikService = korisnikService;
             GoToAccountCreationCommand = new NavigateCommand<SignUpViewModel>(signUpNavigationService);
-            LoginCommand = loginCommand;
+        }
+
+        public static LoginViewModel LoadViewModel(KorisnikService korisnikService, NavigationService<SignUpViewModel> signUpNavigationService)
+        {
+            LoginViewModel loginViewModel = new LoginViewModel(korisnikService, signUpNavigationService);
+
+            loginViewModel.LoadKorisniciCommand.Execute(null);
+
+            return loginViewModel;
         }
     }
 }

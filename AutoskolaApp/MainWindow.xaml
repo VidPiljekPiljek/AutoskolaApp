@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoskolaApp"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:views="clr-namespace:AutoskolaApp.Views"
+        xmlns:viewmodels="clr-namespace:AutoskolaApp.ViewModels"
         ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
         Background="{DynamicResource ApplicationBackgroundBrush}"
         ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
@@ -13,6 +15,14 @@
         Title="MainWindow" Height="450" Width="800"
         ResizeMode="NoResize">
     <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:LoginView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:SignUpViewModel}">
+                <views:SignUpView/>
+            </DataTemplate>
+        </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
