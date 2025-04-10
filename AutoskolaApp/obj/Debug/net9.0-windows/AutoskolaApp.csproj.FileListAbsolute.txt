@@ -69,9 +69,7 @@ C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\A
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\AutoskolaApp.genruntimeconfig.cache
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\ref\AutoskolaApp.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\DashboardView.g.cs
-C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\SignUpView.g.cs
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\DashboardView.baml
-C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\SignUpView.baml
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\InstruktoriForm.g.cs
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\StudentiForm.g.cs
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\UplateForm.g.cs
@@ -424,6 +422,4 @@ C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\A
 C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Autoskol.C21DAD80.Up2Date
 C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\AutoskolaApp.genruntimeconfig.cache
 C:\Users\kajlj\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\ref\AutoskolaApp.dll
-C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\SignUpForms\InstruktorSignUpForm.g.cs
-C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\SignUpForms\InstruktorSignUpForm.baml
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs

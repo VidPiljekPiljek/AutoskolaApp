@@ -23,6 +23,9 @@ namespace AutoskolaApp.DbContexts
                 new Uloga(2, "Instruktor", null),
                 new Uloga(3, "Student", null)
             );
+            modelBuilder.Entity<Korisnik>().HasData(
+                new Korisnik() { IDKorisnika = new Guid("1"), KorisnickoIme = "admin", Lozinka = "adminautoskola", IDUloge = 1 }
+            );
 
             modelBuilder.Entity<Uloga>()
                 .HasMany(e => e.Korisnici)

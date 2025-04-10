@@ -24,5 +24,10 @@ namespace AutoskolaApp.Services
         {
             await _korisnikStore.AddKorisnik(korisnik);
         }
+
+        public async Task LoadAllKorisniciAsync()
+        {
+            await _korisnikStore.Load();
+        }
     }
 }

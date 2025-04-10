@@ -29,23 +29,16 @@
         </Grid.ColumnDefinitions>
 
         <!--<Label Content="Dobro došli!" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>-->
-        <Label Margin="0 0 5 0" Content="Odaberite vrstu računa:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <Label Margin="0 0 5 0" Content="Korisničko ime:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <Label Margin="0 0 5 0" Content="Lozinka:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <Label Margin="0 0 5 0" Content="Vid Piljek, 2025." Grid.Row="7" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <ui:TextBox Grid.Row="4" Grid.Column="1"/>
         <ui:PasswordBox Grid.Row="6" Grid.Column="1"/>
-        <ui:Button Command="{Binding}" Grid.Column="1" Content="Login" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
-        <ui:HyperlinkButton HorizontalAlignment="Center" Command="{Binding}" Content="Klikni ovdje da kreiraš račun." Grid.Row="5" Grid.Column="2"/>
+        <ui:Button Command="{Binding LoginCommand}" Grid.Column="1" Content="Login" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
+        <!--<ui:HyperlinkButton HorizontalAlignment="Center" Command="{Binding GoToAccountCreationCommand}" Content="Klikni ovdje da kreiraš račun." Grid.Row="5" Grid.Column="2"/>-->
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom">
-            <RadioButton Content="Korisnik"/>
-            <RadioButton Content="Instruktor"/>
-            <RadioButton Content="Administrator"/>
-        </StackPanel>
-        
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="To Do List App" VerticalAlignment="Center" FontSize="40"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Autoškola" VerticalAlignment="Center" FontSize="40"/>
             <Label Content="Molimo vas da se prijavite." HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
     </Grid>

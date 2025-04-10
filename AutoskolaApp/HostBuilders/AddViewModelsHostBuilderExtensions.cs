@@ -23,21 +23,17 @@ namespace AutoskolaApp.HostBuilders
                 services.AddSingleton<Func<LoginViewModel>>(s => () => s.GetRequiredService<LoginViewModel>());
                 services.AddSingleton<NavigationService<LoginViewModel>>();
 
-                services.AddTransient<SignUpViewModel>();
-                services.AddSingleton<Func<SignUpViewModel>>(s => () => s.GetRequiredService<SignUpViewModel>());
-                services.AddSingleton<NavigationService<SignUpViewModel>>();
-
                 services.AddSingleton<MainViewModel>();
             });
 
             return hostBuilder;
         }
 
-        private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
-        {
-            return LoginViewModel.LoadViewModel(
-                services.GetRequiredService<KorisnikService>(),
-                services.GetRequiredService<NavigationService<SignUpViewModel>>());
-        }
+        //private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
+        //{
+        //    return LoginViewModel.LoadViewModel(
+        //        services.GetRequiredService<KorisnikService>()
+        //    );
+        //}
     }
 }

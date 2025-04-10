@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using AutoskolaApp.Commands;
+using AutoskolaApp.Models;
 using AutoskolaApp.Services;
 
 namespace AutoskolaApp.ViewModels
@@ -14,7 +16,6 @@ namespace AutoskolaApp.ViewModels
     public class LoginViewModel : ViewModelBase
     {
         private readonly KorisnikService _korisnikService;
-        public ICommand GoToAccountCreationCommand { get; }
         public ICommand LoginCommand { get; }
         public ICommand LoadKorisniciCommand { get; } // On the start of the app
 
@@ -29,15 +30,16 @@ namespace AutoskolaApp.ViewModels
             }
         }
 
-        public LoginViewModel(KorisnikService korisnikService, NavigationService<SignUpViewModel> signUpNavigationService)
+        public LoginViewModel(KorisnikService korisnikService, NavigationService<DashboardViewModel> dashboardNavigationService)
         {
             _korisnikService = korisnikService;
-            GoToAccountCreationCommand = new NavigateCommand<SignUpViewModel>(signUpNavigationService);
+            LoadKorisniciCommand loadKorisniciCommand = new LoadKorisniciCommand(this, _korisnikService);
+            LoginCommand = new LoginCommand(this, _korisnikService, dashboardNavigationService);
         }
 
-        public static LoginViewModel LoadViewModel(KorisnikService korisnikService, NavigationService<SignUpViewModel> signUpNavigationService)
+        public static LoginViewModel LoadViewModel(KorisnikService korisnikService, NavigationService<DashboardViewModel> dashboardNavigationService)
         {
-            LoginViewModel loginViewModel = new LoginViewModel(korisnikService, signUpNavigationService);
+            LoginViewModel loginViewModel = new LoginViewModel(korisnikService, dashboardNavigationService);
 
             loginViewModel.LoadKorisniciCommand.Execute(null);
 

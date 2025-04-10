@@ -13,12 +13,12 @@ namespace AutoskolaApp.Commands
     public class LoadKorisniciCommand : AsyncCommandBase
     {
         private readonly LoginViewModel _loginViewModel;
-        private readonly KorisnikStore _korisnikStore;
+        private readonly KorisnikService _korisnikService;
 
-        public LoadKorisniciCommand(LoginViewModel loginViewModel, KorisnikStore korisnikStore)
+        public LoadKorisniciCommand(LoginViewModel loginViewModel, KorisnikService korisnikService)
         {
             _loginViewModel = loginViewModel;
-            _korisnikStore = korisnikStore;
+            _korisnikService = korisnikService;
         }
 
         public override async Task ExecuteAsync(object? parameter)
@@ -27,7 +27,7 @@ namespace AutoskolaApp.Commands
 
             try
             {
-                await _korisnikStore.Load();
+                await _korisnikService.LoadAllKorisniciAsync();
             }
             catch (Exception ex)
             {
