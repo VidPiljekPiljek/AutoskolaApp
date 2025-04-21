@@ -37,5 +37,29 @@ namespace AutoskolaApp.Repositories
                 return korisnici;
             }
         }
+
+        public async Task<object> KorisnikAuthentication(string korisnickoIme, string lozinka)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                Korisnik korisnik = await dbContext.Korisnici.FirstOrDefaultAsync(k => k.KorisnickoIme == korisnickoIme && k.Lozinka == lozinka);
+
+                if (korisnik != null) {
+                    if (korisnik.IDUloge == 1)
+                    {
+                        return await dbContext.Administratori.FirstOrDefaultAsync(a => a.IDKorisnika == korisnik.IDKorisnika);
+                    }
+                    if (korisnik.IDUloge == 2)
+                    {
+                        return await dbContext.Instruktori.FirstOrDefaultAsync(a => a.IDKorisnika == korisnik.IDKorisnika);
+                    }
+                    if (korisnik.IDUloge == 3)
+                    {
+                        return await dbContext.Studenti.FirstOrDefaultAsync(a => a.IDKorisnika == korisnik.IDKorisnika);
+                    }
+                }
+                return null;
+            }
+        }
     }
 }

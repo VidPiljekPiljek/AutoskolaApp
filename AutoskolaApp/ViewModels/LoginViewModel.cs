@@ -17,7 +17,33 @@ namespace AutoskolaApp.ViewModels
     {
         private readonly KorisnikService _korisnikService;
         public ICommand LoginCommand { get; }
-        public ICommand LoadKorisniciCommand { get; } // On the start of the app
+
+        private string _korisnickoIme;
+        public string KorisnickoIme
+        {
+            get 
+            {
+                return _korisnickoIme;
+            }
+            set
+            {
+                _korisnickoIme = value;
+                OnPropertyChanged(nameof(KorisnickoIme));
+            }
+        }
+        private string _lozinka;
+        public string Lozinka
+        {
+            get
+            {
+                return _lozinka;
+            }
+            set
+            {
+                _lozinka = value;
+                OnPropertyChanged(nameof(Lozinka));
+            }
+        }
 
         private bool _isLoading;
         public bool IsLoading
@@ -33,15 +59,12 @@ namespace AutoskolaApp.ViewModels
         public LoginViewModel(KorisnikService korisnikService, NavigationService<DashboardViewModel> dashboardNavigationService)
         {
             _korisnikService = korisnikService;
-            LoadKorisniciCommand loadKorisniciCommand = new LoadKorisniciCommand(this, _korisnikService);
             LoginCommand = new LoginCommand(this, _korisnikService, dashboardNavigationService);
         }
 
         public static LoginViewModel LoadViewModel(KorisnikService korisnikService, NavigationService<DashboardViewModel> dashboardNavigationService)
         {
             LoginViewModel loginViewModel = new LoginViewModel(korisnikService, dashboardNavigationService);
-
-            loginViewModel.LoadKorisniciCommand.Execute(null);
 
             return loginViewModel;
         }

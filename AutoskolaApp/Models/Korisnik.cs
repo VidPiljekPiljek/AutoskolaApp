@@ -35,5 +35,13 @@ namespace AutoskolaApp.Models
             Instruktor = instruktor;
             Student = student;
         }
+
+        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, int iDUloge)
+        {
+            IDKorisnika = iDKorisnika;
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+            IDUloge = iDUloge;
+        }
     }
 }

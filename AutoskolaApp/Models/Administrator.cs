@@ -32,5 +32,14 @@ namespace AutoskolaApp.Models
             IDKorisnika = iDKorisnika;
             Korisnik = korisnik;
         }
+
+        public Administrator(Guid iDAdministratora, string oIB, string ime, string prezime, Guid iDKorisnika)
+        {
+            IDAdministratora = iDAdministratora;
+            OIB = oIB;
+            Ime = ime;
+            Prezime = prezime;
+            IDKorisnika = iDKorisnika;
+        }
     }
 }

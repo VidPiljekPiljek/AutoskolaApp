@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoskolaApp.DbContexts;
 using AutoskolaApp.Models;
 using AutoskolaApp.Repositories;
 
@@ -11,8 +12,25 @@ namespace AutoskolaApp.Stores
     public class KorisnikStore
     {
         // Pojedini korisnik -> za Login
-        // private readonly Korisnik _korisnik;
-        // public Korisnik Korisnik => _korisnik;
+        private object _korisnikData;
+        public object KorisnikData
+        {
+            get { return _korisnikData; }
+            set { _korisnikData = value; }
+        }
+
+        public async Task<bool> KorisnikAuthentication(string korisnickoIme, string lozinka)
+        {
+            KorisnikData = await _korisnikRepository.KorisnikAuthentication(korisnickoIme, lozinka);
+            if (KorisnikData == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         // Lista korisnika -> za SignUp
         private readonly List<Korisnik> _korisnici;
@@ -28,6 +46,7 @@ namespace AutoskolaApp.Stores
             _initializeLazy = new Lazy<Task>(Initialize);
 
             _korisnici = new List<Korisnik>();
+            _korisnikData = null;
         }
 
         public async Task Load()

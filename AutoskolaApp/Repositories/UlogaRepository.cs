@@ -27,5 +27,6 @@ namespace AutoskolaApp.Repositories
                 return uloge;
             }
         }
+
     }
 }

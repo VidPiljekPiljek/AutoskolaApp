@@ -23,8 +23,12 @@ namespace AutoskolaApp.DbContexts
                 new Uloga(2, "Instruktor", null),
                 new Uloga(3, "Student", null)
             );
+
             modelBuilder.Entity<Korisnik>().HasData(
-                new Korisnik() { IDKorisnika = new Guid("1"), KorisnickoIme = "admin", Lozinka = "adminautoskola", IDUloge = 1 }
+                new Korisnik ( new Guid("00000000-0000-0000-0000-000000000001"), "admin", "adminautoskola", 1 )
+            );
+            modelBuilder.Entity<Administrator>().HasData(
+                new Administrator(new Guid("00000000-0000-0000-0000-000000000001"), "17232937055", "Vid", "Piljek", new Guid("00000000-0000-0000-0000-000000000001"))
             );
 
             modelBuilder.Entity<Uloga>()

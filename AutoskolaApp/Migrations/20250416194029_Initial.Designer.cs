@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoskolaApp.Migrations
 {
     [DbContext(typeof(AutoskolaDbContext))]
-    [Migration("20250401194716_Initial")]
+    [Migration("20250416194029_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -47,6 +47,16 @@ namespace AutoskolaApp.Migrations
                         .IsUnique();
 
                     b.ToTable("Administratori");
+
+                    b.HasData(
+                        new
+                        {
+                            IDAdministratora = new Guid("00000000-0000-0000-0000-000000000001"),
+                            IDKorisnika = new Guid("00000000-0000-0000-0000-000000000001"),
+                            Ime = "Vid",
+                            OIB = "17232937055",
+                            Prezime = "Piljek"
+                        });
                 });
 
             modelBuilder.Entity("AutoskolaApp.Models.Instruktor", b =>
@@ -126,6 +136,15 @@ namespace AutoskolaApp.Migrations
                     b.HasIndex("IDUloge");
 
                     b.ToTable("Korisnici");
+
+                    b.HasData(
+                        new
+                        {
+                            IDKorisnika = new Guid("00000000-0000-0000-0000-000000000001"),
+                            IDUloge = 1,
+                            KorisnickoIme = "admin",
+                            Lozinka = "adminautoskola"
+                        });
                 });
 
             modelBuilder.Entity("AutoskolaApp.Models.PolaznikIspita", b =>

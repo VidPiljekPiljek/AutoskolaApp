@@ -42,5 +42,16 @@ namespace AutoskolaApp.Models
             Ispiti = ispiti;
             Voznje = voznje;
         }
+
+        public Instruktor(Guid iDInstruktora, string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Guid iDKorisnika)
+        {
+            IDInstruktora = iDInstruktora;
+            OIB = oIB;
+            Ime = ime;
+            Prezime = prezime;
+            DatumZaposlenja = datumZaposlenja;
+            Napomena = napomena;
+            IDKorisnika = iDKorisnika;
+        }
     }
 }

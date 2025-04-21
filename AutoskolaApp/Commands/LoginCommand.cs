@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
 using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
@@ -29,9 +30,23 @@ namespace AutoskolaApp.Commands
             return true;
         }
 
-        public override Task ExecuteAsync(object? parameter)
+        public override async Task ExecuteAsync(object? parameter)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (await _korisnikService.KorisnikAuthentication(_loginViewModel.KorisnickoIme, _loginViewModel.Lozinka))
+                {
+                    // Check User Role and set NavigationItems to be the one that the user has access to
+                    //var userRole = _korisnikService.GetRole(_loginViewModel.KorisnickoIme);
+                    //_dashboardViewModelNavigationService.NavigationItems = NavigationItems.GetNavigationItems(userRole);
+
+                    _dashboardViewModelNavigationService.Navigate();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

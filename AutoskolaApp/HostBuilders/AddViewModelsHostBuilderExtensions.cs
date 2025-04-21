@@ -23,6 +23,10 @@ namespace AutoskolaApp.HostBuilders
                 services.AddSingleton<Func<LoginViewModel>>(s => () => s.GetRequiredService<LoginViewModel>());
                 services.AddSingleton<NavigationService<LoginViewModel>>();
 
+                services.AddTransient<DashboardViewModel>();
+                services.AddSingleton<Func<DashboardViewModel>>(s => () => s.GetRequiredService<DashboardViewModel>());
+                services.AddSingleton<NavigationService<DashboardViewModel>>();
+
                 services.AddSingleton<MainViewModel>();
             });
 

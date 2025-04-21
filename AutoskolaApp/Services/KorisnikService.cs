@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoskolaApp.DbContexts;
 using AutoskolaApp.DTOs;
 using AutoskolaApp.Models;
+using AutoskolaApp.Repositories;
 using AutoskolaApp.Stores;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,14 +21,11 @@ namespace AutoskolaApp.Services
             _korisnikStore = korisnikStore;
         }
 
-        public async Task RegisterKorisnik(Korisnik korisnik)
+        public async Task<bool> KorisnikAuthentication(string korisnickoIme, string lozinka)
         {
-            await _korisnikStore.AddKorisnik(korisnik);
-        }
+           bool authenticated = await _korisnikStore.KorisnikAuthentication(korisnickoIme, lozinka);
 
-        public async Task LoadAllKorisniciAsync()
-        {
-            await _korisnikStore.Load();
+           return authenticated;
         }
     }
 }
