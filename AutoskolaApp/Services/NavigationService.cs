@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels;
+using Wpf.Ui.Abstractions.Controls;
 
 namespace AutoskolaApp.Services
 {
@@ -21,7 +23,12 @@ namespace AutoskolaApp.Services
 
         public void Navigate()
         {
-            _navigationStore.CurrentViewModel = _createViewModel();
+            var viewModel = _createViewModel();
+            if (viewModel is INavigationAware navigationAware)
+            {
+                navigationAware.OnNavigatedToAsync();
+            }
+            _navigationStore.CurrentViewModel = viewModel;
         }
     }
 }

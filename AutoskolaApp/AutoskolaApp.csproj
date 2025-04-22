@@ -21,4 +21,10 @@
     <PackageReference Include="WPF-UI" Version="4.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Converters\" />
+    <Folder Include="ViewModels\PageViewModels\Instruktor\" />
+    <Folder Include="ViewModels\PageViewModels\Student\" />
+  </ItemGroup>
+
 </Project>
