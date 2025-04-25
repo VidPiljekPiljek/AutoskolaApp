@@ -20,24 +20,6 @@ namespace AutoskolaApp.ViewModels
 
         public int IDUloge { get; set; }
         public ObservableCollection<NavigationViewItem> NavigationItems { get; set; }
-        //public ObservableCollection<NavigationViewItem> AdminNavigationItems { get; set; } = new ObservableCollection<NavigationViewItem>() {
-        //    new NavigationViewItem() { Name = "Instruktori", Icon = new SymbolIcon(SymbolRegular.Home24), TargetPageType = typeof(Views.Pages.Administrator.InstruktoriPage) },
-        //    new NavigationViewItem() { Name = "Studenti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.StudentiPage) },
-        //    new NavigationViewItem() { Name = "Ispiti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.IspitiPage) },
-        //    new NavigationViewItem() { Name = "Uplate", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.UplatePage) },
-        //    new NavigationViewItem() { Name = "Voznje", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.VoznjePage) }
-        //};
-        //public ObservableCollection<NavigationViewItem> InstruktorNavigationItems { get; set; } = new ObservableCollection<NavigationViewItem>()
-        //    {
-        //        new NavigationViewItem() { Name = "Ispiti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Instruktor.IspitiPage) },
-        //        new NavigationViewItem() { Name = "Voznje", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Instruktor.VoznjePage) }
-        //    };
-        //public ObservableCollection<NavigationViewItem> StudentNavigationItems { get; set; } = new ObservableCollection<NavigationViewItem>()
-        //    {
-        //        new NavigationViewItem() { Name = "Ispiti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Student.IspitiPage) },
-        //        new NavigationViewItem() { Name = "Voznje", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Student.VoznjePage) },
-        //        new NavigationViewItem() { Name = "Uplate", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Student.UplatePage) }
-        //    };
 
         public DashboardViewModel(KorisnikStore korisnikStore)
         {

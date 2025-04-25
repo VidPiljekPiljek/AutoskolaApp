@@ -11,7 +11,8 @@
       ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="InstruktoriPage">
+      Title="InstruktoriPage"
+      xmlns:vm="clr-namespace:AutoskolaApp.ViewModels.PageViewModels.Administrator">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -31,7 +32,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Instruktori" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
-        <DataGrid Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}"/>
+        <DataGrid Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Instruktori}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
             <ui:Button x:Name="btnDodajUpis" Content="Novi upis" />
             <ui:Button x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="20, 0, 0, 0"/>
