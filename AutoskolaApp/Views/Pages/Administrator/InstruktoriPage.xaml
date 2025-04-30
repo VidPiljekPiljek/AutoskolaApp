@@ -12,7 +12,7 @@
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InstruktoriPage"
-      xmlns:vm="clr-namespace:AutoskolaApp.ViewModels.PageViewModels.Administrator">
+      xmlns:vm="clr-namespace:AutoskolaApp.ViewModels.PageViewModels.Administrator" d:DataContext="{d:DesignInstance Type=vm:InstruktoriPageViewModel}">
 
     <Grid>
         <Grid.RowDefinitions>

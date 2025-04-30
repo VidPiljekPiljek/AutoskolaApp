@@ -8,6 +8,8 @@ using System.Windows.Navigation;
 using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels;
+using AutoskolaApp.ViewModels.PageViewModels.Administrator;
+using AutoskolaApp.Views.Pages.Administrator;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -26,6 +28,9 @@ namespace AutoskolaApp.HostBuilders
                 services.AddTransient<DashboardViewModel>();
                 services.AddSingleton<Func<DashboardViewModel>>(s => () => s.GetRequiredService<DashboardViewModel>());
                 services.AddSingleton<NavigationService<DashboardViewModel>>();
+
+                services.AddSingleton<InstruktoriPage>();
+                services.AddSingleton<InstruktoriPageViewModel>();
 
                 services.AddSingleton<MainViewModel>();
             });
