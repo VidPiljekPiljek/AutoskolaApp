@@ -17,6 +17,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ui:NavigationView
+            x:Name="Navigation"
             Grid.Row="1"
             IsBackButtonVisible="Collapsed"
             IsPaneToggleVisible="False"

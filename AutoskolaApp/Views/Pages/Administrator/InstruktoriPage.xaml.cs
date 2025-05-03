@@ -28,7 +28,7 @@ namespace AutoskolaApp.Views.Pages.Administrator
         public InstruktoriPage(InstruktoriPageViewModel viewModel)
         {
             ViewModel = viewModel;
-            DataContext = this;
+            DataContext = ViewModel;
 
             InitializeComponent();
         }
@@ -36,6 +36,13 @@ namespace AutoskolaApp.Views.Pages.Administrator
         public InstruktoriPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            _viewModel = new MyViewModel();
+            DataContext = _viewModel;
         }
     }
 }

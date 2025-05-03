@@ -4749,23 +4749,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pilje\\.nuget\\packages\\": {},
+    "C:\\Users\\vidpi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pilje\\source\\repos\\AutoskolaApp\\AutoskolaApp\\AutoskolaApp.csproj",
+      "projectUniqueName": "C:\\Users\\vidpi\\source\\repos\\AutoskolaApp\\AutoskolaApp\\AutoskolaApp.csproj",
       "projectName": "AutoskolaApp",
-      "projectPath": "C:\\Users\\pilje\\source\\repos\\AutoskolaApp\\AutoskolaApp\\AutoskolaApp.csproj",
-      "packagesPath": "C:\\Users\\pilje\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pilje\\source\\repos\\AutoskolaApp\\AutoskolaApp\\obj\\",
+      "projectPath": "C:\\Users\\vidpi\\source\\repos\\AutoskolaApp\\AutoskolaApp\\AutoskolaApp.csproj",
+      "packagesPath": "C:\\Users\\vidpi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vidpi\\source\\repos\\AutoskolaApp\\AutoskolaApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pilje\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vidpi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
