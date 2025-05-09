@@ -5,18 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using AutoskolaApp.Services;
+using AutoskolaApp.ViewModels.ListingViewModels;
 using AutoskolaApp.ViewModels.PageViewModels.Administrator;
+using AutoskolaApp.ViewModels.ListingViewModels;
 
 namespace AutoskolaApp.Commands
 {
     public class LoadInstruktoriCommand : AsyncCommandBase
     {
-        private readonly InstruktoriPageViewModel _instruktoriPageViewModel;
+        private readonly InstruktoriListingViewModel _instruktoriListingViewModel;
         private readonly InstruktorService _instruktorService;
 
-        public LoadInstruktoriCommand(InstruktoriPageViewModel instruktoriPageViewModel, InstruktorService instruktorService)
+        public LoadInstruktoriCommand(InstruktoriListingViewModel instruktoriListingViewModel, InstruktorService instruktorService)
         {
-            _instruktoriPageViewModel = instruktoriPageViewModel;
+            _instruktoriListingViewModel = instruktoriListingViewModel;
             _instruktorService = instruktorService;
         }
 
@@ -26,7 +28,7 @@ namespace AutoskolaApp.Commands
             {
                 await _instruktorService.LoadInstruktori();
 
-                _instruktoriPageViewModel.UpdateReservations(_instruktorService.GetInstruktori());
+                _instruktoriListingViewModel.UpdateReservations(_instruktorService.GetInstruktori());
             }
             catch (Exception ex)
             {

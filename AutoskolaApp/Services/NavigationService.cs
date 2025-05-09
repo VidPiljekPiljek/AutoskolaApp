@@ -24,10 +24,13 @@ namespace AutoskolaApp.Services
         public void Navigate()
         {
             var viewModel = _createViewModel();
-            if (viewModel is INavigationAware navigationAware)
-            {
-                navigationAware.OnNavigatedToAsync();
-            }
+            _navigationStore.CurrentViewModel = viewModel;
+        }
+
+        public void NavigateWithCallback(Action<TViewModel> callback)
+        {
+            var viewModel = _createViewModel();
+            callback(viewModel);
             _navigationStore.CurrentViewModel = viewModel;
         }
     }

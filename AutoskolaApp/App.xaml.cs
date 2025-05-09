@@ -50,7 +50,8 @@ public partial class App : Application
             services.AddSingleton<KorisnikStore>();
 
             services.AddSingleton<NavigationStore>();
-            
+            services.AddSingleton<PageNavigationStore>();
+
 
         }).Build();
 

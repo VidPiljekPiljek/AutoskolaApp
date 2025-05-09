@@ -38,11 +38,11 @@ namespace AutoskolaApp.Views.Pages.Administrator
             InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            _viewModel = new MyViewModel();
-            DataContext = _viewModel;
-        }
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    base.OnNavigatedTo(e);
+        //    _viewModel = new MyViewModel();
+        //    DataContext = _viewModel;
+        //}
     }
 }

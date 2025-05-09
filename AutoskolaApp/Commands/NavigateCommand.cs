@@ -22,5 +22,10 @@ namespace AutoskolaApp.Commands
         {
             _navigationService.Navigate();
         }
+
+        public override bool CanExecute(object parameter)
+        {
+            return true;
+        }
     }
 }

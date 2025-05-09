@@ -17,6 +17,9 @@
     <Compile Update="Views\Forms\VoznjeForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ListingViews\InstruktoriListingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -21,6 +21,11 @@ namespace AutoskolaApp.Services
             _korisnikStore = korisnikStore;
         }
 
+        public Type KorisnikAuthorization()
+        {
+            return _korisnikStore.KorisnikAuthorization();
+        }
+
         public async Task<bool> KorisnikAuthentication(string korisnickoIme, string lozinka)
         {
            bool authenticated = await _korisnikStore.KorisnikAuthentication(korisnickoIme, lozinka);

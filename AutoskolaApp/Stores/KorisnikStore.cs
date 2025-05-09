@@ -37,7 +37,6 @@ namespace AutoskolaApp.Stores
             return KorisnikData.GetType();
         }
 
-        // Lista korisnika -> za SignUp
         private readonly List<Korisnik> _korisnici;
         public IEnumerable<Korisnik> Korisnici => _korisnici;
         private readonly KorisnikRepository _korisnikRepository;

@@ -1,67 +1,84 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Xml.Linq;
+using AutoskolaApp.Commands;
 using AutoskolaApp.Models;
+using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels.PageViewModels.Administrator;
 using Wpf.Ui.Abstractions.Controls;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Input;
 
 namespace AutoskolaApp.ViewModels
 {
-    public class DashboardViewModel : ViewModelBase, INavigationAware
+    public class DashboardViewModel : ViewModelBase
     {
-        private readonly KorisnikStore _korisnikStore;
-        public KorisnikStore KorisnikStore => _korisnikStore;
+        private readonly PageNavigationStore _pageNavigationStore;
 
-        public int IDUloge { get; set; }
-        public ObservableCollection<NavigationViewItem> NavigationItems { get; set; }
+        public ViewModelBase CurrentPageViewModel => _pageNavigationStore.CurrentPageViewModel;
 
-        public DashboardViewModel(KorisnikStore korisnikStore)
+        public PageNavigateCommand<InstruktoriPageViewModel> InstruktoriCommand { get; }
+        public ICommand IspitiCommand { get; }
+        public ICommand StudentiCommand { get; }
+        public ICommand UplateCommand { get; }
+        public ICommand VoznjeCommand { get; }
+
+        public bool CanNavigateToInstruktori { get; set; }
+        public bool CanNavigateToIspiti { get; set; }
+        public bool CanNavigateToStudenti { get; set; }
+        public bool CanNavigateToUplate { get; set; }
+        public bool CanNavigateToVoznje { get; set; }
+
+        public void Initialize(Type korisnikType)
         {
-            _korisnikStore = korisnikStore;
+            if (korisnikType is Administrator)
+            {
+                CanNavigateToInstruktori = true;
+                CanNavigateToIspiti = true;
+                CanNavigateToStudenti = true;
+                CanNavigateToUplate = true;
+                CanNavigateToVoznje = true;
+            }
+            else if (korisnikType is Instruktor)
+            {
+                CanNavigateToInstruktori = false;
+                CanNavigateToIspiti = true;
+                CanNavigateToStudenti = false;
+                CanNavigateToUplate = false;
+                CanNavigateToVoznje = true;
+            }
+            else if (korisnikType is Student)
+            {
+                CanNavigateToInstruktori = false;
+                CanNavigateToIspiti = true;
+                CanNavigateToStudenti = false;
+                CanNavigateToUplate = true;
+                CanNavigateToVoznje = true;
+            }
+
+            OnPropertyChanged(nameof(CanNavigateToInstruktori));
+            OnPropertyChanged(nameof(CanNavigateToIspiti));
+            OnPropertyChanged(nameof(CanNavigateToStudenti));
+            OnPropertyChanged(nameof(CanNavigateToUplate));
+            OnPropertyChanged(nameof(CanNavigateToVoznje));
         }
 
-        public Task OnNavigatedToAsync()
+        public DashboardViewModel(PageNavigationStore pageNavigationStore, PageNavigationService<InstruktoriPageViewModel> instruktoriNavigationService)
         {
-            Type uloga = _korisnikStore.KorisnikAuthorization();
-            if (uloga == typeof(Administrator))
-            {
-                NavigationItems = new ObservableCollection<NavigationViewItem>() {
-                    new NavigationViewItem() { Name = "Instruktori", Icon = new SymbolIcon(SymbolRegular.Home24), TargetPageType = typeof(Views.Pages.Administrator.InstruktoriPage) },
-                    new NavigationViewItem() { Name = "Studenti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.StudentiPage) },
-                    new NavigationViewItem() { Name = "Ispiti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.IspitiPage) },
-                    new NavigationViewItem() { Name = "Uplate", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.UplatePage) },
-                    new NavigationViewItem() { Name = "Voznje", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Administrator.VoznjePage) }
-                };
-            }
-            else if (uloga == typeof(Instruktor))
-            {
-                NavigationItems = new ObservableCollection<NavigationViewItem>()
-                {
-                    new NavigationViewItem() { Name = "Ispiti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Instruktor.IspitiPage) },
-                    new NavigationViewItem() { Name = "Voznje", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Instruktor.VoznjePage) }
-                };
-            }
-            else if (uloga == typeof(Student))
-            {
-                NavigationItems = new ObservableCollection<NavigationViewItem>()
-                {
-                    new NavigationViewItem() { Name = "Ispiti", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Student.IspitiPage) },
-                    new NavigationViewItem() { Name = "Voznje", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Student.VoznjePage) },
-                    new NavigationViewItem() { Name = "Uplate", Icon = new SymbolIcon(SymbolRegular.Home24) , TargetPageType = typeof(Views.Pages.Student.UplatePage) }
-                };
-            }
-            return Task.CompletedTask;
-        }
-
-        public Task OnNavigatedFromAsync()
-        {
-            throw new NotImplementedException();
+            _pageNavigationStore = pageNavigationStore;
+            InstruktoriCommand = new PageNavigateCommand<InstruktoriPageViewModel>(instruktoriNavigationService);
+            IspitiCommand = null;
+            StudentiCommand = null;
+            UplateCommand = null;
+            VoznjeCommand = null;
         }
     }
 }

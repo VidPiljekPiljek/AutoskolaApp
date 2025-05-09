@@ -9,9 +9,11 @@ using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels;
 using AutoskolaApp.ViewModels.PageViewModels.Administrator;
+using AutoskolaApp.Views;
 using AutoskolaApp.Views.Pages.Administrator;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Wpf.Ui;
 
 namespace AutoskolaApp.HostBuilders
 {
@@ -30,7 +32,8 @@ namespace AutoskolaApp.HostBuilders
                 services.AddSingleton<NavigationService<DashboardViewModel>>();
 
                 services.AddSingleton<InstruktoriPage>();
-                services.AddSingleton<InstruktoriPageViewModel>();
+                services.AddSingleton<Func<InstruktoriPageViewModel>>(s => () => s.GetRequiredService<InstruktoriPageViewModel>());
+                services.AddSingleton<PageNavigationService<InstruktoriPageViewModel>>();
 
                 services.AddSingleton<MainViewModel>();
             });

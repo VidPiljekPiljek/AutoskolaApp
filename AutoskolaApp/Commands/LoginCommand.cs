@@ -40,7 +40,12 @@ namespace AutoskolaApp.Commands
                     //var userRole = _korisnikService.GetRole(_loginViewModel.KorisnickoIme);
                     //_dashboardViewModelNavigationService.NavigationItems = NavigationItems.GetNavigationItems(userRole);
 
-                    _dashboardViewModelNavigationService.Navigate();
+                    var korisnikType = _korisnikService.KorisnikAuthorization();
+
+                    _dashboardViewModelNavigationService.NavigateWithCallback(viewModel =>
+                    {
+                        viewModel.Initialize(korisnikType);
+                    });
                 }
             }
             catch(Exception ex)
