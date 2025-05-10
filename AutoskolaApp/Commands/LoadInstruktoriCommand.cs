@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using AutoskolaApp.Services;
 using AutoskolaApp.ViewModels.ListingViewModels;
-using AutoskolaApp.ViewModels.PageViewModels.Administrator;
-using AutoskolaApp.ViewModels.ListingViewModels;
 
 namespace AutoskolaApp.Commands
 {

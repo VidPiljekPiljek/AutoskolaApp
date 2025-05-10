@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using AutoskolaApp.Commands;
 using AutoskolaApp.Models;
 using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.PageViewModels.Administrator;
 using System.Windows.Input;
+using AutoskolaApp.Views.Forms;
+using AutoskolaApp.ViewModels.FormViewModels;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -21,17 +22,18 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand LoadInstruktoriCommand { get; }
         public ICommand CreateInstruktorCommand { get; }
 
-        public InstruktoriListingViewModel(InstruktorService instruktorService) // TO DO: ADD NAVIGATION SERVICE
+        public InstruktoriListingViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _instruktorService = instruktorService;
             _instruktori = new ObservableCollection<InstruktorViewModel>();
 
             LoadInstruktoriCommand = new LoadInstruktoriCommand(this, _instruktorService);
+            CreateInstruktorCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
         }
 
-        public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService)
+        public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)
         {
-            InstruktoriListingViewModel instruktoriPageViewModel = new InstruktoriListingViewModel(instruktorService);
+            InstruktoriListingViewModel instruktoriPageViewModel = new InstruktoriListingViewModel(instruktorService, korisnikFormNavigationService);
 
             instruktoriPageViewModel.LoadInstruktoriCommand.Execute(null);
 

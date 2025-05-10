@@ -7,7 +7,6 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:views="clr-namespace:AutoskolaApp.Views"
         xmlns:viewmodels="clr-namespace:AutoskolaApp.ViewModels"
-        xmlns:listingviews="clr-namespace:AutoskolaApp.Views.ListingViews"
         xmlns:listingviewmodels="clr-namespace:AutoskolaApp.ViewModels.ListingViewModels"
         ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
         Background="{DynamicResource ApplicationBackgroundBrush}"
@@ -25,7 +24,7 @@
                 <views:DashboardView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type listingviewmodels:InstruktoriListingViewModel}">
-                <listingviews:InstruktoriListingView/>
+                <views:InstruktoriListingView/>
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>

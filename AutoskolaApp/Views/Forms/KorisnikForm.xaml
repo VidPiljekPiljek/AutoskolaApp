@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="AutoskolaApp.Views.Forms.KorisnikForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoskolaApp.Views.Forms"
+                   xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+      Background="{DynamicResource ApplicationBackgroundBrush}"
+      ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="4" Content="Korisničko Ime"/>
+        <Label Grid.Column="7" Grid.Row="4" Content="Lozinka"/>
+
+        <ui:TextBox Text="{Binding KorisnickoIme}"  x:Name="txtOIB" Grid.Column="1" Grid.Row="5"/>
+        <ui:TextBox Text="{Binding Lozinka}" x:Name="txtIme" Grid.Column="7" Grid.Row="5"/>
+        <!--<ComboBox x:Name="cmbUloga" Grid.Column="7" Grid.Row="5"/>-->
+        <!--<ui:TextBox Text="{Binding Uloga}" x:Name="txtUloga" Grid.Column="7" Grid.Row="5"/>-->
+
+        <Button Command="{Binding DaljeCommand}" x:Name="btnDodaj" Content="Dalje" Grid.Column="3" Grid.Row="7" Width="65"/>
+        <Button Command="{Binding OtkaziCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="7"/>
+    </Grid>
+</UserControl>

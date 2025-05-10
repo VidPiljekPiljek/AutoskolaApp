@@ -13,7 +13,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="30" />
             <RowDefinition Height="20" />
             <RowDefinition Height="30" />
@@ -32,12 +33,10 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <ui:Button Command="{Binding InstruktoriCommand}" Content="Instruktori" Grid.Row="1" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding IspitiCommand}" Content="Ispiti" Grid.Row="3" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding StudentiCommand}" Content="Studenti" Grid.Row="5" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding UplateCommand}" Content="Uplate" Grid.Row="7" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding VoznjeCommand}" Content="Voznje" Grid.Row="9" Grid.Column="1" Width="100"/>
-
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPageViewModel}"  Grid.Row="0" Grid.Column="1" Grid.RowSpan="11"/>
+        <ui:Button Command="{Binding NavigateToInstruktoriCommand}" Content="Instruktori" Grid.Row="2" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding IspitiCommand}" Content="Ispiti" Grid.Row="4" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding StudentiCommand}" Content="Studenti" Grid.Row="6" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding UplateCommand}" Content="Uplate" Grid.Row="8" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding VoznjeCommand}" Content="Voznje" Grid.Row="10" Grid.Column="1" Width="100"/>
     </Grid>
 </UserControl>

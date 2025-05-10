@@ -8,6 +8,9 @@
     <Compile Update="Views\Forms\InstruktoriForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Forms\KorisnikForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Forms\StudentiForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,13 +20,10 @@
     <Compile Update="Views\Forms\VoznjeForm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ListingViews\InstruktoriListingView.xaml.cs">
+    <Compile Update="Views\InstruktoriListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\Pages\Administrator\InstruktoriPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pages\Administrator\IspitiPage.xaml.cs">

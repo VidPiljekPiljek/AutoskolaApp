@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
-19-1558688495
+191154864953
 
-691287559880
+68-1598107730
 250-274821151
-MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\ListingViews\InstruktoriListingView.xaml;Views\LoginView.xaml;Views\Pages\Administrator\InstruktoriPage.xaml;Views\Pages\Administrator\IspitiPage.xaml;Views\Pages\Administrator\StudentiPage.xaml;Views\Pages\Administrator\UplatePage.xaml;Views\Pages\Administrator\VoznjePage.xaml;Views\Pages\Instruktor\IspitiPage.xaml;Views\Pages\Instruktor\VoznjePage.xaml;Views\Pages\Student\IspitiPage.xaml;Views\Pages\Student\UplatePage.xaml;Views\Pages\Student\VoznjePage.xaml;
+MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\KorisnikForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\InstruktoriListingView.xaml;Views\LoginView.xaml;Views\Pages\Administrator\IspitiPage.xaml;Views\Pages\Administrator\StudentiPage.xaml;Views\Pages\Administrator\UplatePage.xaml;Views\Pages\Administrator\VoznjePage.xaml;Views\Pages\Instruktor\IspitiPage.xaml;Views\Pages\Instruktor\VoznjePage.xaml;Views\Pages\Student\IspitiPage.xaml;Views\Pages\Student\UplatePage.xaml;Views\Pages\Student\VoznjePage.xaml;
 
-False
+True
 

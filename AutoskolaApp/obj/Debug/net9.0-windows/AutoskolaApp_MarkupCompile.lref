@@ -7,7 +7,6 @@ FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\StudentiForm.
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\UplateForm.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\VoznjeForm.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\LoginView.xaml;;
-FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Administrator\InstruktoriPage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Administrator\IspitiPage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Administrator\StudentiPage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Administrator\UplatePage.xaml;;
@@ -17,4 +16,5 @@ FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Instruktor\Vo
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Student\IspitiPage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Student\UplatePage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Student\VoznjePage.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\InstruktoriListingView.xaml;;
 

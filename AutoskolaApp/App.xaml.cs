@@ -49,8 +49,11 @@ public partial class App : Application
             services.AddTransient<KorisnikService>();
             services.AddSingleton<KorisnikStore>();
 
+            services.AddSingleton<InstruktorRepository>();
+            services.AddSingleton<InstruktorService>();
+            services.AddSingleton<InstruktorStore>();
+
             services.AddSingleton<NavigationStore>();
-            services.AddSingleton<PageNavigationStore>();
 
 
         }).Build();

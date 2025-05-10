@@ -9,10 +9,11 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Xml.Linq;
 using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.DashboardNavigation;
 using AutoskolaApp.Models;
 using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
-using AutoskolaApp.ViewModels.PageViewModels.Administrator;
+using AutoskolaApp.ViewModels.ListingViewModels;
 using Wpf.Ui.Abstractions.Controls;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Input;
@@ -21,17 +22,13 @@ namespace AutoskolaApp.ViewModels
 {
     public class DashboardViewModel : ViewModelBase
     {
-        private readonly PageNavigationStore _pageNavigationStore;
-
-        public ViewModelBase CurrentPageViewModel => _pageNavigationStore.CurrentPageViewModel;
-
-        public PageNavigateCommand<InstruktoriPageViewModel> InstruktoriCommand { get; }
+        public NavigateToInstruktoriCommand NavigateToInstruktoriCommand { get; }
         public ICommand IspitiCommand { get; }
         public ICommand StudentiCommand { get; }
         public ICommand UplateCommand { get; }
         public ICommand VoznjeCommand { get; }
 
-        public bool CanNavigateToInstruktori { get; set; }
+        public bool CanNavigateToInstruktori => true;
         public bool CanNavigateToIspiti { get; set; }
         public bool CanNavigateToStudenti { get; set; }
         public bool CanNavigateToUplate { get; set; }
@@ -41,7 +38,7 @@ namespace AutoskolaApp.ViewModels
         {
             if (korisnikType is Administrator)
             {
-                CanNavigateToInstruktori = true;
+               
                 CanNavigateToIspiti = true;
                 CanNavigateToStudenti = true;
                 CanNavigateToUplate = true;
@@ -49,7 +46,7 @@ namespace AutoskolaApp.ViewModels
             }
             else if (korisnikType is Instruktor)
             {
-                CanNavigateToInstruktori = false;
+
                 CanNavigateToIspiti = true;
                 CanNavigateToStudenti = false;
                 CanNavigateToUplate = false;
@@ -57,7 +54,7 @@ namespace AutoskolaApp.ViewModels
             }
             else if (korisnikType is Student)
             {
-                CanNavigateToInstruktori = false;
+
                 CanNavigateToIspiti = true;
                 CanNavigateToStudenti = false;
                 CanNavigateToUplate = true;
@@ -71,10 +68,9 @@ namespace AutoskolaApp.ViewModels
             OnPropertyChanged(nameof(CanNavigateToVoznje));
         }
 
-        public DashboardViewModel(PageNavigationStore pageNavigationStore, PageNavigationService<InstruktoriPageViewModel> instruktoriNavigationService)
+        public DashboardViewModel(NavigationService<InstruktoriListingViewModel> instruktoriNavigationService)
         {
-            _pageNavigationStore = pageNavigationStore;
-            InstruktoriCommand = new PageNavigateCommand<InstruktoriPageViewModel>(instruktoriNavigationService);
+            NavigateToInstruktoriCommand = new NavigateToInstruktoriCommand(this, instruktoriNavigationService);
             IspitiCommand = null;
             StudentiCommand = null;
             UplateCommand = null;
