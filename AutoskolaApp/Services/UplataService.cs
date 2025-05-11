@@ -26,5 +26,10 @@ namespace AutoskolaApp.Services
         {
             return _uplataStore.Uplate;
         }
+
+        public async Task AddUplata(Uplata uplata)
+        {
+            await _uplataStore.AddUplata(uplata);
+        }
     }
 }

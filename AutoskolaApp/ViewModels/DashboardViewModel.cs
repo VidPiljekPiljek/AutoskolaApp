@@ -68,7 +68,6 @@ namespace AutoskolaApp.ViewModels
 
         public void LoadViewModel()
         {
-            throw new NotImplementedException();
         }
 
         public DashboardViewModel(NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)

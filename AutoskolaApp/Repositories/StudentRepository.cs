@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AutoskolaApp.DbContexts;
 using AutoskolaApp.Models;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,22 @@ namespace AutoskolaApp.Repositories
 
                 return studenti;
 
+            }
+        }
+
+        public async Task<Guid> GetStudentID(string ime, string prezime)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                try
+                {
+                    return await dbContext.Studenti.Where(s => s.Ime == ime && s.Prezime == prezime).Select(s => s.IDStudenta).FirstOrDefaultAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return Guid.Empty;
+                }
             }
         }
     }

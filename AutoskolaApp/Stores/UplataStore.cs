@@ -43,6 +43,15 @@ namespace AutoskolaApp.Stores
             UplataCreated?.Invoke(uplata);
         }
 
+        public async Task AddUplata(Uplata uplata)
+        {
+            await _uplateRepository.CreateUplata(uplata);
+
+            _uplate.Add(uplata);
+
+            OnUplataCreated(uplata);
+        }
+
         private async Task Initialize()
         {
             IEnumerable<Uplata> uplate = await _uplateRepository.GetAllUplate();

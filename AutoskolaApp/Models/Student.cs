@@ -56,5 +56,16 @@ namespace AutoskolaApp.Models
             SatiVoznje = satiVoznje;
             IDKorisnika = iDKorisnika;
         }
+
+        public Student(string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, Guid iDKorisnika)
+        {
+            OIB = oIB;
+            Ime = ime;
+            Prezime = prezime;
+            DatumRodjenja = datumRodjenja;
+            DatumPocetka = datumPocetka;
+            SatiVoznje = satiVoznje;
+            IDKorisnika = iDKorisnika;
+        }
     }
 }

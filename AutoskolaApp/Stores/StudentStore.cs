@@ -43,6 +43,19 @@ namespace AutoskolaApp.Stores
             StudentCreated?.Invoke(instruktor);
         }
 
+        public async Task AddStudent(Student student)
+        {
+            await _studentRepository.CreateStudent(student);
+
+            _studenti.Add(student);
+
+            OnStudentCreated(student);
+        }
+
+        public async Task<Guid> GetStudentID(string ime, string prezime)
+        {
+            return await _studentRepository.GetStudentID(ime, prezime);
+        }
         private async Task Initialize()
         {
             IEnumerable<Student> studenti = await _studentRepository.GetAllStudenti();

@@ -31,5 +31,12 @@ namespace AutoskolaApp.Models
             IDStudenta = iDStudenta;
             Student = student;
         }
+        public Uplata(DateTime datumUplate, decimal iznos, string nacinUplate, Guid iDStudenta)
+        {
+            DatumUplate = datumUplate;
+            Iznos = iznos;
+            NacinUplate = nacinUplate;
+            IDStudenta = iDStudenta;
+        }
     }
 }

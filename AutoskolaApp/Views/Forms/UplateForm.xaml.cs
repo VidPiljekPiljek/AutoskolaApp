@@ -18,7 +18,7 @@ namespace AutoskolaApp.Views.Forms
     /// <summary>
     /// Interaction logic for UplateForm.xaml
     /// </summary>
-    public partial class UplateForm : Page
+    public partial class UplateForm : UserControl
     {
         public UplateForm()
         {

@@ -58,6 +58,6 @@
         <ui:TextBox x:Name="txtNapomena" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3" Text="{Binding Napomena, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="10"/>
-        <Button x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="10"/>
+        <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="10"/>
     </Grid>
 </UserControl>

@@ -31,6 +31,7 @@ public partial class App : Application
     // https://docs.microsoft.com/dotnet/core/extensions/logging
     private static readonly IHost _host = Host
         .CreateDefaultBuilder()
+
         .AddViewModels()
         .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
         .ConfigureServices((context, services) =>
@@ -40,10 +41,10 @@ public partial class App : Application
                 DataContext = s.GetRequiredService<MainViewModel>()
             });
 
-            string connectionString = context.Configuration.GetConnectionString("Default");
+            //string connectionString = context.Configuration.GetConnectionString("Default");
 
-            services.AddSingleton(new AutoskolaDbContextFactory(connectionString));
-            services.AddSingleton<IAutoskolaDbContextFactory>(new InMemoryAutoskolaDbContextFactory());
+            services.AddSingleton<IAutoskolaDbContextFactory>(new AutoskolaDbContextFactory("Data source=autoskola.db"));
+            //services.AddSingleton<IAutoskolaDbContextFactory>(new InMemoryAutoskolaDbContextFactory());
 
             services.AddSingleton<KorisnikRepository>();
             services.AddTransient<KorisnikService>();

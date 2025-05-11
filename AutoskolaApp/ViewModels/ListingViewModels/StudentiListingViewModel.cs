@@ -12,22 +12,22 @@ using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
-    public class StudentiListingViewModel : ViewModelBase
+    public class StudentiListingViewModel : ViewModelBase, ILoadable
     {
         private readonly StudentService _studentService;
         private readonly ObservableCollection<StudentViewModel> _studenti;
         public IEnumerable<StudentViewModel> Studenti => _studenti;
 
         public ICommand LoadStudentiCommand { get; }
-        public ICommand CreateInstruktorCommand { get; }
+        public ICommand CreateStudentCommand { get; }
 
-        public StudentiListingViewModel(StudentService studentService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public StudentiListingViewModel(StudentService studentService, NavigationService<StudentiFormViewModel> studentFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _studentService = studentService;
             _studenti = new ObservableCollection<StudentViewModel>();
 
             LoadStudentiCommand = new LoadStudentiCommand(this, studentService);
-            CreateInstruktorCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
+            CreateStudentCommand = new NavigateCommand<StudentiFormViewModel>(studentFormNavigationService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)
