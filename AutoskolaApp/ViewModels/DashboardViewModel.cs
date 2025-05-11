@@ -42,55 +42,79 @@ namespace AutoskolaApp.ViewModels
         public bool CanNavigateToUplate { get; set; }
         public bool CanNavigateToVoznje { get; set; }
 
-        public void Initialize(Type korisnikType)
-        {
-            if (korisnikType is Administrator)
-            {
+        //public void Initialize(Type korisnikType)
+        //{
+        //    if (korisnikType is Administrator)
+        //    {
                
-                CanNavigateToIspiti = true;
-            }
-            else if (korisnikType is Instruktor)
-            {
+        //        CanNavigateToIspiti = true;
+        //    }
+        //    else if (korisnikType is Instruktor)
+        //    {
 
-                CanNavigateToIspiti = true;
-            }
-            else if (korisnikType is Student)
-            {
+        //        CanNavigateToIspiti = true;
+        //    }
+        //    else if (korisnikType is Student)
+        //    {
 
-                CanNavigateToIspiti = true;
-            }
+        //        CanNavigateToIspiti = true;
+        //    }
 
-            OnPropertyChanged(nameof(CanNavigateToInstruktori));
-            OnPropertyChanged(nameof(CanNavigateToIspiti));
-            OnPropertyChanged(nameof(CanNavigateToStudenti));
-            OnPropertyChanged(nameof(CanNavigateToUplate));
-            OnPropertyChanged(nameof(CanNavigateToVoznje));
-        }
+        //    OnPropertyChanged(nameof(CanNavigateToInstruktori));
+        //    OnPropertyChanged(nameof(CanNavigateToIspiti));
+        //    OnPropertyChanged(nameof(CanNavigateToStudenti));
+        //    OnPropertyChanged(nameof(CanNavigateToUplate));
+        //    OnPropertyChanged(nameof(CanNavigateToVoznje));
+        //}
 
         public void LoadViewModel()
         {
             Type tipKorisnika = _korisnikService.KorisnikAuthorization();
-
-            if (tipKorisnika is Administrator)
+            Console.WriteLine($"User role: {tipKorisnika}");
+            if (tipKorisnika == typeof(Administrator))
             {
                 CanNavigateToInstruktori = true;
+                OnPropertyChanged(nameof(CanNavigateToInstruktori));
                 CanNavigateToIspiti = true;
+                OnPropertyChanged(nameof(CanNavigateToIspiti));
                 CanNavigateToStudenti = true;
+                OnPropertyChanged(nameof(CanNavigateToStudenti));
                 CanNavigateToUplate = true;
+                    OnPropertyChanged(nameof(CanNavigateToUplate));
                 CanNavigateToVoznje = true;
+                OnPropertyChanged(nameof(CanNavigateToVoznje));
             }
-            if (tipKorisnika is Instruktor)
+            else if (tipKorisnika == typeof(Instruktor))
             {
-                CanNavigateToInstruktori = true;
+                CanNavigateToInstruktori = false;
+                OnPropertyChanged(nameof(CanNavigateToInstruktori));
                 CanNavigateToIspiti = true;
-                CanNavigateToStudenti = true;
-                CanNavigateToUplate = true;
+                OnPropertyChanged(nameof(CanNavigateToIspiti));
+                CanNavigateToStudenti = false;
+                OnPropertyChanged(nameof(CanNavigateToStudenti));
+                CanNavigateToUplate = false;
+                OnPropertyChanged(nameof(CanNavigateToUplate));
                 CanNavigateToVoznje = true;
+                OnPropertyChanged(nameof(CanNavigateToVoznje));
+            }
+            else if (tipKorisnika == typeof(Student))
+            {
+                CanNavigateToInstruktori = false;
+                OnPropertyChanged(nameof(CanNavigateToInstruktori));
+                CanNavigateToIspiti = true;
+                OnPropertyChanged(nameof(CanNavigateToIspiti));
+                CanNavigateToStudenti = false;
+                OnPropertyChanged(nameof(CanNavigateToStudenti));
+                CanNavigateToUplate = true;
+                OnPropertyChanged(nameof(CanNavigateToUplate));
+                CanNavigateToVoznje = true;
+                OnPropertyChanged(nameof(CanNavigateToVoznje));
             }
         }
 
-        public DashboardViewModel(NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)
+        public DashboardViewModel(KorisnikService korisnikService, NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)
         {
+            _korisnikService = korisnikService;
             NavigateToInstruktoriCommand = new NavigateToInstruktoriCommand(this, instruktoriNavigationService);
             NavigateToIspitiCommand = null;
             NavigateToStudentiCommand = new NavigateToStudentiCommand(this, studentiNavigationService);

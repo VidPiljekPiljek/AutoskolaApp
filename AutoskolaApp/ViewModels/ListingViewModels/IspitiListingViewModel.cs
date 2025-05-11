@@ -12,32 +12,32 @@ using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
-    public class IspitiListingViewModel
+    public class IspitiListingViewModel : ViewModelBase
     {
-        private readonly InstruktorService _instruktorService;
-        private readonly ObservableCollection<InstruktorViewModel> _instruktori;
-        public IEnumerable<InstruktorViewModel> Instruktori => _instruktori;
+        private readonly IspitService _ispitService;
+        private readonly ObservableCollection<IspitViewModel> _ispiti;
+        public IEnumerable<IspitViewModel> Ispiti => _ispiti;
 
         public ICommand LoadInstruktoriCommand { get; }
         public ICommand CreateInstruktorCommand { get; }
 
-        public IspitiListingViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public IspitiListingViewModel(IspitService ispitService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
-            _instruktorService = instruktorService;
-            _instruktori = new ObservableCollection<InstruktorViewModel>();
+            _ispitService = ispitService;
+            _ispiti = new ObservableCollection<IspitViewModel>();
 
-            LoadInstruktoriCommand = new LoadInstruktoriCommand(null, _instruktorService);
+            LoadInstruktoriCommand = new LoadIspitiCommand(null, _ispitService);
             CreateInstruktorCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
         }
 
-        public void UpdateReservations(IEnumerable<Instruktor> instruktori)
+        public void UpdateReservations(IEnumerable<Ispit> ispiti)
         {
-            _instruktori.Clear();
+            _ispiti.Clear();
 
-            foreach (Instruktor instruktor in instruktori)
+            foreach (Ispit ispit in ispiti)
             {
-                InstruktorViewModel instruktorViewModel = new InstruktorViewModel(instruktor);
-                _instruktori.Add(instruktorViewModel);
+                IspitViewModel ispitViewModel = new IspitViewModel(ispit);
+                _ispiti.Add(ispitViewModel);
             }
         }
 

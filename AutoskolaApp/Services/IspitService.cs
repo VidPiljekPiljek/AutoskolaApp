@@ -8,7 +8,7 @@ using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.Services
 {
-    internal class IspitService
+    public class IspitService
     {
         public readonly IspitStore _ispitStore;
 

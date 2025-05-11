@@ -42,10 +42,7 @@ namespace AutoskolaApp.Commands
 
                     var korisnikType = _korisnikService.KorisnikAuthorization();
 
-                    _dashboardViewModelNavigationService.NavigateWithCallback(viewModel =>
-                    {
-                        viewModel.Initialize(korisnikType);
-                    });
+                    _dashboardViewModelNavigationService.Navigate();
                 }
             }
             catch(Exception ex)
