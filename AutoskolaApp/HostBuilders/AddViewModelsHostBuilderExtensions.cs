@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using AutoskolaApp.Services;
 using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels;
+using AutoskolaApp.ViewModels.FormViewModels;
 using AutoskolaApp.ViewModels.ListingViewModels;
 using AutoskolaApp.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +34,22 @@ namespace AutoskolaApp.HostBuilders
                 services.AddTransient<InstruktoriListingViewModel>();
                 services.AddSingleton<Func<InstruktoriListingViewModel>>(s => () => s.GetRequiredService<InstruktoriListingViewModel>());
                 services.AddSingleton<NavigationService<InstruktoriListingViewModel>>();
+
+                services.AddTransient<StudentiListingViewModel>();
+                services.AddSingleton<Func<StudentiListingViewModel>>(s => () => s.GetRequiredService<StudentiListingViewModel>());
+                services.AddSingleton<NavigationService<StudentiListingViewModel>>();
+
+                services.AddTransient<UplateListingViewModel>();
+                services.AddSingleton<Func<UplateListingViewModel>>(s => () => s.GetRequiredService<UplateListingViewModel>());
+                services.AddSingleton<NavigationService<UplateListingViewModel>>();
+
+                services.AddTransient<VoznjeListingViewModel>();
+                services.AddSingleton<Func<VoznjeListingViewModel>>(s => () => s.GetRequiredService<VoznjeListingViewModel>());
+                services.AddSingleton<NavigationService<VoznjeListingViewModel>>();
+
+                services.AddTransient<KorisnikFormViewModel>();
+                services.AddSingleton<Func<KorisnikFormViewModel>>(s => () => s.GetRequiredService<KorisnikFormViewModel>());
+                services.AddSingleton<NavigationService<KorisnikFormViewModel>>();
 
                 services.AddSingleton<MainViewModel>();
             });

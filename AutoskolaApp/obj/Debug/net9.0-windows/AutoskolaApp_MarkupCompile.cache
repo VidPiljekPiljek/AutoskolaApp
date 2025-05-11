@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
-18-671484159
+231333453621
 
-63-1550070145
+96-733771079
 250-274821151
-MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\InstruktoriListingView.xaml;Views\LoginView.xaml;Views\Pages\Administrator\IspitiPage.xaml;Views\Pages\Administrator\StudentiPage.xaml;Views\Pages\Administrator\UplatePage.xaml;Views\Pages\Administrator\VoznjePage.xaml;Views\Pages\Instruktor\IspitiPage.xaml;Views\Pages\Instruktor\VoznjePage.xaml;Views\Pages\Student\IspitiPage.xaml;Views\Pages\Student\UplatePage.xaml;Views\Pages\Student\VoznjePage.xaml;
+MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\KorisnikForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\InstruktoriListingView.xaml;Views\IspitiListingView.xaml;Views\LoginView.xaml;Views\Pages\Administrator\IspitiPage.xaml;Views\Pages\Administrator\StudentiPage.xaml;Views\Pages\Administrator\UplatePage.xaml;Views\Pages\Administrator\VoznjePage.xaml;Views\Pages\Instruktor\IspitiPage.xaml;Views\Pages\Instruktor\VoznjePage.xaml;Views\Pages\Student\IspitiPage.xaml;Views\Pages\Student\UplatePage.xaml;Views\Pages\Student\VoznjePage.xaml;Views\StudentiListingView.xaml;Views\UplateListingView.xaml;Views\VoznjeListingView.xaml;
 
 False
 

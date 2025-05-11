@@ -26,6 +26,15 @@
             <DataTemplate DataType="{x:Type listingviewmodels:InstruktoriListingViewModel}">
                 <views:InstruktoriListingView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type listingviewmodels:StudentiListingViewModel}">
+                <views:StudentiListingView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type listingviewmodels:UplateListingViewModel}">
+                <views:UplateListingView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type listingviewmodels:VoznjeListingViewModel}">
+                <views:VoznjeListingView/>
+            </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>

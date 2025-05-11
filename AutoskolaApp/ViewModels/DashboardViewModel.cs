@@ -20,19 +20,26 @@ using Wpf.Ui.Input;
 
 namespace AutoskolaApp.ViewModels
 {
-    public class DashboardViewModel : ViewModelBase
+    public class DashboardViewModel : ViewModelBase, ILoadable
     {
+        private bool _isLoaded;
+        public bool IsLoaded
+        {
+            get { return _isLoaded; }
+            set { _isLoaded = value; OnPropertyChanged(nameof(IsLoaded)); }
+        }
+
         public NavigateToInstruktoriCommand NavigateToInstruktoriCommand { get; }
-        public ICommand IspitiCommand { get; }
-        public ICommand StudentiCommand { get; }
-        public ICommand UplateCommand { get; }
-        public ICommand VoznjeCommand { get; }
+        public ICommand NavigateToIspitiCommand { get; }
+        public NavigateToStudentiCommand NavigateToStudentiCommand { get; }
+        public NavigateToUplateCommand NavigateToUplateCommand { get; }
+        public NavigateToVoznjeCommand NavigateToVoznjeCommand { get; }
 
         public bool CanNavigateToInstruktori => true;
         public bool CanNavigateToIspiti { get; set; }
-        public bool CanNavigateToStudenti { get; set; }
-        public bool CanNavigateToUplate { get; set; }
-        public bool CanNavigateToVoznje { get; set; }
+        public bool CanNavigateToStudenti => true;
+        public bool CanNavigateToUplate => true;
+        public bool CanNavigateToVoznje => true;
 
         public void Initialize(Type korisnikType)
         {
@@ -40,25 +47,16 @@ namespace AutoskolaApp.ViewModels
             {
                
                 CanNavigateToIspiti = true;
-                CanNavigateToStudenti = true;
-                CanNavigateToUplate = true;
-                CanNavigateToVoznje = true;
             }
             else if (korisnikType is Instruktor)
             {
 
                 CanNavigateToIspiti = true;
-                CanNavigateToStudenti = false;
-                CanNavigateToUplate = false;
-                CanNavigateToVoznje = true;
             }
             else if (korisnikType is Student)
             {
 
                 CanNavigateToIspiti = true;
-                CanNavigateToStudenti = false;
-                CanNavigateToUplate = true;
-                CanNavigateToVoznje = true;
             }
 
             OnPropertyChanged(nameof(CanNavigateToInstruktori));
@@ -68,13 +66,18 @@ namespace AutoskolaApp.ViewModels
             OnPropertyChanged(nameof(CanNavigateToVoznje));
         }
 
-        public DashboardViewModel(NavigationService<InstruktoriListingViewModel> instruktoriNavigationService)
+        public void LoadViewModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DashboardViewModel(NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)
         {
             NavigateToInstruktoriCommand = new NavigateToInstruktoriCommand(this, instruktoriNavigationService);
-            IspitiCommand = null;
-            StudentiCommand = null;
-            UplateCommand = null;
-            VoznjeCommand = null;
+            NavigateToIspitiCommand = null;
+            NavigateToStudentiCommand = new NavigateToStudentiCommand(this, studentiNavigationService);
+            NavigateToUplateCommand = new NavigateToUplateCommand(this, uplateNavigationService);
+            NavigateToVoznjeCommand = new NavigateToVoznjeCommand(this, voznjeNavigationService);
         }
     }
 }

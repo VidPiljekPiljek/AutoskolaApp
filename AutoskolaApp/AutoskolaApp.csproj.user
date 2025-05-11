@@ -23,6 +23,9 @@
     <Compile Update="Views\InstruktoriListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\IspitiListingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +54,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pages\Student\VoznjePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StudentiListingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UplateListingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\VoznjeListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

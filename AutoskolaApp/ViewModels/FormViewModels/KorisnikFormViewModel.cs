@@ -40,7 +40,5 @@ namespace AutoskolaApp.ViewModels.FormViewModels
                 OnPropertyChanged(nameof(Uloga));
             }
         }
-
-        public 
     }
 }

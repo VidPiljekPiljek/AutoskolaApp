@@ -73,7 +73,7 @@ namespace AutoskolaApp.Views.Pages.Administrator {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AutoskolaApp;V1.0.0.0;component/views/pages/administrator/studentipage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AutoskolaApp;component/views/pages/administrator/studentipage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Views\Pages\Administrator\StudentiPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

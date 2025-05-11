@@ -3,9 +3,12 @@ FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\MainWindow.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\DashboardView.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\InstruktoriForm.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\KorisnikForm.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\StudentiForm.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\UplateForm.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Forms\VoznjeForm.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\InstruktoriListingView.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\IspitiListingView.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\LoginView.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Administrator\IspitiPage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Administrator\StudentiPage.xaml;;
@@ -16,5 +19,7 @@ FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Instruktor\Vo
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Student\IspitiPage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Student\UplatePage.xaml;;
 FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\Pages\Student\VoznjePage.xaml;;
-FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\InstruktoriListingView.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\StudentiListingView.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\UplateListingView.xaml;;
+FC:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\Views\VoznjeListingView.xaml;;
 

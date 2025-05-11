@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AutoskolaApp.Models;
+using AutoskolaApp.Repositories;
+
+namespace AutoskolaApp.Stores
+{
+    public class StudentStore
+    {
+        private readonly List<Student> _studenti;
+        public IEnumerable<Student> Studenti => _studenti;
+        private readonly StudentRepository _studentRepository;
+        private Lazy<Task> _initializeLazy;
+
+        public event Action<Student> StudentCreated;
+
+        public StudentStore(StudentRepository studentRepository)
+        {
+            _studentRepository = studentRepository;
+            _initializeLazy = new Lazy<Task>(Initialize);
+
+            _studenti = new List<Student>();
+        }
+
+        public async Task Load()
+        {
+            try
+            {
+                await _initializeLazy.Value;
+            }
+            catch (Exception)
+            {
+                _initializeLazy = new Lazy<Task>(Initialize); // Pokusaj ponovo
+                throw;
+            }
+        }
+
+        private void OnStudentCreated(Student instruktor)
+        {
+            StudentCreated?.Invoke(instruktor);
+        }
+
+        private async Task Initialize()
+        {
+            IEnumerable<Student> studenti = await _studentRepository.GetAllStudenti();
+
+            _studenti.Clear();
+            _studenti.AddRange(studenti);
+        }
+    }
+}

@@ -210,3 +210,13 @@ C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\A
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Autoskol.C21DAD80.Up2Date
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\AutoskolaApp.genruntimeconfig.cache
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\ref\AutoskolaApp.dll
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\KorisnikForm.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\KorisnikForm.baml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\IspitiListingView.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\IspitiListingView.baml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\StudentiListingView.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\StudentiListingView.baml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\UplateListingView.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\UplateListingView.baml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\VoznjeListingView.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\VoznjeListingView.baml

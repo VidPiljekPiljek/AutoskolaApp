@@ -34,9 +34,9 @@
         </Grid.ColumnDefinitions>
 
         <ui:Button Command="{Binding NavigateToInstruktoriCommand}" Content="Instruktori" Grid.Row="2" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding IspitiCommand}" Content="Ispiti" Grid.Row="4" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding StudentiCommand}" Content="Studenti" Grid.Row="6" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding UplateCommand}" Content="Uplate" Grid.Row="8" Grid.Column="1" Width="100"/>
-        <ui:Button Command="{Binding VoznjeCommand}" Content="Voznje" Grid.Row="10" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding NavigateToIspitiCommand}" Content="Ispiti" Grid.Row="4" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding NavigateToStudentiCommand}" Content="Studenti" Grid.Row="6" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding NavigateToUplateCommand}" Content="Uplate" Grid.Row="8" Grid.Column="1" Width="100"/>
+        <ui:Button Command="{Binding NavigateToVoznjeCommand}" Content="Voznje" Grid.Row="10" Grid.Column="1" Width="100"/>
     </Grid>
 </UserControl>

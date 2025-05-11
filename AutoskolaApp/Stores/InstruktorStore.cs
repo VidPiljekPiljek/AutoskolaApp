@@ -17,9 +17,9 @@ namespace AutoskolaApp.Stores
 
         public event Action<Instruktor> InstruktorCreated;
 
-        public InstruktorStore(InstruktorRepository hotel)
+        public InstruktorStore(InstruktorRepository instruktorRepository)
         {
-            _instruktorRepository = hotel;
+            _instruktorRepository = instruktorRepository;
             _initializeLazy = new Lazy<Task>(Initialize);
 
             _instruktori = new List<Instruktor>();

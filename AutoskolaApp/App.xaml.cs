@@ -53,6 +53,18 @@ public partial class App : Application
             services.AddSingleton<InstruktorService>();
             services.AddSingleton<InstruktorStore>();
 
+            services.AddSingleton<StudentRepository>();
+            services.AddSingleton<StudentService>();
+            services.AddSingleton<StudentStore>();
+
+            services.AddSingleton<UplataRepository>();
+            services.AddSingleton<UplataService>();
+            services.AddSingleton<UplataStore>();
+
+            services.AddSingleton<VoznjaRepository>();
+            services.AddSingleton<VoznjaService>();
+            services.AddSingleton<VoznjaStore>();
+
             services.AddSingleton<NavigationStore>();
 
 

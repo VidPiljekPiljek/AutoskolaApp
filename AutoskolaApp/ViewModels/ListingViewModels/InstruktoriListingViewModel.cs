@@ -13,7 +13,7 @@ using AutoskolaApp.ViewModels.FormViewModels;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
-    public class InstruktoriListingViewModel : ViewModelBase
+    public class InstruktoriListingViewModel : ViewModelBase, ILoadable
     {
         private readonly InstruktorService _instruktorService;
         private readonly ObservableCollection<InstruktorViewModel> _instruktori;
@@ -31,14 +31,14 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             CreateInstruktorCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
         }
 
-        public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)
-        {
-            InstruktoriListingViewModel instruktoriPageViewModel = new InstruktoriListingViewModel(instruktorService, korisnikFormNavigationService);
+        //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)
+        //{
+        //    InstruktoriListingViewModel instruktoriPageViewModel = new InstruktoriListingViewModel(instruktorService, korisnikFormNavigationService);
 
-            instruktoriPageViewModel.LoadInstruktoriCommand.Execute(null);
+        //    instruktoriPageViewModel.LoadInstruktoriCommand.Execute(null);
 
-            return instruktoriPageViewModel;
-        }
+        //    return instruktoriPageViewModel;
+        //}
 
         public void UpdateReservations(IEnumerable<Instruktor> instruktori)
         {
@@ -59,6 +59,11 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public Task OnNavigatedFromAsync()
         {
             throw new NotImplementedException();
+        }
+
+        public void LoadViewModel()
+        {
+            LoadInstruktoriCommand.Execute(null);
         }
     }
 }

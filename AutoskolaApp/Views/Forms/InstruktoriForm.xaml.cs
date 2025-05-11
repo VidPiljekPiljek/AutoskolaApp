@@ -18,7 +18,7 @@ namespace AutoskolaApp.Views.Forms
     /// <summary>
     /// Interaction logic for InstruktoriForm.xaml
     /// </summary>
-    public partial class InstruktoriForm : Page
+    public partial class InstruktoriForm : UserControl
     {
         public InstruktoriForm()
         {

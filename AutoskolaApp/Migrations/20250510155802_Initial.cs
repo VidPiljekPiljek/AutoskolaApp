@@ -240,12 +240,21 @@ namespace AutoskolaApp.Migrations
             migrationBuilder.InsertData(
                 table: "Korisnici",
                 columns: new[] { "IDKorisnika", "IDUloge", "KorisnickoIme", "Lozinka" },
-                values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), 1, "admin", "adminautoskola" });
+                values: new object[,]
+                {
+                    { new Guid("00000000-0000-0000-0000-000000000001"), 1, "admin", "adminautoskola" },
+                    { new Guid("00000000-0000-0000-0000-000000000002"), 1, "instruktortest", "instruktortest" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Administratori",
                 columns: new[] { "IDAdministratora", "IDKorisnika", "Ime", "OIB", "Prezime" },
                 values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), new Guid("00000000-0000-0000-0000-000000000001"), "Vid", "17232937055", "Piljek" });
+
+            migrationBuilder.InsertData(
+                table: "Instruktori",
+                columns: new[] { "IDInstruktora", "DatumZaposlenja", "IDKorisnika", "Ime", "Napomena", "OIB", "Prezime" },
+                values: new object[] { new Guid("00000000-0000-0000-0000-000000000002"), new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("00000000-0000-0000-0000-000000000002"), "Leon", null, "17235938955", "Plecko" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administratori_IDKorisnika",

@@ -105,7 +105,7 @@ namespace AutoskolaApp.Views.Forms {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AutoskolaApp;V1.0.0.0;component/views/forms/uplateform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AutoskolaApp;component/views/forms/uplateform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Forms\UplateForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

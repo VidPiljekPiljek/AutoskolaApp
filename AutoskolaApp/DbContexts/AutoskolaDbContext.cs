@@ -31,6 +31,13 @@ namespace AutoskolaApp.DbContexts
                 new Administrator(new Guid("00000000-0000-0000-0000-000000000001"), "17232937055", "Vid", "Piljek", new Guid("00000000-0000-0000-0000-000000000001"))
             );
 
+            modelBuilder.Entity<Korisnik>().HasData(
+                new Korisnik(new Guid("00000000-0000-0000-0000-000000000002"), "instruktortest", "instruktortest", 1)
+            );
+            modelBuilder.Entity<Instruktor>().HasData(
+                new Instruktor(new Guid("00000000-0000-0000-0000-000000000002"), "17235938955", "Leon", "Plecko", new DateTime(2020, 1, 5), null, new Guid("00000000-0000-0000-0000-000000000002"))
+            );
+
             modelBuilder.Entity<Uloga>()
                 .HasMany(e => e.Korisnici)
                 .WithOne(e => e.Uloga)
