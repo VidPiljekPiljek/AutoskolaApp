@@ -43,5 +43,12 @@ namespace AutoskolaApp.Models
             Lozinka = lozinka;
             IDUloge = iDUloge;
         }
+
+        public Korisnik(string korisnickoIme, string lozinka, int iDUloge)
+        {
+            KorisnickoIme = korisnickoIme;
+            Lozinka = lozinka;
+            IDUloge = iDUloge;
+        }
     }
 }

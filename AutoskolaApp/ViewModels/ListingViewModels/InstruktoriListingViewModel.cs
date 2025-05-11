@@ -22,13 +22,13 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand LoadInstruktoriCommand { get; }
         public ICommand CreateInstruktorCommand { get; }
 
-        public InstruktoriListingViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public InstruktoriListingViewModel(InstruktorService instruktorService, NavigationService<InstruktoriFormViewModel> instruktorFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _instruktorService = instruktorService;
             _instruktori = new ObservableCollection<InstruktorViewModel>();
 
             LoadInstruktoriCommand = new LoadInstruktoriCommand(this, _instruktorService);
-            CreateInstruktorCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
+            CreateInstruktorCommand = new NavigateCommand<InstruktoriFormViewModel>(instruktorFormNavigationService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)

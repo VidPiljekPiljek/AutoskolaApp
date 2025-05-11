@@ -31,7 +31,7 @@
         <Label Content="Instruktori" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
         <DataGrid Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Instruktori}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
-            <ui:Button Command="{Binding DodajInstruktoraCommand}" x:Name="btnDodajUpis" Content="Novi upis" />
+            <ui:Button Command="{Binding CreateInstruktorCommand}" x:Name="btnDodajUpis" Content="Novi upis" />
             <ui:Button Command="{Binding UrediOdabirCommand}" x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="20, 0, 0, 0"/>
             <ui:Button Command="{Binding NatragCommand}" x:Name="btnNatrag" Content="Natrag" Margin="20, 0, 0, 0"/>
         </StackPanel>

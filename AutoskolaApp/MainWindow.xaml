@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:AutoskolaApp"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:views="clr-namespace:AutoskolaApp.Views"
+        xmlns:forms="clr-namespace:AutoskolaApp.Views.Forms"
         xmlns:viewmodels="clr-namespace:AutoskolaApp.ViewModels"
         xmlns:listingviewmodels="clr-namespace:AutoskolaApp.ViewModels.ListingViewModels"
+        xmlns:formviewmodels="clr-namespace:AutoskolaApp.ViewModels.FormViewModels"
         ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
         Background="{DynamicResource ApplicationBackgroundBrush}"
         ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
@@ -23,6 +25,7 @@
             <DataTemplate DataType="{x:Type viewmodels:DashboardViewModel}">
                 <views:DashboardView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type listingviewmodels:InstruktoriListingViewModel}">
                 <views:InstruktoriListingView/>
             </DataTemplate>
@@ -34,6 +37,10 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type listingviewmodels:VoznjeListingViewModel}">
                 <views:VoznjeListingView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type formviewmodels:InstruktoriFormViewModel}">
+                <forms:InstruktoriForm/>
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>

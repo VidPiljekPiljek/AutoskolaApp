@@ -32,6 +32,11 @@ namespace AutoskolaApp.Stores
             }
         }
 
+        public async Task<Guid> GetKorisnikID(string korisnickoIme, string lozinka)
+        {
+            return await _korisnikRepository.GetKorisnikID(korisnickoIme, lozinka);
+        }
+
         public Type KorisnikAuthorization()
         {
             return KorisnikData.GetType();

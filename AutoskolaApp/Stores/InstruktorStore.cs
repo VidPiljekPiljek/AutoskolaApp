@@ -38,6 +38,15 @@ namespace AutoskolaApp.Stores
             }
         }
 
+        public async Task AddInstruktor(Instruktor instruktor)
+        {
+            await _instruktorRepository.CreateInstruktor(instruktor);
+
+            _instruktori.Add(instruktor);
+
+            OnInstruktorCreated(instruktor);
+        }
+
         private void OnInstruktorCreated(Instruktor instruktor)
         {
             InstruktorCreated?.Invoke(instruktor);

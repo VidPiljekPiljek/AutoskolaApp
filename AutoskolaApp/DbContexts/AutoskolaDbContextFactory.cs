@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoskolaApp.DbContexts
 {
@@ -17,7 +18,9 @@ namespace AutoskolaApp.DbContexts
 
         public AutoskolaDbContext CreateDbContext()
         {
-            throw new NotImplementedException();
+            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(_connectionString).Options;
+
+            return new AutoskolaDbContext(options);
         }
     }
 }

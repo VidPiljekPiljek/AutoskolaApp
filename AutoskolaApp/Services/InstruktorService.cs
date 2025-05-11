@@ -26,5 +26,10 @@ namespace AutoskolaApp.Services
         {
             return _instruktorStore.Instruktori;
         }
+
+        public async Task AddInstruktor(Instruktor instruktor)
+        {
+            await _instruktorStore.AddInstruktor(instruktor);
+        }
     }
 }

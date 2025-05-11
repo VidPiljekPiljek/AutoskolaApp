@@ -53,5 +53,15 @@ namespace AutoskolaApp.Models
             Napomena = napomena;
             IDKorisnika = iDKorisnika;
         }
+
+        public Instruktor(string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Guid iDKorisnika)
+        {
+            OIB = oIB;
+            Ime = ime;
+            Prezime = prezime;
+            DatumZaposlenja = datumZaposlenja;
+            Napomena = napomena;
+            IDKorisnika = iDKorisnika;
+        }
     }
 }

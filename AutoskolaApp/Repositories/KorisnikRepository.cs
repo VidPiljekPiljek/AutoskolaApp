@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AutoskolaApp.DbContexts;
 using AutoskolaApp.Models;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace AutoskolaApp.Repositories
 {
@@ -59,6 +61,22 @@ namespace AutoskolaApp.Repositories
                     }
                 }
                 return null;
+            }
+        }
+
+        public async Task<Guid> GetKorisnikID(string korisnickoIme, string lozinka)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                try
+                {
+                    return await dbContext.Korisnici.Where(k => k.KorisnickoIme == korisnickoIme && k.Lozinka == lozinka).Select(k => k.IDKorisnika).FirstOrDefaultAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return Guid.Empty;
+                }
             }
         }
     }

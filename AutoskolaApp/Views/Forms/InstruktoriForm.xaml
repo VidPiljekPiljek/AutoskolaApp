@@ -32,25 +32,32 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" Grid.Row="1" Content="OIB"/>
-        <Label Grid.Column="3" Grid.Row="1" Content="Ime"/>
-        <Label Grid.Column="7" Grid.Row="1" Content="Prezime"/>
-        <Label Grid.Column="1" Grid.Row="4" Content="Datum Rođenja"/>
-        <Label Grid.Column="3" Grid.Row="4" Content="Datum Početka" Grid.ColumnSpan="3"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Korisnicko Ime"/>
+        <Label Grid.Column="3" Grid.Row="1" Content="Lozinka"/>
+        <Label Grid.Column="1" Grid.Row="4" Content="OIB"/>
+        <Label Grid.Column="3" Grid.Row="4" Content="Ime"/>
+        <Label Grid.Column="7" Grid.Row="4" Content="Prezime"/>
+        <Label Grid.Column="1" Grid.Row="7" Content="Datum Početka"/>
+        <Label Grid.Column="3" Grid.Row="7" Content="Napomena" Grid.ColumnSpan="3"/>
 
-        <ui:TextBox x:Name="txtOIB" Grid.Column="1" Grid.Row="2"/>
-        <ui:TextBox x:Name="txtIme" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"/>
-        <ui:TextBox x:Name="txtPrezime" Grid.Row="2" Grid.Column="7"/>
+        <ui:TextBox x:Name="txtKorisnickoIme" Grid.Column="1" Grid.Row="2" Text="{Binding KorisnickoIme, UpdateSourceTrigger=PropertyChanged}"/>
+        <ui:TextBox x:Name="txtLozinka" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Lozinka, UpdateSourceTrigger=PropertyChanged}"/>
+        <ui:TextBox x:Name="txtOIB" Grid.Column="1" Grid.Row="5"  Text="{Binding OIB, UpdateSourceTrigger=PropertyChanged}"/>
+        <ui:TextBox x:Name="txtIme" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3" Text="{Binding Ime, UpdateSourceTrigger=PropertyChanged}"/>
+        <ui:TextBox x:Name="txtPrezime" Grid.Row="5" Grid.Column="7" Text="{Binding Prezime, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <ui:CalendarDatePicker x:Name="dtpDatumZaposlenja" Grid.Column="1" Grid.Row="5"/>
-        <ui:TextBox x:Name="txtNapomena" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3"/>
+        <ui:CalendarDatePicker x:Name="dtpDatumZaposlenja" Grid.Column="1" Grid.Row="8" Date="{Binding DatumPocetka, UpdateSourceTrigger=PropertyChanged}"/>
+        <ui:TextBox x:Name="txtNapomena" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3" Text="{Binding Napomena, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="7"/>
-        <Button x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="7"/>
+        <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="10"/>
+        <Button x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="10"/>
     </Grid>
 </UserControl>
