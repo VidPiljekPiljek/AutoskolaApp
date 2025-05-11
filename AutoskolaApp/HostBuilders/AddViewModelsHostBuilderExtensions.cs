@@ -56,6 +56,9 @@ namespace AutoskolaApp.HostBuilders
                 services.AddTransient<UplateFormViewModel>();
                 services.AddSingleton<Func<UplateFormViewModel>>(s => () => s.GetRequiredService<UplateFormViewModel>());
                 services.AddSingleton<NavigationService<UplateFormViewModel>>();
+                services.AddTransient<VoznjeFormViewModel>();
+                services.AddSingleton<Func<VoznjeFormViewModel>>(s => () => s.GetRequiredService<VoznjeFormViewModel>());
+                services.AddSingleton<NavigationService<VoznjeFormViewModel>>();
 
                 services.AddSingleton<MainViewModel>();
             });

@@ -18,7 +18,7 @@ namespace AutoskolaApp.Views.Forms
     /// <summary>
     /// Interaction logic for VoznjeForm.xaml
     /// </summary>
-    public partial class VoznjeForm : Page
+    public partial class VoznjeForm : UserControl
     {
         public VoznjeForm()
         {

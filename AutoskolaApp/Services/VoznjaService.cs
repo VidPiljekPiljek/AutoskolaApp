@@ -26,5 +26,10 @@ namespace AutoskolaApp.Services
         {
             return _voznjaStore.Voznje;
         }
+
+        public async Task AddVoznja(Voznja voznja)
+        {
+            await _voznjaStore.AddVoznja(voznja);
+        }
     }
 }

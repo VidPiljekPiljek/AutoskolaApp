@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoskolaApp.Models;
 using AutoskolaApp.Repositories;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AutoskolaApp.Stores
 {
@@ -41,6 +42,15 @@ namespace AutoskolaApp.Stores
         private void OnVoznjaCreated(Voznja voznja)
         {
             VoznjaCreated?.Invoke(voznja);
+        }
+
+        public async Task AddVoznja(Voznja voznja)
+        {
+            await _voznjaRepository.CreateVoznja(voznja);
+
+            _voznje.Add(voznja);
+
+            OnVoznjaCreated(voznja);
         }
 
         private async Task Initialize()

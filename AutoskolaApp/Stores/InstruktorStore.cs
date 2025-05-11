@@ -47,6 +47,11 @@ namespace AutoskolaApp.Stores
             OnInstruktorCreated(instruktor);
         }
 
+        public async Task<Guid> GetInstruktorID(string ime, string prezime)
+        {
+            return await _instruktorRepository.GetInstruktorID(ime, prezime);
+        }
+
         private void OnInstruktorCreated(Instruktor instruktor)
         {
             InstruktorCreated?.Invoke(instruktor);

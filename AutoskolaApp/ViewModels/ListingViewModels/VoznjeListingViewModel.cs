@@ -19,15 +19,15 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public IEnumerable<VoznjaViewModel> Voznje => _voznje;
 
         public ICommand LoadVoznjeCommand { get; }
-        public ICommand CreateUplataCommand { get; }
+        public ICommand CreateVoznjaCommand { get; }
 
-        public VoznjeListingViewModel(VoznjaService voznjaService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public VoznjeListingViewModel(VoznjaService voznjaService, NavigationService<VoznjeFormViewModel> voznjaFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _voznjaService = voznjaService;
             _voznje = new ObservableCollection<VoznjaViewModel>();
 
             LoadVoznjeCommand = new LoadVoznjeCommand(this, voznjaService);
-            CreateUplataCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
+            CreateVoznjaCommand = new NavigateCommand<VoznjeFormViewModel>(voznjaFormNavigationService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)

@@ -129,7 +129,7 @@ namespace AutoskolaApp.Views.Forms {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AutoskolaApp;V1.0.0.0;component/views/forms/studentiform.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AutoskolaApp;component/views/forms/studentiform.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Forms\StudentiForm.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

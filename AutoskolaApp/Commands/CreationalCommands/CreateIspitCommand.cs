@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoskolaApp.Commands.CreationalCommands
 {
-    internal class CreateIspitCommand
+    public class CreateIspitCommand
     {
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AutoskolaApp.DbContexts;
 using AutoskolaApp.Models;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,22 @@ namespace AutoskolaApp.Repositories
                 IEnumerable<Instruktor> instruktori = await dbContext.Instruktori.ToListAsync();
 
                 return instruktori;
+            }
+        }
+
+        public async Task<Guid> GetInstruktorID(string ime, string prezime)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                try
+                {
+                    return await dbContext.Instruktori.Where(i => i.Ime == ime && i.Prezime == prezime).Select(i => i.IDInstruktora).FirstOrDefaultAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return Guid.Empty;
+                }
             }
         }
     }

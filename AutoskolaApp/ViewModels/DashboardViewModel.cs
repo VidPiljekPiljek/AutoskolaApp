@@ -22,6 +22,7 @@ namespace AutoskolaApp.ViewModels
 {
     public class DashboardViewModel : ViewModelBase, ILoadable
     {
+        private readonly KorisnikService _korisnikService;
         private bool _isLoaded;
         public bool IsLoaded
         {
@@ -35,11 +36,11 @@ namespace AutoskolaApp.ViewModels
         public NavigateToUplateCommand NavigateToUplateCommand { get; }
         public NavigateToVoznjeCommand NavigateToVoznjeCommand { get; }
 
-        public bool CanNavigateToInstruktori => true;
+        public bool CanNavigateToInstruktori { get; set; }
         public bool CanNavigateToIspiti { get; set; }
-        public bool CanNavigateToStudenti => true;
-        public bool CanNavigateToUplate => true;
-        public bool CanNavigateToVoznje => true;
+        public bool CanNavigateToStudenti { get; set; }
+        public bool CanNavigateToUplate { get; set; }
+        public bool CanNavigateToVoznje { get; set; }
 
         public void Initialize(Type korisnikType)
         {
@@ -68,6 +69,24 @@ namespace AutoskolaApp.ViewModels
 
         public void LoadViewModel()
         {
+            Type tipKorisnika = _korisnikService.KorisnikAuthorization();
+
+            if (tipKorisnika is Administrator)
+            {
+                CanNavigateToInstruktori = true;
+                CanNavigateToIspiti = true;
+                CanNavigateToStudenti = true;
+                CanNavigateToUplate = true;
+                CanNavigateToVoznje = true;
+            }
+            if (tipKorisnika is Instruktor)
+            {
+                CanNavigateToInstruktori = true;
+                CanNavigateToIspiti = true;
+                CanNavigateToStudenti = true;
+                CanNavigateToUplate = true;
+                CanNavigateToVoznje = true;
+            }
         }
 
         public DashboardViewModel(NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)

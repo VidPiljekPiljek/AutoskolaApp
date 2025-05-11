@@ -31,5 +31,12 @@ namespace AutoskolaApp.Models
             IDInstruktora = iDInstruktora;
             Instruktor = instruktor;
         }
+
+        public Voznja(DateTime datumVoznje, Guid iDStudenta, Guid iDInstruktora)
+        {
+            DatumVoznje = datumVoznje;
+            IDStudenta = iDStudenta;
+            IDInstruktora = iDInstruktora;
+        }
     }
 }

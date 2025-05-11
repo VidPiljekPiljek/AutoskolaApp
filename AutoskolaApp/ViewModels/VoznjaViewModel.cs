@@ -14,7 +14,7 @@ namespace AutoskolaApp.ViewModels
         public Guid IDVoznje { get; set; }
         public DateTime DatumVoznje => _voznja.DatumVoznje;
         public Guid IDStudenta => _voznja.IDStudenta;
-
+        public Guid IDInstruktora => _voznja.IDInstruktora;
 
         public VoznjaViewModel(Voznja voznja) => _voznja = voznja;
     }

@@ -48,6 +48,9 @@
             <DataTemplate DataType="{x:Type formviewmodels:UplateFormViewModel}">
                 <forms:UplateForm/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type formviewmodels:VoznjeFormViewModel}">
+                <forms:VoznjeForm/>
+            </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
