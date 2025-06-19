@@ -1,13 +1,14 @@
-﻿using System;
+﻿using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.CreationalCommands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Services;
+using AutoskolaApp.ViewModels.FormViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Commands;
-using AutoskolaApp.Models;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
@@ -18,16 +19,18 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         private readonly ObservableCollection<IspitViewModel> _ispiti;
         public IEnumerable<IspitViewModel> Ispiti => _ispiti;
 
-        public ICommand LoadInstruktoriCommand { get; }
-        public ICommand CreateInstruktorCommand { get; }
+        public ICommand LoadIspitiCommand { get; }
+        public ICommand CreateIspitCommand { get; }
+        public ICommand NavigateBackCommand { get; }
 
-        public IspitiListingViewModel(IspitService ispitService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public IspitiListingViewModel(IspitService ispitService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _ispitService = ispitService;
             _ispiti = new ObservableCollection<IspitViewModel>();
 
-            LoadInstruktoriCommand = new LoadIspitiCommand(null, _ispitService);
-            CreateInstruktorCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
+            LoadIspitiCommand = new LoadIspitiCommand(null, _ispitService);
+            CreateIspitCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
+            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
         }
 
         public void UpdateReservations(IEnumerable<Ispit> ispiti)
@@ -53,7 +56,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
 
         public void LoadViewModel()
         {
-            LoadInstruktoriCommand.Execute(null);
+            LoadIspitiCommand.Execute(null);
         }
     }
 }

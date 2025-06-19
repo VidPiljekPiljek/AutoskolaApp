@@ -14,7 +14,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="65"/>
@@ -22,17 +22,19 @@
             <ColumnDefinition Width="65"/>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
 
             <RowDefinition Height="30"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>
@@ -46,12 +48,15 @@
         <Label Grid.Column="3" Grid.Row="4" Content="Prezime Studenta" Grid.ColumnSpan="3"/>
 
         <ui:CalendarDatePicker Date="{Binding DatumVoznje, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2"/>
-        <ui:TextBox Text="{Binding ImeInstruktora, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"/>
-        <ui:TextBox Text="{Binding PrezimeInstruktora, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="2"/>
-        <ui:TextBox Text="{Binding ImeStudenta, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="5"/>
-        <ui:TextBox Text="{Binding PrezimeStudenta, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3"/>
+        <ui:TextBox Text="{Binding InstruktorIme, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"/>
+        <ui:TextBox Text="{Binding InstruktorPrezime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="2"/>
+        <ui:TextBox Text="{Binding StudentIme, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="5"/>
+        <ui:TextBox Text="{Binding StudentPrezime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3"/>
+        <DataGrid ItemsSource="{Binding Instruktori}" Grid.Column="9" Grid.Row="1" Grid.RowSpan="3"></DataGrid>
+        <DataGrid ItemsSource="{Binding Studenti}" Grid.Column="9" Grid.Row="4" Grid.RowSpan="3"></DataGrid>
 
         <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="7"/>
         <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="7"/>
+        <Button Command="{Binding SearchCommand}" x:Name="btnSearch" Content="Traži" Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

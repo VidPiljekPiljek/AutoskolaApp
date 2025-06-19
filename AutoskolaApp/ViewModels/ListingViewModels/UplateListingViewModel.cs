@@ -20,14 +20,16 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
 
         public ICommand LoadUplateCommand { get; }
         public ICommand CreateUplataCommand { get; }
+        public ICommand NavigateBackCommand { get; }
 
-        public UplateListingViewModel(UplataService uplataService, NavigationService<UplateFormViewModel> uplateFormNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public UplateListingViewModel(UplataService uplataService, NavigationService<UplateFormViewModel> uplateFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _uplataService = uplataService;
             _uplate = new ObservableCollection<UplataViewModel>();
 
             LoadUplateCommand = new LoadUplateCommand(this, uplataService);
             CreateUplataCommand = new NavigateCommand<UplateFormViewModel>(uplateFormNavigationService);
+            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)

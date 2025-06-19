@@ -1,19 +1,27 @@
-﻿using System;
+﻿using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.CreationalCommands;
+using AutoskolaApp.Commands.SearchCommands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Services;
+using AutoskolaApp.ViewModels.ListingViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using AutoskolaApp.Commands;
-using AutoskolaApp.Commands.CreationalCommands;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.ListingViewModels;
 
 namespace AutoskolaApp.ViewModels.FormViewModels
 {
     public class VoznjeFormViewModel : ViewModelBase
     {
+        private readonly ObservableCollection<StudentViewModel> _studenti;
+        public IEnumerable<StudentViewModel> Studenti => _studenti;
+        private readonly ObservableCollection<InstruktorViewModel> _instruktori;
+        public IEnumerable<InstruktorViewModel> Instruktori => _instruktori;
+
         private DateTime _datumVoznje;
         public DateTime DatumVoznje
         {
@@ -50,11 +58,38 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         }
 
         public AsyncCommandBase SubmitCommand { get; set; }
+        public AsyncCommandBase SearchCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
         public VoznjeFormViewModel(StudentService studentService, InstruktorService instruktorService, VoznjaService voznjaService, NavigationService<VoznjeListingViewModel> voznjeNavigationService) {
             SubmitCommand = new CreateVoznjaCommand(this, studentService, instruktorService, voznjaService, voznjeNavigationService);
             CancelCommand = new NavigateCommand<VoznjeListingViewModel>(voznjeNavigationService);
+            SearchCommand = new InstruktorStudentSearchCommand(this, studentService, instruktorService);
+
+            _instruktori = new ObservableCollection<InstruktorViewModel>();
+            _studenti = new ObservableCollection<StudentViewModel>();
+        }
+
+        public void StudentFound(IEnumerable<Student> studenti)
+        {
+            _studenti.Clear();
+
+            foreach (Student student in studenti)
+            {
+                StudentViewModel studentViewModel = new StudentViewModel(student);
+                _studenti.Add(studentViewModel);
+            }
+        }
+
+        public void InstruktorFound(IEnumerable<Instruktor> instruktori)
+        {
+            _instruktori.Clear();
+
+            foreach (Instruktor instruktor in instruktori)
+            {
+                InstruktorViewModel instruktorViewModel = new InstruktorViewModel(instruktor);
+                _instruktori.Add(instruktorViewModel);
+            }
         }
     }
 }

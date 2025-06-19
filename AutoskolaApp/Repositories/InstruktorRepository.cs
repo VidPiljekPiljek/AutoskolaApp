@@ -39,6 +39,22 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task<IEnumerable<Instruktor>> InstruktorSearch(string ime, string prezime)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                try
+                {
+                    return await dbContext.Instruktori.Where(s => s.Ime == ime && s.Prezime == prezime).ToListAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                return null;
+            }
+        }
+
         public async Task<Guid> GetInstruktorID(string ime, string prezime)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())

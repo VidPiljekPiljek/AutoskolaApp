@@ -14,7 +14,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="65"/>
@@ -22,18 +22,20 @@
             <ColumnDefinition Width="65"/>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -52,8 +54,10 @@
         <ui:TextBox Text="{Binding PrezimeStudenta, UpdateSourceTrigger=PropertyChanged}" x:Name="txtStudentPrezime" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5"/>
 
         <ui:CalendarDatePicker Date="{Binding DatumUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumUplacenja" Grid.Column="1" Grid.Row="2"/>
+        <DataGrid SelectedItem="{Binding SelectedStudent}" ItemsSource="{Binding Studenti}" Grid.Column="9" Grid.Row="2" Grid.RowSpan="3"></DataGrid>
 
         <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="7"/>
         <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="7"/>
+        <Button Command="{Binding SearchCommand}" x:Name="btnSearch" Content="Traži" Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

@@ -21,23 +21,29 @@ Foreground="{DynamicResource TextFillColorPrimaryBrush}"
             <RowDefinition Height="30" />
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="300" />
-            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
         <Label Content="Ispiti" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
         <Label Content="Rezultati" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" />
-        <Label Content="Statistika" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" />
+        <Label Content="Statistika" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" />
 
-        <ui:DataGrid Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}"/>
+        <ui:DataGrid Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Ispiti}"/>
         <ui:DataGrid Grid.Row="3" Grid.Column="3" ItemsSource="{Binding}"/>
-        <ui:DataGrid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" ItemsSource="{Binding}"/>
+
+        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+            <Button Margin="0, 0, 10, 0" Content="Dodaj" Command="{Binding CreateIspitCommand}"/>
+            <Button Content="Natrag" Command="{Binding NavigateBackCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

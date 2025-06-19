@@ -25,6 +25,11 @@ namespace AutoskolaApp.Stores
             _studenti = new List<Student>();
         }
 
+        public async Task<IEnumerable<Student>> StudentSearch(string ime, string prezime)
+        {
+            return await _studentRepository.StudentSearch(ime, prezime);
+        }
+
         public async Task Load()
         {
             try

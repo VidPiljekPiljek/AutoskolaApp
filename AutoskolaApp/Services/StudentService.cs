@@ -27,6 +27,11 @@ namespace AutoskolaApp.Services
             return _studentStore.Studenti;
         }
 
+        public async Task<IEnumerable<Student>> StudentSearch(string ime, string prezime)
+        {
+            return await _studentStore.StudentSearch(ime, prezime);
+        }
+
         public async Task<Guid> GetStudentID(string ime, string prezime)
         {
             return await _studentStore.GetStudentID(ime, prezime);

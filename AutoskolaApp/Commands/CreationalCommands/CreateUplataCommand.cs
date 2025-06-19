@@ -37,11 +37,11 @@ namespace AutoskolaApp.Commands.CreationalCommands
 
             try
             {
-                Guid studentID = await _studentService.GetStudentID(_formViewModel.ImeStudenta, _formViewModel.PrezimeStudenta);
+                Guid studentID = _formViewModel.SelectedStudent.IDStudenta;
 
                 Uplata uplata = new Uplata(
                     _formViewModel.DatumUplate,
-                    _formViewModel.Iznos,
+                    decimal.Parse(_formViewModel.Iznos),
                     _formViewModel.NacinUplate,
                     studentID
                     );
