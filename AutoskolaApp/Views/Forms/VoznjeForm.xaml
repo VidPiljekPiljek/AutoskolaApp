@@ -36,7 +36,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -47,7 +47,7 @@
         <Label Grid.Column="1" Grid.Row="4" Content="Ime Studenta"/>
         <Label Grid.Column="3" Grid.Row="4" Content="Prezime Studenta" Grid.ColumnSpan="3"/>
 
-        <ui:CalendarDatePicker Date="{Binding DatumVoznje, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2"/>
+        <DatePicker SelectedDate="{Binding DatumVoznje, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2"/>
         <ui:TextBox Text="{Binding InstruktorIme, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"/>
         <ui:TextBox Text="{Binding InstruktorPrezime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="2"/>
         <ui:TextBox Text="{Binding StudentIme, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="5"/>

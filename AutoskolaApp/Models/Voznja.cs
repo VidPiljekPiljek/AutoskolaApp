@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +11,20 @@ namespace AutoskolaApp.Models
     public class Voznja
     {
         [Key]
-        public Guid IDVoznje { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IDVoznje { get; set; }
 
         public DateTime DatumVoznje { get; set; }
-        public Guid IDStudenta { get; set; } // Foreign key
+        public int IDStudenta { get; set; } // Foreign key
         public Student Student { get; set; } // Navigation property
-        public Guid IDInstruktora { get; set; } // Foreign key
+        public int IDInstruktora { get; set; } // Foreign key
         public Instruktor Instruktor { get; set; } // Navigation property
 
         public Voznja()
         {
         }
 
-        public Voznja(Guid iDVoznje, DateTime datumVoznje, Guid iDStudenta, Student student, Guid iDInstruktora, Instruktor instruktor)
+        public Voznja(int iDVoznje, DateTime datumVoznje, int iDStudenta, Student student, int iDInstruktora, Instruktor instruktor)
         {
             IDVoznje = iDVoznje;
             DatumVoznje = datumVoznje;
@@ -32,7 +34,7 @@ namespace AutoskolaApp.Models
             Instruktor = instruktor;
         }
 
-        public Voznja(DateTime datumVoznje, Guid iDStudenta, Guid iDInstruktora)
+        public Voznja(DateTime datumVoznje, int iDStudenta, int iDInstruktora)
         {
             DatumVoznje = datumVoznje;
             IDStudenta = iDStudenta;

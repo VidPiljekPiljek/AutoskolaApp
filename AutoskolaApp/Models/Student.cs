@@ -11,7 +11,8 @@ namespace AutoskolaApp.Models
     public class Student
     {
         [Key]
-        public Guid IDStudenta { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IDStudenta { get; set; }
 
         public string OIB { get; set; }
         public string Ime { get; set; }
@@ -19,7 +20,7 @@ namespace AutoskolaApp.Models
         public DateTime DatumRodjenja { get; set; }
         public DateTime DatumPocetka { get; set; }
         public int SatiVoznje { get; set; }
-        public Guid IDKorisnika { get; set; } // Foreign key
+        public int IDKorisnika { get; set; } // Foreign key
         public Korisnik Korisnik { get; set; } // Navigation property
         public ICollection<PolaznikIspita>? PolazniciIspita { get; set; }
         public ICollection<Uplata>? Uplate { get; set; }
@@ -29,7 +30,7 @@ namespace AutoskolaApp.Models
         {
         }
         
-        public Student(Guid iDStudenta, string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, Guid iDKorisnika, Korisnik korisnik, ICollection<PolaznikIspita>? polazniciIspita, ICollection<Uplata>? uplate, ICollection<Voznja>? voznje)
+        public Student(int iDStudenta, string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, int iDKorisnika, Korisnik korisnik, ICollection<PolaznikIspita>? polazniciIspita, ICollection<Uplata>? uplate, ICollection<Voznja>? voznje)
         {
             IDStudenta = iDStudenta;
             OIB = oIB;
@@ -45,7 +46,7 @@ namespace AutoskolaApp.Models
             Voznje = voznje;
         }
 
-        public Student(Guid iDStudenta, string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, Guid iDKorisnika)
+        public Student(int iDStudenta, string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, int iDKorisnika)
         {
             IDStudenta = iDStudenta;
             OIB = oIB;
@@ -57,7 +58,7 @@ namespace AutoskolaApp.Models
             IDKorisnika = iDKorisnika;
         }
 
-        public Student(string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, Guid iDKorisnika)
+        public Student(string oIB, string ime, string prezime, DateTime datumRodjenja, DateTime datumPocetka, int satiVoznje, int iDKorisnika)
         {
             OIB = oIB;
             Ime = ime;

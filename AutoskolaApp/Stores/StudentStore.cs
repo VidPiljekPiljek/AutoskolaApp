@@ -57,7 +57,7 @@ namespace AutoskolaApp.Stores
             OnStudentCreated(student);
         }
 
-        public async Task<Guid> GetStudentID(string ime, string prezime)
+        public async Task<int> GetStudentID(string ime, string prezime)
         {
             return await _studentRepository.GetStudentID(ime, prezime);
         }

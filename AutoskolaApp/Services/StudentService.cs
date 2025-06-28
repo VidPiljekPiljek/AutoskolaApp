@@ -32,7 +32,7 @@ namespace AutoskolaApp.Services
             return await _studentStore.StudentSearch(ime, prezime);
         }
 
-        public async Task<Guid> GetStudentID(string ime, string prezime)
+        public async Task<int> GetStudentID(string ime, string prezime)
         {
             return await _studentStore.GetStudentID(ime, prezime);
         }

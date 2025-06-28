@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoskolaApp.Migrations
 {
     [DbContext(typeof(AutoskolaDbContext))]
-    [Migration("20250511165352_Initial")]
+    [Migration("20250625195704_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -22,12 +22,12 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Administrator", b =>
                 {
-                    b.Property<Guid>("IDAdministratora")
+                    b.Property<int>("IDAdministratora")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("IDKorisnika")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDKorisnika")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Ime")
                         .IsRequired()
@@ -51,8 +51,8 @@ namespace AutoskolaApp.Migrations
                     b.HasData(
                         new
                         {
-                            IDAdministratora = new Guid("00000000-0000-0000-0000-000000000001"),
-                            IDKorisnika = new Guid("00000000-0000-0000-0000-000000000001"),
+                            IDAdministratora = 1,
+                            IDKorisnika = 1,
                             Ime = "Vid",
                             OIB = "17232937055",
                             Prezime = "Piljek"
@@ -61,15 +61,15 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Instruktor", b =>
                 {
-                    b.Property<Guid>("IDInstruktora")
+                    b.Property<int>("IDInstruktora")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DatumZaposlenja")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDKorisnika")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDKorisnika")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Ime")
                         .IsRequired()
@@ -96,9 +96,9 @@ namespace AutoskolaApp.Migrations
                     b.HasData(
                         new
                         {
-                            IDInstruktora = new Guid("00000000-0000-0000-0000-000000000002"),
+                            IDInstruktora = 1,
                             DatumZaposlenja = new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IDKorisnika = new Guid("00000000-0000-0000-0000-000000000002"),
+                            IDKorisnika = 2,
                             Ime = "Leon",
                             OIB = "17235938955",
                             Prezime = "Plecko"
@@ -107,14 +107,15 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Ispit", b =>
                 {
-                    b.Property<Guid>("IDIspita")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDIspita")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDInstruktora")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDInstruktora")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("VrstaIspita")
                         .IsRequired()
@@ -127,9 +128,9 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Korisnik", b =>
                 {
-                    b.Property<Guid>("IDKorisnika")
+                    b.Property<int>("IDKorisnika")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("IDUloge")
                         .HasColumnType("INTEGER");
@@ -151,14 +152,14 @@ namespace AutoskolaApp.Migrations
                     b.HasData(
                         new
                         {
-                            IDKorisnika = new Guid("00000000-0000-0000-0000-000000000001"),
+                            IDKorisnika = 1,
                             IDUloge = 1,
                             KorisnickoIme = "admin",
                             Lozinka = "adminautoskola"
                         },
                         new
                         {
-                            IDKorisnika = new Guid("00000000-0000-0000-0000-000000000002"),
+                            IDKorisnika = 2,
                             IDUloge = 1,
                             KorisnickoIme = "instruktortest",
                             Lozinka = "instruktortest"
@@ -167,15 +168,15 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.PolaznikIspita", b =>
                 {
-                    b.Property<Guid>("IDPolaznika")
+                    b.Property<int>("IDPolaznika")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("IDIspita")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDIspita")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("IDStudenta")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDStudenta")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Rezultat")
                         .IsRequired()
@@ -192,9 +193,9 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Student", b =>
                 {
-                    b.Property<Guid>("IDStudenta")
+                    b.Property<int>("IDStudenta")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DatumPocetka")
                         .HasColumnType("TEXT");
@@ -202,8 +203,8 @@ namespace AutoskolaApp.Migrations
                     b.Property<DateTime>("DatumRodjenja")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDKorisnika")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDKorisnika")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Ime")
                         .IsRequired()
@@ -262,15 +263,15 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Uplata", b =>
                 {
-                    b.Property<Guid>("IDUplate")
+                    b.Property<int>("IDUplate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DatumUplate")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDStudenta")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDStudenta")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Iznos")
                         .HasColumnType("TEXT");
@@ -291,8 +292,8 @@ namespace AutoskolaApp.Migrations
                     b.Property<string>("Registracija")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDInstruktora")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDInstruktora")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Marka")
                         .IsRequired()
@@ -312,17 +313,18 @@ namespace AutoskolaApp.Migrations
 
             modelBuilder.Entity("AutoskolaApp.Models.Voznja", b =>
                 {
-                    b.Property<Guid>("IDVoznje")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDVoznje")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DatumVoznje")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("IDInstruktora")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDInstruktora")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("IDStudenta")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IDStudenta")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("IDVoznje");
 

@@ -11,13 +11,14 @@ namespace AutoskolaApp.ViewModels
     {
         private readonly Instruktor _instruktor;
 
-        public Guid IDInstruktora { get; set; }
+        public int IDInstruktora => _instruktor.IDInstruktora;
 
         public string OIB => _instruktor.OIB;
         public string Ime => _instruktor.Ime;
         public string Prezime => _instruktor.Prezime;
         public string DatumZaposlenja => _instruktor.DatumZaposlenja.ToString("d");
         public string? Napomena => _instruktor.Napomena;
+        public int IDKorisnika => _instruktor.IDKorisnika;
 
         public InstruktorViewModel(Instruktor instruktor)
         {

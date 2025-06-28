@@ -56,7 +56,7 @@ namespace AutoskolaApp.Repositories
             }
         }
 
-        public async Task<Guid> GetStudentID(string ime, string prezime)
+        public async Task<int> GetStudentID(string ime, string prezime)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
@@ -67,7 +67,7 @@ namespace AutoskolaApp.Repositories
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return Guid.Empty;
+                    return -1;
                 }
             }
         }

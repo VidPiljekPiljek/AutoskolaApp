@@ -11,14 +11,15 @@ namespace AutoskolaApp.Models
     public class Instruktor
     {
         [Key]
-        public Guid IDInstruktora { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IDInstruktora { get; set; }
 
         public string OIB { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public DateTime DatumZaposlenja { get; set; }
         public string? Napomena { get; set; }
-        public Guid IDKorisnika { get; set; } // Foreign key
+        public int IDKorisnika { get; set; } // Foreign key
         public Korisnik Korisnik { get; set; } // Navigation property
         public Vozilo? Vozilo { get; set; } // Navigation property to dependent entity
         public ICollection<Ispit>? Ispiti { get; set; }
@@ -28,7 +29,7 @@ namespace AutoskolaApp.Models
         {
         }
 
-        public Instruktor(Guid iDInstruktora, string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Guid iDKorisnika, Korisnik korisnik, Vozilo? vozilo, ICollection<Ispit>? ispiti, ICollection<Voznja>? voznje)
+        public Instruktor(int iDInstruktora, string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, int iDKorisnika, Korisnik korisnik, Vozilo? vozilo, ICollection<Ispit>? ispiti, ICollection<Voznja>? voznje)
         {
             IDInstruktora = iDInstruktora;
             OIB = oIB;
@@ -43,7 +44,7 @@ namespace AutoskolaApp.Models
             Voznje = voznje;
         }
 
-        public Instruktor(Guid iDInstruktora, string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Guid iDKorisnika)
+        public Instruktor(int iDInstruktora, string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, int iDKorisnika)
         {
             IDInstruktora = iDInstruktora;
             OIB = oIB;
@@ -54,7 +55,7 @@ namespace AutoskolaApp.Models
             IDKorisnika = iDKorisnika;
         }
 
-        public Instruktor(string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, Guid iDKorisnika)
+        public Instruktor(string oIB, string ime, string prezime, DateTime datumZaposlenja, string? napomena, int iDKorisnika)
         {
             OIB = oIB;
             Ime = ime;

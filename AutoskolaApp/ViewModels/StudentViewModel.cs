@@ -11,7 +11,7 @@ namespace AutoskolaApp.ViewModels
     {
         private readonly Student _student;
 
-        public Guid IDStudenta { get; set; }
+        public int IDStudenta => _student.IDStudenta;
 
         public string OIB => _student.OIB;
         public string Ime => _student.Ime;
@@ -19,7 +19,7 @@ namespace AutoskolaApp.ViewModels
         public string DatumRodjenja => _student.DatumRodjenja.ToString("d");
         public string DatumPocetka => _student.DatumPocetka.ToString("d");
         public int SatiVoznje => _student.SatiVoznje;
-        public Guid IDKorisnika => _student.IDKorisnika;
+        public int IDKorisnika => _student.IDKorisnika;
 
         public StudentViewModel(Student student)
         {

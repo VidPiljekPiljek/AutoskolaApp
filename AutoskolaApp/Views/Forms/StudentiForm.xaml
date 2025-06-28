@@ -28,13 +28,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="38"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -54,8 +54,8 @@
         <ui:TextBox Text="{Binding Ime, UpdateSourceTrigger=PropertyChanged}" x:Name="txtIme" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3"/>
         <ui:TextBox Text="{Binding Prezime, UpdateSourceTrigger=PropertyChanged}" x:Name="txtPrezime" Grid.Row="5" Grid.Column="7"/>
 
-        <ui:CalendarDatePicker Date="{Binding DatumRodjenja, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumRodenja" Grid.Column="1" Grid.Row="8"/>
-        <ui:CalendarDatePicker Date="{Binding DatumPocetka, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumPocetka" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3"/>
+        <DatePicker SelectedDate="{Binding DatumRodjenja, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumRodenja" Grid.Column="1" Grid.Row="8"/>
+        <DatePicker SelectedDate="{Binding DatumPocetka, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumPocetka" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3"/>
 
         <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="10"/>
         <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="10"/>

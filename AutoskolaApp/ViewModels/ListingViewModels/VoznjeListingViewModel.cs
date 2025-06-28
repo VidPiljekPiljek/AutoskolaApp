@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
-    public class VoznjeListingViewModel : ViewModelBase
+    public class VoznjeListingViewModel : ViewModelBase, ILoadable
     {
         private readonly VoznjaService _voznjaService;
         private readonly ObservableCollection<VoznjaViewModel> _voznje;

@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
-    public class IspitiListingViewModel : ViewModelBase
+    public class IspitiListingViewModel : ViewModelBase, ILoadable
     {
         private readonly IspitService _ispitService;
         private readonly ObservableCollection<IspitViewModel> _ispiti;

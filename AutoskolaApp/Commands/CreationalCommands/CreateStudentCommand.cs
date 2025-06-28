@@ -49,7 +49,7 @@ namespace AutoskolaApp.Commands.CreationalCommands
 
                 await _korisnikService.AddKorisnik(korisnik);
 
-                Guid korisnikID = await _korisnikService.GetKorisnikID(korisnik.KorisnickoIme, korisnik.Lozinka);
+                int korisnikID = await _korisnikService.GetKorisnikID(korisnik.KorisnickoIme, korisnik.Lozinka);
 
                 Student student = new Student(
                     _formViewModel.OIB,

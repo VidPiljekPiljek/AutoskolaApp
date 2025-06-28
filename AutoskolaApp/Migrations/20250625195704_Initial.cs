@@ -30,7 +30,8 @@ namespace AutoskolaApp.Migrations
                 name: "Korisnici",
                 columns: table => new
                 {
-                    IDKorisnika = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDKorisnika = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     KorisnickoIme = table.Column<string>(type: "TEXT", nullable: false),
                     Lozinka = table.Column<string>(type: "TEXT", nullable: false),
                     IDUloge = table.Column<int>(type: "INTEGER", nullable: false)
@@ -50,11 +51,12 @@ namespace AutoskolaApp.Migrations
                 name: "Administratori",
                 columns: table => new
                 {
-                    IDAdministratora = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDAdministratora = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     OIB = table.Column<string>(type: "TEXT", nullable: false),
                     Ime = table.Column<string>(type: "TEXT", nullable: false),
                     Prezime = table.Column<string>(type: "TEXT", nullable: false),
-                    IDKorisnika = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDKorisnika = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,13 +73,14 @@ namespace AutoskolaApp.Migrations
                 name: "Instruktori",
                 columns: table => new
                 {
-                    IDInstruktora = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDInstruktora = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     OIB = table.Column<string>(type: "TEXT", nullable: false),
                     Ime = table.Column<string>(type: "TEXT", nullable: false),
                     Prezime = table.Column<string>(type: "TEXT", nullable: false),
                     DatumZaposlenja = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Napomena = table.Column<string>(type: "TEXT", nullable: true),
-                    IDKorisnika = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDKorisnika = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,14 +97,15 @@ namespace AutoskolaApp.Migrations
                 name: "Studenti",
                 columns: table => new
                 {
-                    IDStudenta = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDStudenta = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     OIB = table.Column<string>(type: "TEXT", nullable: false),
                     Ime = table.Column<string>(type: "TEXT", nullable: false),
                     Prezime = table.Column<string>(type: "TEXT", nullable: false),
                     DatumRodjenja = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DatumPocetka = table.Column<DateTime>(type: "TEXT", nullable: false),
                     SatiVoznje = table.Column<int>(type: "INTEGER", nullable: false),
-                    IDKorisnika = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDKorisnika = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -118,10 +122,11 @@ namespace AutoskolaApp.Migrations
                 name: "Ispiti",
                 columns: table => new
                 {
-                    IDIspita = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDIspita = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     DateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     VrstaIspita = table.Column<string>(type: "TEXT", nullable: false),
-                    IDInstruktora = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDInstruktora = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -141,7 +146,7 @@ namespace AutoskolaApp.Migrations
                     Registracija = table.Column<string>(type: "TEXT", nullable: false),
                     Marka = table.Column<string>(type: "TEXT", nullable: false),
                     Model = table.Column<string>(type: "TEXT", nullable: false),
-                    IDInstruktora = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDInstruktora = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -158,11 +163,12 @@ namespace AutoskolaApp.Migrations
                 name: "Uplate",
                 columns: table => new
                 {
-                    IDUplate = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDUplate = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     DatumUplate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Iznos = table.Column<decimal>(type: "TEXT", nullable: false),
                     NacinUplate = table.Column<string>(type: "TEXT", nullable: false),
-                    IDStudenta = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDStudenta = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -179,10 +185,11 @@ namespace AutoskolaApp.Migrations
                 name: "Voznje",
                 columns: table => new
                 {
-                    IDVoznje = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDVoznje = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     DatumVoznje = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    IDStudenta = table.Column<Guid>(type: "TEXT", nullable: false),
-                    IDInstruktora = table.Column<Guid>(type: "TEXT", nullable: false)
+                    IDStudenta = table.Column<int>(type: "INTEGER", nullable: false),
+                    IDInstruktora = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -205,9 +212,10 @@ namespace AutoskolaApp.Migrations
                 name: "PolazniciIspita",
                 columns: table => new
                 {
-                    IDPolaznika = table.Column<Guid>(type: "TEXT", nullable: false),
-                    IDStudenta = table.Column<Guid>(type: "TEXT", nullable: false),
-                    IDIspita = table.Column<Guid>(type: "TEXT", nullable: false),
+                    IDPolaznika = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IDStudenta = table.Column<int>(type: "INTEGER", nullable: false),
+                    IDIspita = table.Column<int>(type: "INTEGER", nullable: false),
                     Rezultat = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -242,19 +250,19 @@ namespace AutoskolaApp.Migrations
                 columns: new[] { "IDKorisnika", "IDUloge", "KorisnickoIme", "Lozinka" },
                 values: new object[,]
                 {
-                    { new Guid("00000000-0000-0000-0000-000000000001"), 1, "admin", "adminautoskola" },
-                    { new Guid("00000000-0000-0000-0000-000000000002"), 1, "instruktortest", "instruktortest" }
+                    { 1, 1, "admin", "adminautoskola" },
+                    { 2, 1, "instruktortest", "instruktortest" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Administratori",
                 columns: new[] { "IDAdministratora", "IDKorisnika", "Ime", "OIB", "Prezime" },
-                values: new object[] { new Guid("00000000-0000-0000-0000-000000000001"), new Guid("00000000-0000-0000-0000-000000000001"), "Vid", "17232937055", "Piljek" });
+                values: new object[] { 1, 1, "Vid", "17232937055", "Piljek" });
 
             migrationBuilder.InsertData(
                 table: "Instruktori",
                 columns: new[] { "IDInstruktora", "DatumZaposlenja", "IDKorisnika", "Ime", "Napomena", "OIB", "Prezime" },
-                values: new object[] { new Guid("00000000-0000-0000-0000-000000000002"), new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("00000000-0000-0000-0000-000000000002"), "Leon", null, "17235938955", "Plecko" });
+                values: new object[] { 1, new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "Leon", null, "17235938955", "Plecko" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administratori_IDKorisnika",

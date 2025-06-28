@@ -37,7 +37,7 @@ namespace AutoskolaApp.Commands.CreationalCommands
 
             try
             {
-                Guid studentID = _formViewModel.SelectedStudent.IDStudenta;
+                int studentID = _formViewModel.SelectedStudent.IDStudenta;
 
                 Uplata uplata = new Uplata(
                     _formViewModel.DatumUplate,

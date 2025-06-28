@@ -1,11 +1,12 @@
-﻿using System;
+﻿using AutoskolaApp.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace AutoskolaApp.DbContexts
 {
@@ -25,17 +26,17 @@ namespace AutoskolaApp.DbContexts
             );
 
             modelBuilder.Entity<Korisnik>().HasData(
-                new Korisnik ( new Guid("00000000-0000-0000-0000-000000000001"), "admin", "adminautoskola", 1 )
+                new Korisnik ( 1, "admin", "adminautoskola", 1 )
             );
             modelBuilder.Entity<Administrator>().HasData(
-                new Administrator(new Guid("00000000-0000-0000-0000-000000000001"), "17232937055", "Vid", "Piljek", new Guid("00000000-0000-0000-0000-000000000001"))
+                new Administrator(1, "17232937055", "Vid", "Piljek", 1)
             );
 
             modelBuilder.Entity<Korisnik>().HasData(
-                new Korisnik(new Guid("00000000-0000-0000-0000-000000000002"), "instruktortest", "instruktortest", 1)
+                new Korisnik(2, "instruktortest", "instruktortest", 1)
             );
             modelBuilder.Entity<Instruktor>().HasData(
-                new Instruktor(new Guid("00000000-0000-0000-0000-000000000002"), "17235938955", "Leon", "Plecko", new DateTime(2020, 1, 5), null, new Guid("00000000-0000-0000-0000-000000000002"))
+                new Instruktor(1, "17235938955", "Leon", "Plecko", new DateTime(2020, 1, 5), null, 2)
             );
 
             modelBuilder.Entity<Uloga>()
@@ -59,6 +60,13 @@ namespace AutoskolaApp.DbContexts
                 .WithOne(e => e.Korisnik)
                 .HasForeignKey<Student>(e => e.IDKorisnika)
                 .IsRequired();
+            modelBuilder.Entity<Korisnik>(b =>
+            {
+                b.HasKey(k => k.IDKorisnika);
+                b.Property(x => x.IDKorisnika)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();
+            });
 
             modelBuilder.Entity<Ispit>()
                 .HasMany(e => e.PolazniciIspita)
@@ -81,6 +89,13 @@ namespace AutoskolaApp.DbContexts
                 .WithOne(e => e.Instruktor)
                 .HasForeignKey<Vozilo>(e => e.IDInstruktora)
                 .IsRequired();
+            modelBuilder.Entity<Instruktor>(b =>
+            {
+                b.HasKey(i => i.IDInstruktora);
+                b.Property(x => x.IDInstruktora)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();
+            });
 
             modelBuilder.Entity<Student>()
                 .HasMany(e => e.PolazniciIspita)
@@ -97,6 +112,13 @@ namespace AutoskolaApp.DbContexts
                 .WithOne(e => e.Student)
                 .HasForeignKey(e => e.IDStudenta)
                 .IsRequired();
+            modelBuilder.Entity<Student>(b =>
+            {
+                b.HasKey(s => s.IDStudenta);
+                b.Property(x => x.IDStudenta)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();
+            });
         }
 
         public DbSet<Administrator> Administratori { get; set; }
@@ -110,4 +132,6 @@ namespace AutoskolaApp.DbContexts
         public DbSet<Uloga> Uloge { get; set; }
         public DbSet<PolaznikIspita> PolazniciIspita { get; set; }
     }
+
+
 }

@@ -30,12 +30,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -47,13 +47,13 @@
 
         <ui:TextBox Text="{Binding Iznos, UpdateSourceTrigger=PropertyChanged}" x:Name="txtIznos" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"/>
         <ComboBox SelectedValue="{Binding NacinUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="cmbNacinUplate" Grid.Column="7" Grid.Row="2">
-            <ComboBoxItem Name="Kartica">Kartica</ComboBoxItem>
+            <ComboBoxItem Content="Kartica" Name="Kartica"/>
             <ComboBoxItem Name="Gotovina">Gotovina</ComboBoxItem>
         </ComboBox>
         <ui:TextBox Text="{Binding ImeStudenta, UpdateSourceTrigger=PropertyChanged}" x:Name="txtStudentIme" Grid.Column="1" Grid.Row="5"/>
         <ui:TextBox Text="{Binding PrezimeStudenta, UpdateSourceTrigger=PropertyChanged}" x:Name="txtStudentPrezime" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5"/>
 
-        <ui:CalendarDatePicker Date="{Binding DatumUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumUplacenja" Grid.Column="1" Grid.Row="2"/>
+        <DatePicker SelectedDate="{Binding DatumUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumUplacenja" Grid.Column="1" Grid.Row="2"/>
         <DataGrid SelectedItem="{Binding SelectedStudent}" ItemsSource="{Binding Studenti}" Grid.Column="9" Grid.Row="2" Grid.RowSpan="3"></DataGrid>
 
         <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="7"/>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,8 @@ namespace AutoskolaApp.Models
     public class Korisnik
     {
         [Key]
-        public Guid IDKorisnika { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IDKorisnika { get; set; }
 
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
@@ -24,7 +26,7 @@ namespace AutoskolaApp.Models
         {
         }
 
-        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, int iDUloge, Uloga uloga, Administrator? administrator, Instruktor? instruktor, Student? student)
+        public Korisnik(int iDKorisnika, string korisnickoIme, string lozinka, int iDUloge, Uloga uloga, Administrator? administrator, Instruktor? instruktor, Student? student)
         {
             IDKorisnika = iDKorisnika;
             KorisnickoIme = korisnickoIme;
@@ -36,7 +38,7 @@ namespace AutoskolaApp.Models
             Student = student;
         }
 
-        public Korisnik(Guid iDKorisnika, string korisnickoIme, string lozinka, int iDUloge)
+        public Korisnik(int iDKorisnika, string korisnickoIme, string lozinka, int iDUloge)
         {
             IDKorisnika = iDKorisnika;
             KorisnickoIme = korisnickoIme;

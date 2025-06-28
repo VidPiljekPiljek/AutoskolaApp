@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
-    public class UplateListingViewModel : ViewModelBase
+    public class UplateListingViewModel : ViewModelBase, ILoadable
     {
         private readonly UplataService _uplataService;
         private readonly ObservableCollection<UplataViewModel> _uplate;

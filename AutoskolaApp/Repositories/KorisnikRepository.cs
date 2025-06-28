@@ -64,7 +64,7 @@ namespace AutoskolaApp.Repositories
             }
         }
 
-        public async Task<Guid> GetKorisnikID(string korisnickoIme, string lozinka)
+        public async Task<int> GetKorisnikID(string korisnickoIme, string lozinka)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
@@ -75,7 +75,7 @@ namespace AutoskolaApp.Repositories
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return Guid.Empty;
+                    return -1;
                 }
             }
         }

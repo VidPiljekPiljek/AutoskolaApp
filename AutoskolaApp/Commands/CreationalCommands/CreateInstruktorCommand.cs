@@ -39,7 +39,6 @@ namespace AutoskolaApp.Commands.CreationalCommands
             try
             {
                 Korisnik korisnik = new Korisnik(
-                    Guid.NewGuid(),
                     _formViewModel.KorisnickoIme,
                     _formViewModel.Lozinka,
                     2
@@ -51,10 +50,9 @@ namespace AutoskolaApp.Commands.CreationalCommands
 
                 await _korisnikService.AddKorisnik(korisnik);
 
-                Guid korisnikID = await _korisnikService.GetKorisnikID(korisnik.KorisnickoIme, korisnik.Lozinka);
+                int korisnikID = await _korisnikService.GetKorisnikID(korisnik.KorisnickoIme, korisnik.Lozinka);
 
                 Instruktor instruktor = new Instruktor(
-                    Guid.NewGuid(),
                     _formViewModel.OIB,
                     _formViewModel.Ime,
                     _formViewModel.Prezime,

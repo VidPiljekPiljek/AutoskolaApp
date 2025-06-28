@@ -11,10 +11,10 @@ namespace AutoskolaApp.ViewModels
     {
         private readonly Voznja _voznja;
 
-        public Guid IDVoznje { get; set; }
+        public int IDVoznje => _voznja.IDVoznje;
         public DateTime DatumVoznje => _voznja.DatumVoznje;
-        public Guid IDStudenta => _voznja.IDStudenta;
-        public Guid IDInstruktora => _voznja.IDInstruktora;
+        public int IDStudenta => _voznja.IDStudenta;
+        public int IDInstruktora => _voznja.IDInstruktora;
 
         public VoznjaViewModel(Voznja voznja) => _voznja = voznja;
     }

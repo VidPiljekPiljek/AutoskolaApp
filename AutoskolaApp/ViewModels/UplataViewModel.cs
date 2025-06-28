@@ -11,12 +11,12 @@ namespace AutoskolaApp.ViewModels
     {
         private readonly Uplata _uplata;
 
-        public Guid IDUplate { get; set; }
+        public int IDUplate => _uplata.IDUplate;
 
         public DateTime DatumUplate => _uplata.DatumUplate;
         public decimal Iznos => _uplata.Iznos;
         public string NacinUplate => _uplata.NacinUplate;
-        public Guid IDStudenta => _uplata.IDStudenta;
+        public int IDStudenta => _uplata.IDStudenta;
 
         public UplataViewModel(Uplata uplata)
         {

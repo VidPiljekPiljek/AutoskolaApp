@@ -11,19 +11,20 @@ namespace AutoskolaApp.Models
     public class Administrator
     {
         [Key]
-        public Guid IDAdministratora { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IDAdministratora { get; set; }
 
         public string OIB { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public Guid IDKorisnika { get; set; } // Foreign key
+        public int IDKorisnika { get; set; } // Foreign key
         public Korisnik Korisnik { get; set; } // Navigation property
 
         public Administrator()
         {
         }
 
-        public Administrator(Guid iDAdministratora, string oIB, string ime, string prezime, Guid iDKorisnika, Korisnik korisnik)
+        public Administrator(int iDAdministratora, string oIB, string ime, string prezime, int iDKorisnika, Korisnik korisnik)
         {
             IDAdministratora = iDAdministratora;
             OIB = oIB;
@@ -33,7 +34,7 @@ namespace AutoskolaApp.Models
             Korisnik = korisnik;
         }
 
-        public Administrator(Guid iDAdministratora, string oIB, string ime, string prezime, Guid iDKorisnika)
+        public Administrator(int iDAdministratora, string oIB, string ime, string prezime, int iDKorisnika)
         {
             IDAdministratora = iDAdministratora;
             OIB = oIB;

@@ -11,11 +11,11 @@ namespace AutoskolaApp.ViewModels
     {
         private readonly Ispit _ispit;
 
-        public Guid IDIspita => _ispit.IDIspita;
+        public int IDIspita => _ispit.IDIspita;
 
         public DateTime DateTime => _ispit.DateTime;
         public string VrstaIspita => _ispit.VrstaIspita;
-        public Guid IDInstruktora => _ispit.IDInstruktora;
+        public int IDInstruktora => _ispit.IDInstruktora;
 
         public IspitViewModel(Ispit ispit) => _ispit = ispit;
     }

@@ -68,7 +68,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             }
         }
 
-        private DateTime _datumPocetka;
+        private DateTime _datumPocetka = DateTime.Now;
         public DateTime DatumPocetka
         {
             get { return _datumPocetka; }
