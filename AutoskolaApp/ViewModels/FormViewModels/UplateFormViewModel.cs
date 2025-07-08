@@ -29,7 +29,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             }
         }
 
-        private DateTime _datumUplate;
+        private DateTime _datumUplate = DateTime.Now;
         public DateTime DatumUplate
         {
             get { return _datumUplate; }

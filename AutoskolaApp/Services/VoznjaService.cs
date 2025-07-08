@@ -31,5 +31,10 @@ namespace AutoskolaApp.Services
         {
             await _voznjaStore.AddVoznja(voznja);
         }
+
+        public async Task DeleteVoznja(Voznja voznja)
+        {
+            await _voznjaStore.DeleteVoznja(voznja);
+        }
     }
 }

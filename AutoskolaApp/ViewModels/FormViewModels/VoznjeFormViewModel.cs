@@ -21,8 +21,28 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         public IEnumerable<StudentViewModel> Studenti => _studenti;
         private readonly ObservableCollection<InstruktorViewModel> _instruktori;
         public IEnumerable<InstruktorViewModel> Instruktori => _instruktori;
+        private StudentViewModel _selectedStudent;
+        public StudentViewModel SelectedStudent
+        {
+            get { return _selectedStudent; }
+            set
+            {
+                _selectedStudent = value;
+                OnPropertyChanged(nameof(SelectedStudent));
+            }
+        }
+        private InstruktorViewModel _selectedInstruktor;
+        public InstruktorViewModel SelectedInstruktor
+        {
+            get { return _selectedInstruktor; }
+            set
+            {
+                _selectedInstruktor = value;
+                OnPropertyChanged(nameof(SelectedInstruktor));
+            }
+        }
 
-        private DateTime _datumVoznje;
+        private DateTime _datumVoznje = DateTime.Now;
         public DateTime DatumVoznje
         {
             get { return _datumVoznje; }

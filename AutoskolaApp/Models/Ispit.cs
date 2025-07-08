@@ -33,5 +33,12 @@ namespace AutoskolaApp.Models
             Instruktor = instruktor;
             PolazniciIspita = polazniciIspita;
         }
+
+        public Ispit(DateTime dateTime, string vrstaIspita, int iDInstruktora)
+        {
+            DateTime = dateTime;
+            VrstaIspita = vrstaIspita;
+            IDInstruktora = iDInstruktora;
+        }
     }
 }

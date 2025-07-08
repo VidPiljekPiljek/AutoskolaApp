@@ -48,6 +48,7 @@ namespace AutoskolaApp.Stores
         private Lazy<Task> _initializeLazy;
 
         public event Action<Korisnik> KorisnikAdded;
+        public event Action<Korisnik> KorisnikDeleted;
 
         public KorisnikStore(KorisnikRepository korisnikRepository)
         {
@@ -80,9 +81,23 @@ namespace AutoskolaApp.Stores
             OnKorisnikAdded(korisnik);
         }
 
+        public async Task DeleteKorisnik(Korisnik korisnik)
+        {
+            await _korisnikRepository.DeleteKorisnik(korisnik);
+
+            _korisnici.Remove(korisnik);
+
+            OnKorisnikDeleted(korisnik);
+        }
+
         private void OnKorisnikAdded(Korisnik korisnik)
         {
             KorisnikAdded?.Invoke(korisnik);
+        }
+
+        private void OnKorisnikDeleted(Korisnik korisnik)
+        {
+            KorisnikDeleted?.Invoke(korisnik);
         }
 
         private async Task Initialize()

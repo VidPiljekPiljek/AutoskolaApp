@@ -68,7 +68,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             }
         }
 
-        private DateTime _datumRodjenja;
+        private DateTime _datumRodjenja = DateTime.Now;
         public DateTime DatumRodjenja
         {
             get { return _datumRodjenja; }
@@ -79,7 +79,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             }
         }
 
-        private DateTime _datumPocetka;
+        private DateTime _datumPocetka = DateTime.Now;
         public DateTime DatumPocetka
         {
             get { return _datumPocetka; }

@@ -16,6 +16,7 @@ namespace AutoskolaApp.Stores
         private Lazy<Task> _initializeLazy;
 
         public event Action<Instruktor> InstruktorCreated;
+        public event Action<Instruktor> InstruktorDeleted;
 
         public InstruktorStore(InstruktorRepository instruktorRepository)
         {
@@ -52,6 +53,15 @@ namespace AutoskolaApp.Stores
             OnInstruktorCreated(instruktor);
         }
 
+        public async Task DeleteInstruktor(Instruktor instruktor)
+        {
+            await _instruktorRepository.DeleteInstruktor(instruktor);
+
+            _instruktori.Remove(instruktor);
+
+            OnInstruktorDeleted(instruktor);
+        }
+
         public async Task<int> GetInstruktorID(string ime, string prezime)
         {
             return await _instruktorRepository.GetInstruktorID(ime, prezime);
@@ -60,6 +70,11 @@ namespace AutoskolaApp.Stores
         private void OnInstruktorCreated(Instruktor instruktor)
         {
             InstruktorCreated?.Invoke(instruktor);
+        }
+
+        private void OnInstruktorDeleted(Instruktor instruktor)
+        {
+            InstruktorDeleted?.Invoke(instruktor);
         }
 
         private async Task Initialize()

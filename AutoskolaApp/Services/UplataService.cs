@@ -31,5 +31,10 @@ namespace AutoskolaApp.Services
         {
             await _uplataStore.AddUplata(uplata);
         }
+
+        public async Task DeleteUplata(Uplata uplata)
+        {
+            await _uplataStore.DeleteUplata(uplata);
+        }
     }
 }

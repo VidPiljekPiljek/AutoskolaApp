@@ -30,6 +30,16 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task DeleteKorisnik(Korisnik korisnik)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+
+                dbContext.Korisnici.Remove(korisnik);
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<Korisnik>> GetAllKorisnici()
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())

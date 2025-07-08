@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AutoskolaApp.Models;
+using AutoskolaApp.Repositories;
+using AutoskolaApp.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Models;
-using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.Services
 {
@@ -25,6 +26,16 @@ namespace AutoskolaApp.Services
         public IEnumerable<Ispit> GetInstruktori()
         {
             return _ispitStore.Ispiti;
+        }
+
+        public async Task AddIspit(Ispit ispit)
+        {
+            await _ispitStore.AddIspit(ispit);
+        }
+
+        public async Task DeleteIspit(Ispit ispit)
+        {
+            await _ispitStore.DeleteIspit(ispit);
         }
     }
 }

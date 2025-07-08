@@ -18,17 +18,17 @@ namespace AutoskolaApp.Repositories
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task CreateInstruktor(Ispit ispit)
+        public async Task DeleteIspit(Ispit ispit)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
 
-                dbContext.Ispiti.Add(ispit);
+                dbContext.Ispiti.Remove(ispit);
                 await dbContext.SaveChangesAsync();
             }
         }
 
-        public async Task<IEnumerable<Ispit>> GetAllInstruktori()
+        public async Task<IEnumerable<Ispit>> GetAllIspiti()
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
@@ -36,6 +36,16 @@ namespace AutoskolaApp.Repositories
 
                 return ispiti;
 
+            }
+        }
+
+        public async Task CreateIspit(Ispit ispit)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+
+                dbContext.Ispiti.Add(ispit);
+                await dbContext.SaveChangesAsync();
             }
         }
     }

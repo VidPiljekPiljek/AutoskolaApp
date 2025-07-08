@@ -17,6 +17,7 @@ namespace AutoskolaApp.Stores
         private Lazy<Task> _initializeLazy;
 
         public event Action<Ispit> IspitCreated;
+        public event Action<Ispit> IspitDeleted;
 
         public IspitStore(IspitRepository ispitRepository)
         {
@@ -44,12 +45,35 @@ namespace AutoskolaApp.Stores
             IspitCreated?.Invoke(ispit);
         }
 
+        private void OnIspitDeleted(Ispit ispit)
+        {
+            IspitDeleted?.Invoke(ispit);
+        }
+
         private async Task Initialize()
         {
-            IEnumerable<Ispit> korisnici = await _ispitRepository.GetAllInstruktori();
+            IEnumerable<Ispit> korisnici = await _ispitRepository.GetAllIspiti();
 
             _ispiti.Clear();
             _ispiti.AddRange(korisnici);
+        }
+
+        public async Task AddIspit(Ispit ispit)
+        {
+            await _ispitRepository.CreateIspit(ispit);
+
+            _ispiti.Add(ispit);
+
+            OnIspitCreated(ispit);
+        }
+
+        public async Task DeleteIspit(Ispit ispit)
+        {
+            await _ispitRepository.DeleteIspit(ispit);
+
+            _ispiti.Remove(ispit);
+
+            OnIspitCreated(ispit);
         }
     }
 }

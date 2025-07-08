@@ -16,7 +16,7 @@ namespace AutoskolaApp.ViewModels
         public string OIB => _instruktor.OIB;
         public string Ime => _instruktor.Ime;
         public string Prezime => _instruktor.Prezime;
-        public string DatumZaposlenja => _instruktor.DatumZaposlenja.ToString("d");
+        public DateTime DatumZaposlenja => _instruktor.DatumZaposlenja;
         public string? Napomena => _instruktor.Napomena;
         public int IDKorisnika => _instruktor.IDKorisnika;
 

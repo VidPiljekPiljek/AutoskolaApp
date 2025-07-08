@@ -52,8 +52,8 @@
         <ui:TextBox Text="{Binding InstruktorPrezime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="7" Grid.Row="2"/>
         <ui:TextBox Text="{Binding StudentIme, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="5"/>
         <ui:TextBox Text="{Binding StudentPrezime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3"/>
-        <DataGrid ItemsSource="{Binding Instruktori}" Grid.Column="9" Grid.Row="1" Grid.RowSpan="3"></DataGrid>
-        <DataGrid ItemsSource="{Binding Studenti}" Grid.Column="9" Grid.Row="4" Grid.RowSpan="3"></DataGrid>
+        <DataGrid SelectedItem="{Binding SelectedInstruktor}" ItemsSource="{Binding Instruktori}" Grid.Column="9" Grid.Row="1" Grid.RowSpan="3"></DataGrid>
+        <DataGrid SelectedItem="{Binding SelectedStudent}" ItemsSource="{Binding Studenti}" Grid.Column="9" Grid.Row="4" Grid.RowSpan="3"></DataGrid>
 
         <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="7"/>
         <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="7"/>

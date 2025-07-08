@@ -38,8 +38,8 @@ namespace AutoskolaApp.Commands.CreationalCommands
         {
             try
             {
-                int studentID = await _studentService.GetStudentID(_formViewModel.StudentIme, _formViewModel.StudentPrezime);
-                int instruktorID = await _instruktorService.GetInstruktorID(_formViewModel.StudentIme, _formViewModel.StudentPrezime);
+                int studentID = _formViewModel.SelectedStudent.IDStudenta;
+                int instruktorID = _formViewModel.SelectedInstruktor.IDInstruktora;
 
                 Voznja voznja = new Voznja(
                     _formViewModel.DatumVoznje,

@@ -42,31 +42,6 @@ namespace AutoskolaApp.ViewModels
         public bool CanNavigateToUplate { get; set; }
         public bool CanNavigateToVoznje { get; set; }
 
-        //public void Initialize(Type korisnikType)
-        //{
-        //    if (korisnikType is Administrator)
-        //    {
-               
-        //        CanNavigateToIspiti = true;
-        //    }
-        //    else if (korisnikType is Instruktor)
-        //    {
-
-        //        CanNavigateToIspiti = true;
-        //    }
-        //    else if (korisnikType is Student)
-        //    {
-
-        //        CanNavigateToIspiti = true;
-        //    }
-
-        //    OnPropertyChanged(nameof(CanNavigateToInstruktori));
-        //    OnPropertyChanged(nameof(CanNavigateToIspiti));
-        //    OnPropertyChanged(nameof(CanNavigateToStudenti));
-        //    OnPropertyChanged(nameof(CanNavigateToUplate));
-        //    OnPropertyChanged(nameof(CanNavigateToVoznje));
-        //}
-
         public void LoadViewModel()
         {
             Type tipKorisnika = _korisnikService.KorisnikAuthorization();
@@ -80,7 +55,7 @@ namespace AutoskolaApp.ViewModels
                 CanNavigateToStudenti = true;
                 OnPropertyChanged(nameof(CanNavigateToStudenti));
                 CanNavigateToUplate = true;
-                    OnPropertyChanged(nameof(CanNavigateToUplate));
+                OnPropertyChanged(nameof(CanNavigateToUplate));
                 CanNavigateToVoznje = true;
                 OnPropertyChanged(nameof(CanNavigateToVoznje));
             }

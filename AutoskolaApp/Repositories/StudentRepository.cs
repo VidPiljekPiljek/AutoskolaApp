@@ -29,6 +29,16 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task DeleteStudent(Student student)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+
+                dbContext.Studenti.Remove(student);
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<Student>> GetAllStudenti()
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())

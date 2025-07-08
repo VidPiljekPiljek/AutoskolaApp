@@ -28,6 +28,16 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task DeleteVoznja(Voznja voznja)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+
+                dbContext.Voznje.Remove(voznja);
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<Voznja>> GetAllVoznje()
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())

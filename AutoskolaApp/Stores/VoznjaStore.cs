@@ -17,6 +17,7 @@ namespace AutoskolaApp.Stores
         private Lazy<Task> _initializeLazy;
 
         public event Action<Voznja> VoznjaCreated;
+        public event Action<Voznja> VoznjaDeleted;
 
         public VoznjaStore(VoznjaRepository voznjaRepository)
         {
@@ -44,6 +45,11 @@ namespace AutoskolaApp.Stores
             VoznjaCreated?.Invoke(voznja);
         }
 
+        private void OnVoznjaDeleted(Voznja voznja)
+        {
+            VoznjaDeleted?.Invoke(voznja);
+        }
+
         public async Task AddVoznja(Voznja voznja)
         {
             await _voznjaRepository.CreateVoznja(voznja);
@@ -51,6 +57,15 @@ namespace AutoskolaApp.Stores
             _voznje.Add(voznja);
 
             OnVoznjaCreated(voznja);
+        }
+
+        public async Task DeleteVoznja(Voznja voznja)
+        {
+            await _voznjaRepository.DeleteVoznja(voznja);
+
+            _voznje.Remove(voznja);
+
+            OnVoznjaDeleted(voznja);
         }
 
         private async Task Initialize()

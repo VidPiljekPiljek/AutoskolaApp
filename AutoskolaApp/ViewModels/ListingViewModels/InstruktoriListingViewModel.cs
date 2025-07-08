@@ -19,6 +19,17 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         private readonly ObservableCollection<InstruktorViewModel> _instruktori;
         public IEnumerable<InstruktorViewModel> Instruktori => _instruktori;
 
+        private InstruktorViewModel _selectedInstruktor;
+        public InstruktorViewModel SelectedInstruktor
+        {
+            get { return _selectedInstruktor; }
+            set
+            {
+                _selectedInstruktor = value;
+                OnPropertyChanged(nameof(SelectedInstruktor));
+            }
+        }
+
         public ICommand LoadInstruktoriCommand { get; }
         public ICommand CreateInstruktorCommand { get; }
         public ICommand NavigateBackCommand { get; }

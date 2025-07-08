@@ -41,5 +41,10 @@ namespace AutoskolaApp.Services
         {
             await _studentStore.AddStudent(student);
         }
+
+        public async Task DeleteStudent(Student student)
+        {
+            await _studentStore.DeleteStudent(student);
+        }
     }
 }

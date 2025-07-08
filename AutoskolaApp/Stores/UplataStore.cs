@@ -16,6 +16,7 @@ namespace AutoskolaApp.Stores
         private Lazy<Task> _initializeLazy;
 
         public event Action<Uplata> UplataCreated;
+        public event Action<Uplata> UplataDeleted;
 
         public UplataStore(UplataRepository studentRepository)
         {
@@ -43,6 +44,11 @@ namespace AutoskolaApp.Stores
             UplataCreated?.Invoke(uplata);
         }
 
+        private void OnUplataDeleted(Uplata uplata)
+        {
+            UplataDeleted?.Invoke(uplata);
+        }
+
         public async Task AddUplata(Uplata uplata)
         {
             await _uplateRepository.CreateUplata(uplata);
@@ -50,6 +56,15 @@ namespace AutoskolaApp.Stores
             _uplate.Add(uplata);
 
             OnUplataCreated(uplata);
+        }
+
+        public async Task DeleteUplata(Uplata uplata)
+        {
+            await _uplateRepository.DeleteUplata(uplata);
+
+            _uplate.Remove(uplata);
+
+            OnUplataDeleted(uplata);
         }
 
         private async Task Initialize()
