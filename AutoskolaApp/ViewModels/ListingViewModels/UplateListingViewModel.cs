@@ -17,7 +17,16 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         private readonly UplataService _uplataService;
         private readonly ObservableCollection<UplataViewModel> _uplate;
         public IEnumerable<UplataViewModel> Uplate => _uplate;
-
+        private UplataViewModel _selectedUplata;
+        public UplataViewModel SelectedUplata
+        {
+            get { return _selectedUplata; }
+            set
+            {
+                _selectedUplata = value;
+                OnPropertyChanged(nameof(SelectedUplata));
+            }
+        }
         public ICommand LoadUplateCommand { get; }
         public ICommand CreateUplataCommand { get; }
         public ICommand NavigateBackCommand { get; }

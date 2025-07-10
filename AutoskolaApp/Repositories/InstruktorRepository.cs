@@ -55,12 +55,18 @@ namespace AutoskolaApp.Repositories
             }
         }
 
-        public async Task DeleteInstruktor(Instruktor instruktor)
+        public async Task DeleteInstruktor(int instruktorID)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
-                dbContext.Instruktori.Remove(instruktor);
-                await dbContext.SaveChangesAsync();
+                var instruktor = dbContext.Instruktori.Find(instruktorID);
+                if (instruktor != null)
+                {
+                    dbContext.Instruktori.Remove(instruktor);
+                    dbContext.SaveChanges();
+                }
+                //dbContext.Instruktori.Remove(instruktor);
+                //await dbContext.SaveChangesAsync();
             }
         }
 

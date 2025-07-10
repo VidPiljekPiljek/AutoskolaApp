@@ -67,13 +67,15 @@ namespace AutoskolaApp.Stores
             OnIspitCreated(ispit);
         }
 
-        public async Task DeleteIspit(Ispit ispit)
+        public async Task DeleteIspit(int ispitID)
         {
-            await _ispitRepository.DeleteIspit(ispit);
+            await _ispitRepository.DeleteIspit(ispitID);
 
-            _ispiti.Remove(ispit);
+            Ispit ispit = _ispiti.FirstOrDefault(ispit => ispit.IDIspita == ispitID);
 
-            OnIspitCreated(ispit);
+            _ispiti.RemoveAll(ispit => ispit.IDIspita == ispitID);
+
+            OnIspitDeleted(ispit);
         }
     }
 }

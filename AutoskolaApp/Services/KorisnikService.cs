@@ -42,5 +42,10 @@ namespace AutoskolaApp.Services
         {
             await _korisnikStore.AddKorisnik(korisnik);
         }
+
+        public async Task DeleteKorisnik(int korisnikID)
+        {
+            await _korisnikStore.DeleteKorisnik(korisnikID);
+        }
     }
 }

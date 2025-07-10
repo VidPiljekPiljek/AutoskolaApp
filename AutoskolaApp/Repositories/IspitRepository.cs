@@ -18,13 +18,16 @@ namespace AutoskolaApp.Repositories
             _dbContextFactory = dbContextFactory;
         }
 
-        public async Task DeleteIspit(Ispit ispit)
+        public async Task DeleteIspit(int ispitID)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
             {
-
-                dbContext.Ispiti.Remove(ispit);
-                await dbContext.SaveChangesAsync();
+                var ispit = dbContext.Ispiti.Find(ispitID);
+                if (ispit != null)
+                {
+                    dbContext.Ispiti.Remove(ispit);
+                    dbContext.SaveChanges();
+                }
             }
         }
 

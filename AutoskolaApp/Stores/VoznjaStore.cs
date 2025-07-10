@@ -59,11 +59,13 @@ namespace AutoskolaApp.Stores
             OnVoznjaCreated(voznja);
         }
 
-        public async Task DeleteVoznja(Voznja voznja)
+        public async Task DeleteVoznja(int voznjaID)
         {
-            await _voznjaRepository.DeleteVoznja(voznja);
+            await _voznjaRepository.DeleteVoznja(voznjaID);
 
-            _voznje.Remove(voznja);
+            Voznja voznja = _voznje.FirstOrDefault(voznja => voznja.IDVoznje == voznjaID);
+
+            _voznje.RemoveAll(voznja => voznja.IDVoznje == voznjaID);
 
             OnVoznjaDeleted(voznja);
         }

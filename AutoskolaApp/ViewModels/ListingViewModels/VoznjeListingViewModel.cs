@@ -17,7 +17,16 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         private readonly VoznjaService _voznjaService;
         private readonly ObservableCollection<VoznjaViewModel> _voznje;
         public IEnumerable<VoznjaViewModel> Voznje => _voznje;
-
+        private VoznjaViewModel _selectedVoznja;
+        public VoznjaViewModel SelectedVoznja
+        {
+            get { return _selectedVoznja; }
+            set
+            {
+                _selectedVoznja = value;
+                OnPropertyChanged(nameof(SelectedStudent));
+            }
+        }
         public ICommand LoadVoznjeCommand { get; }
         public ICommand CreateVoznjaCommand { get; }
         public ICommand NatragCommand { get; }

@@ -63,11 +63,13 @@ namespace AutoskolaApp.Stores
             OnStudentCreated(student);
         }
 
-        public async Task DeleteStudent(Student student)
+        public async Task DeleteStudent(int studentID)
         {
-            await _studentRepository.DeleteStudent(student);
+            await _studentRepository.DeleteStudent(studentID);
 
-            _studenti.Remove(student);
+            Student student = _studenti.FirstOrDefault(student => student.IDStudenta == studentID);
+
+            _studenti.RemoveAll(student => student.IDStudenta == studentID);
 
             OnStudentDeleted(student);
         }

@@ -18,7 +18,16 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         private readonly IspitService _ispitService;
         private readonly ObservableCollection<IspitViewModel> _ispiti;
         public IEnumerable<IspitViewModel> Ispiti => _ispiti;
-
+        private IspitViewModel _selectedIspit;
+        public IspitViewModel SelectedIspit
+        {
+            get { return _selectedIspit; }
+            set
+            {
+                _selectedIspit = value;
+                OnPropertyChanged(nameof(SelectedIspit));
+            }
+        }
         public ICommand LoadIspitiCommand { get; }
         public ICommand CreateIspitCommand { get; }
         public ICommand NavigateBackCommand { get; }

@@ -81,11 +81,13 @@ namespace AutoskolaApp.Stores
             OnKorisnikAdded(korisnik);
         }
 
-        public async Task DeleteKorisnik(Korisnik korisnik)
+        public async Task DeleteKorisnik(int korisnikID)
         {
-            await _korisnikRepository.DeleteKorisnik(korisnik);
+            await _korisnikRepository.DeleteKorisnik(korisnikID);
 
-            _korisnici.Remove(korisnik);
+            Korisnik korisnik = _korisnici.FirstOrDefault(korisnik => korisnik.IDKorisnika == korisnikID);
+
+            _korisnici.RemoveAll(korisnik => korisnik.IDKorisnika == korisnikID);
 
             OnKorisnikDeleted(korisnik);
         }

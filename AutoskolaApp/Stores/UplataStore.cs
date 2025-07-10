@@ -58,11 +58,13 @@ namespace AutoskolaApp.Stores
             OnUplataCreated(uplata);
         }
 
-        public async Task DeleteUplata(Uplata uplata)
+        public async Task DeleteUplata(int uplataID)
         {
-            await _uplateRepository.DeleteUplata(uplata);
+            await _uplateRepository.DeleteUplata(uplataID);
 
-            _uplate.Remove(uplata);
+            Uplata uplata = _uplate.FirstOrDefault(uplata => uplata.IDUplate == uplataID);
+
+            _uplate.RemoveAll(uplata => uplata.IDUplate == uplataID);
 
             OnUplataDeleted(uplata);
         }

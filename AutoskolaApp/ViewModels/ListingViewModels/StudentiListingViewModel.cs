@@ -17,6 +17,16 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         private readonly StudentService _studentService;
         private readonly ObservableCollection<StudentViewModel> _studenti;
         public IEnumerable<StudentViewModel> Studenti => _studenti;
+        private StudentViewModel _selectedStudent;
+        public StudentViewModel SelectedStudent
+        {
+            get { return _selectedStudent; }
+            set
+            {
+                _selectedStudent = value;
+                OnPropertyChanged(nameof(SelectedStudent));
+            }
+        }
 
         public ICommand LoadStudentiCommand { get; }
         public ICommand CreateStudentCommand { get; }

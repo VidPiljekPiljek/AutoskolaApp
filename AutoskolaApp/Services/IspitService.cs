@@ -33,9 +33,9 @@ namespace AutoskolaApp.Services
             await _ispitStore.AddIspit(ispit);
         }
 
-        public async Task DeleteIspit(Ispit ispit)
+        public async Task DeleteIspit(int ispitID)
         {
-            await _ispitStore.DeleteIspit(ispit);
+            await _ispitStore.DeleteIspit(ispitID);
         }
     }
 }

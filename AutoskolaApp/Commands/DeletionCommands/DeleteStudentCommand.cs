@@ -1,6 +1,4 @@
-﻿using AutoskolaApp.Models;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.FormViewModels;
+﻿using AutoskolaApp.Services;
 using AutoskolaApp.ViewModels.ListingViewModels;
 using System;
 using System.Collections.Generic;
@@ -11,19 +9,19 @@ using System.Windows;
 
 namespace AutoskolaApp.Commands.DeletionCommands
 {
-    public class DeleteInstruktorCommand : AsyncCommandBase
+    public class DeleteStudentCommand : AsyncCommandBase
     {
-        private readonly InstruktoriListingViewModel _formViewModel;
-        private readonly InstruktorService _instruktorService;
+        private readonly StudentiListingViewModel _formViewModel;
         private readonly KorisnikService _korisnikService;
+        private readonly StudentService _studentService;
 
         public override async Task ExecuteAsync(object? parameter)
         {
             try
             {
-                await _korisnikService.DeleteKorisnik(_formViewModel.SelectedInstruktor.IDKorisnika);
+                await _korisnikService.DeleteKorisnik(_formViewModel.SelectedStudent.IDKorisnika);
 
-                await _instruktorService.DeleteInstruktor(_formViewModel.SelectedInstruktor.IDInstruktora);
+                await _studentService.DeleteStudent(_formViewModel.SelectedStudent.IDStudenta);
             }
             catch (Exception ex)
             {
