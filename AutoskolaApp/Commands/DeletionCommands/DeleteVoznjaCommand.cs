@@ -14,6 +14,12 @@ namespace AutoskolaApp.Commands.DeletionCommands
         private readonly VoznjeListingViewModel _formViewModel;
         private readonly VoznjaService _voznjaService;
 
+        public DeleteVoznjaCommand(VoznjeListingViewModel formViewModel, VoznjaService voznjaService)
+        {
+            _formViewModel = formViewModel;
+            _voznjaService = voznjaService;
+        }
+
         public override async Task ExecuteAsync(object? parameter)
         {
             try

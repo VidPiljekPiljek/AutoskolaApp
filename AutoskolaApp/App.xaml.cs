@@ -54,6 +54,10 @@ public partial class App : Application
             services.AddSingleton<InstruktorService>();
             services.AddSingleton<InstruktorStore>();
 
+            services.AddSingleton<IspitRepository>();
+            services.AddSingleton<IspitService>();
+            services.AddSingleton<IspitStore>();
+
             services.AddSingleton<StudentRepository>();
             services.AddSingleton<StudentService>();
             services.AddSingleton<StudentStore>();

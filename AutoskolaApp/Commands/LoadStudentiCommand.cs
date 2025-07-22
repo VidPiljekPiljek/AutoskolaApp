@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels.ListingViewModels;
 
 namespace AutoskolaApp.Commands
@@ -12,21 +13,24 @@ namespace AutoskolaApp.Commands
     public class LoadStudentiCommand : AsyncCommandBase
     {
         private readonly StudentiListingViewModel _studentiListingViewModel;
-        private readonly StudentService _studentService;
+        private readonly StudentStore _studentStore;
 
-        public LoadStudentiCommand(StudentiListingViewModel studentiListingViewModel, StudentService studentService)
+        public LoadStudentiCommand(StudentiListingViewModel studentiListingViewModel, StudentStore studentStore)
         {
             _studentiListingViewModel = studentiListingViewModel;
-            _studentService = studentService;
+            _studentStore = studentStore;
         }
 
         public override async Task ExecuteAsync(object? parameter)
         {
             try
             {
-                await _studentService.LoadStudenti();
+                if (!_studentStore.IsInitialized)
+                {
+                    await _studentStore.Load();
+                }
 
-                _studentiListingViewModel.UpdateReservations(_studentService.GetStudenti());
+                _studentiListingViewModel.UpdateStudenti(_studentStore.Studenti);
             }
             catch (Exception ex)
             {

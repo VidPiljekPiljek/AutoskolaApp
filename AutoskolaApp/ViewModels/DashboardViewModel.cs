@@ -31,7 +31,7 @@ namespace AutoskolaApp.ViewModels
         }
 
         public NavigateToInstruktoriCommand NavigateToInstruktoriCommand { get; }
-        public ICommand NavigateToIspitiCommand { get; }
+        public NavigateToIspitiCommand NavigateToIspitiCommand { get; }
         public NavigateToStudentiCommand NavigateToStudentiCommand { get; }
         public NavigateToUplateCommand NavigateToUplateCommand { get; }
         public NavigateToVoznjeCommand NavigateToVoznjeCommand { get; }
@@ -87,11 +87,11 @@ namespace AutoskolaApp.ViewModels
             }
         }
 
-        public DashboardViewModel(KorisnikService korisnikService, NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)
+        public DashboardViewModel(KorisnikService korisnikService, NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<IspitiListingViewModel> ispitiNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)
         {
             _korisnikService = korisnikService;
             NavigateToInstruktoriCommand = new NavigateToInstruktoriCommand(this, instruktoriNavigationService);
-            NavigateToIspitiCommand = null;
+            NavigateToIspitiCommand = new NavigateToIspitiCommand(this, ispitiNavigationService);
             NavigateToStudentiCommand = new NavigateToStudentiCommand(this, studentiNavigationService);
             NavigateToUplateCommand = new NavigateToUplateCommand(this, uplateNavigationService);
             NavigateToVoznjeCommand = new NavigateToVoznjeCommand(this, voznjeNavigationService);

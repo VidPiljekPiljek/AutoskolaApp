@@ -14,6 +14,8 @@ namespace AutoskolaApp.Stores
         public IEnumerable<Uplata> Uplate => _uplate;
         private readonly UplataRepository _uplateRepository;
         private Lazy<Task> _initializeLazy;
+        private bool _isInitialized;
+        public bool IsInitialized => _isInitialized;
 
         public event Action<Uplata> UplataCreated;
         public event Action<Uplata> UplataDeleted;
@@ -31,6 +33,8 @@ namespace AutoskolaApp.Stores
             try
             {
                 await _initializeLazy.Value;
+
+                _isInitialized = true;
             }
             catch (Exception)
             {

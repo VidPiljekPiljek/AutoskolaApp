@@ -15,6 +15,9 @@ namespace AutoskolaApp.Stores
         private readonly InstruktorRepository _instruktorRepository;
         private Lazy<Task> _initializeLazy;
 
+        private bool _isInitialized;
+        public bool IsInitialized => _isInitialized;
+
         public event Action<Instruktor> InstruktorCreated;
         public event Action<Instruktor> InstruktorDeleted;
 
@@ -36,6 +39,8 @@ namespace AutoskolaApp.Stores
             try
             {
                 await _initializeLazy.Value;
+
+                _isInitialized = true;
             }
             catch (Exception)
             {
@@ -81,10 +86,10 @@ namespace AutoskolaApp.Stores
 
         private async Task Initialize()
         {
-            IEnumerable<Instruktor> korisnici = await _instruktorRepository.GetAllInstruktori();
+            IEnumerable<Instruktor> instruktori = await _instruktorRepository.GetAllInstruktori();
 
             _instruktori.Clear();
-            _instruktori.AddRange(korisnici);
+            _instruktori.AddRange(instruktori);
         }
     }
 }

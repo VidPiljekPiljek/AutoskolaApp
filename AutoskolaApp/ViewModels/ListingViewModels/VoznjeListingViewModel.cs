@@ -9,6 +9,8 @@ using AutoskolaApp.Models;
 using AutoskolaApp.Services;
 using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -24,21 +26,23 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             set
             {
                 _selectedVoznja = value;
-                OnPropertyChanged(nameof(SelectedStudent));
+                OnPropertyChanged(nameof(SelectedVoznja));
             }
         }
         public ICommand LoadVoznjeCommand { get; }
         public ICommand CreateVoznjaCommand { get; }
         public ICommand NatragCommand { get; }
+        public ICommand DeleteSelectionCommand { get; }
 
-        public VoznjeListingViewModel(VoznjaService voznjaService, NavigationService<VoznjeFormViewModel> voznjaFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public VoznjeListingViewModel(VoznjaService voznjaService, VoznjaStore voznjaStore, NavigationService<VoznjeFormViewModel> voznjaFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _voznjaService = voznjaService;
             _voznje = new ObservableCollection<VoznjaViewModel>();
 
-            LoadVoznjeCommand = new LoadVoznjeCommand(this, voznjaService);
+            LoadVoznjeCommand = new LoadVoznjeCommand(this, voznjaStore);
             CreateVoznjaCommand = new NavigateCommand<VoznjeFormViewModel>(voznjaFormNavigationService);
             NatragCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            DeleteSelectionCommand = new DeleteVoznjaCommand(this, voznjaService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)

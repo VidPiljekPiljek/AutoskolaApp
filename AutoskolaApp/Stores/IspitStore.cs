@@ -15,6 +15,8 @@ namespace AutoskolaApp.Stores
         public IEnumerable<Ispit> Ispiti => _ispiti;
         private readonly IspitRepository _ispitRepository;
         private Lazy<Task> _initializeLazy;
+        private bool _isInitialized;
+        public bool IsInitialized => _isInitialized;
 
         public event Action<Ispit> IspitCreated;
         public event Action<Ispit> IspitDeleted;
@@ -32,6 +34,8 @@ namespace AutoskolaApp.Stores
             try
             {
                 await _initializeLazy.Value;
+
+                _isInitialized = true;
             }
             catch (Exception)
             {

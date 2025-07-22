@@ -44,7 +44,7 @@ namespace AutoskolaApp.Services
 
         public async Task DeleteStudent(int studentID)
         {
-            await _studentStore.DeleteStudent(student);
+            await _studentStore.DeleteStudent(studentID);
         }
     }
 }

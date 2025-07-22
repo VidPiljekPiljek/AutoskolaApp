@@ -15,6 +15,12 @@ namespace AutoskolaApp.Commands.DeletionCommands
         private readonly IspitiListingViewModel _formViewModel;
         private readonly IspitService _ispitService;
 
+        public DeleteIspitCommand(IspitiListingViewModel formViewModel, IspitService ispitService)
+        {
+            _formViewModel = formViewModel;
+            _ispitService = ispitService;
+        }
+
         public override async Task ExecuteAsync(object? parameter)
         {
             try

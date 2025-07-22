@@ -34,6 +34,9 @@ namespace AutoskolaApp.HostBuilders
                 services.AddTransient<InstruktoriListingViewModel>();
                 services.AddSingleton<Func<InstruktoriListingViewModel>>(s => () => s.GetRequiredService<InstruktoriListingViewModel>());
                 services.AddSingleton<NavigationService<InstruktoriListingViewModel>>();
+                services.AddTransient<IspitiListingViewModel>();
+                services.AddSingleton<Func<IspitiListingViewModel>>(s => () => s.GetRequiredService<IspitiListingViewModel>());
+                services.AddSingleton<NavigationService<IspitiListingViewModel>>();
                 services.AddTransient<StudentiListingViewModel>();
                 services.AddSingleton<Func<StudentiListingViewModel>>(s => () => s.GetRequiredService<StudentiListingViewModel>());
                 services.AddSingleton<NavigationService<StudentiListingViewModel>>();
@@ -50,6 +53,9 @@ namespace AutoskolaApp.HostBuilders
                 services.AddTransient<InstruktoriFormViewModel>();
                 services.AddSingleton<Func<InstruktoriFormViewModel>>(s => () => s.GetRequiredService<InstruktoriFormViewModel>());
                 services.AddSingleton<NavigationService<InstruktoriFormViewModel>>();
+                services.AddTransient<IspitiFormViewModel>();
+                services.AddSingleton<Func<IspitiFormViewModel>>(s => () => s.GetRequiredService<IspitiFormViewModel>());
+                services.AddSingleton<NavigationService<IspitiFormViewModel>>();
                 services.AddTransient<StudentiFormViewModel>();
                 services.AddSingleton<Func<StudentiFormViewModel>>(s => () => s.GetRequiredService<StudentiFormViewModel>());
                 services.AddSingleton<NavigationService<StudentiFormViewModel>>();

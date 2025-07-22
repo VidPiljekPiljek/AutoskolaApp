@@ -9,6 +9,8 @@ using AutoskolaApp.Models;
 using AutoskolaApp.Services;
 using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -30,15 +32,17 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand LoadUplateCommand { get; }
         public ICommand CreateUplataCommand { get; }
         public ICommand NavigateBackCommand { get; }
+        public ICommand DeleteSelectionCommand { get; }
 
-        public UplateListingViewModel(UplataService uplataService, NavigationService<UplateFormViewModel> uplateFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public UplateListingViewModel(UplataService uplataService, UplataStore uplataStore, NavigationService<UplateFormViewModel> uplateFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _uplataService = uplataService;
             _uplate = new ObservableCollection<UplataViewModel>();
 
-            LoadUplateCommand = new LoadUplateCommand(this, uplataService);
+            LoadUplateCommand = new LoadUplateCommand(this, uplataStore);
             CreateUplataCommand = new NavigateCommand<UplateFormViewModel>(uplateFormNavigationService);
             NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            DeleteSelectionCommand = new DeleteUplateCommand(this, uplataService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)

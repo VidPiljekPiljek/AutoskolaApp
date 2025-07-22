@@ -11,17 +11,26 @@ namespace AutoskolaApp.Commands.DeletionCommands
 {
     public class DeleteStudentCommand : AsyncCommandBase
     {
-        private readonly StudentiListingViewModel _formViewModel;
+        private readonly StudentiListingViewModel _listingViewModel;
         private readonly KorisnikService _korisnikService;
         private readonly StudentService _studentService;
+
+        public DeleteStudentCommand(StudentiListingViewModel listingViewModel, KorisnikService korisnikService, StudentService studentService)
+        {
+            _listingViewModel = listingViewModel;
+            _korisnikService = korisnikService;
+            _studentService = studentService;
+        }
 
         public override async Task ExecuteAsync(object? parameter)
         {
             try
             {
-                await _korisnikService.DeleteKorisnik(_formViewModel.SelectedStudent.IDKorisnika);
+                await _korisnikService.DeleteKorisnik(_listingViewModel.SelectedStudent.IDKorisnika);
 
-                await _studentService.DeleteStudent(_formViewModel.SelectedStudent.IDStudenta);
+                await _studentService.DeleteStudent(_listingViewModel.SelectedStudent.IDStudenta);
+
+                _listingViewModel.LoadStudentiCommand.Execute(null);
             }
             catch (Exception ex)
             {

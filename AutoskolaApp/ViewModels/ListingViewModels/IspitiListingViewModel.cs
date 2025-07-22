@@ -1,7 +1,9 @@
 ﻿using AutoskolaApp.Commands;
 using AutoskolaApp.Commands.CreationalCommands;
+using AutoskolaApp.Commands.DeletionCommands;
 using AutoskolaApp.Models;
 using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
 using AutoskolaApp.ViewModels.FormViewModels;
 using System;
 using System.Collections.Generic;
@@ -31,15 +33,18 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand LoadIspitiCommand { get; }
         public ICommand CreateIspitCommand { get; }
         public ICommand NavigateBackCommand { get; }
+        public ICommand DeleteSelectionCommand { get; }
+        public bool IsLoaded { get; set; }
 
-        public IspitiListingViewModel(IspitService ispitService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public IspitiListingViewModel(IspitService ispitService, IspitStore ispitStore, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _ispitService = ispitService;
             _ispiti = new ObservableCollection<IspitViewModel>();
-
-            LoadIspitiCommand = new LoadIspitiCommand(null, _ispitService);
+            IsLoaded = false;
+            LoadIspitiCommand = new LoadIspitiCommand(null, ispitStore);
             CreateIspitCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
             NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            DeleteSelectionCommand = new DeleteIspitCommand(this, ispitService);
         }
 
         public void UpdateReservations(IEnumerable<Ispit> ispiti)
@@ -66,6 +71,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public void LoadViewModel()
         {
             LoadIspitiCommand.Execute(null);
+            IsLoaded = true;
         }
     }
 }

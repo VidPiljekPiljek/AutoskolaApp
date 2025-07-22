@@ -13,17 +13,26 @@ namespace AutoskolaApp.Commands.DeletionCommands
 {
     public class DeleteInstruktorCommand : AsyncCommandBase
     {
-        private readonly InstruktoriListingViewModel _formViewModel;
+        private readonly InstruktoriListingViewModel _listingViewModel;
         private readonly InstruktorService _instruktorService;
         private readonly KorisnikService _korisnikService;
+
+        public DeleteInstruktorCommand(InstruktoriListingViewModel listingViewModel, InstruktorService instruktorService, KorisnikService korisnikService)
+        {
+            _listingViewModel = listingViewModel;
+            _instruktorService = instruktorService;
+            _korisnikService = korisnikService;
+        }
 
         public override async Task ExecuteAsync(object? parameter)
         {
             try
             {
-                await _korisnikService.DeleteKorisnik(_formViewModel.SelectedInstruktor.IDKorisnika);
+                await _korisnikService.DeleteKorisnik(_listingViewModel.SelectedInstruktor.IDKorisnika);
 
-                await _instruktorService.DeleteInstruktor(_formViewModel.SelectedInstruktor.IDInstruktora);
+                await _instruktorService.DeleteInstruktor(_listingViewModel.SelectedInstruktor.IDInstruktora);
+
+                _listingViewModel.LoadInstruktoriCommand.Execute(null);
             }
             catch (Exception ex)
             {

@@ -15,6 +15,8 @@ namespace AutoskolaApp.Stores
         public IEnumerable<Voznja> Voznje => _voznje;
         private readonly VoznjaRepository _voznjaRepository;
         private Lazy<Task> _initializeLazy;
+        private bool _isInitialized;
+        public bool IsInitialized => _isInitialized;
 
         public event Action<Voznja> VoznjaCreated;
         public event Action<Voznja> VoznjaDeleted;
@@ -32,6 +34,8 @@ namespace AutoskolaApp.Stores
             try
             {
                 await _initializeLazy.Value;
+
+                _isInitialized = true;
             }
             catch (Exception)
             {

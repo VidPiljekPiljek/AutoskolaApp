@@ -29,6 +29,9 @@
             <DataTemplate DataType="{x:Type listingviewmodels:InstruktoriListingViewModel}">
                 <views:InstruktoriListingView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type listingviewmodels:IspitiListingViewModel}">
+                <views:IspitiListingView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type listingviewmodels:StudentiListingViewModel}">
                 <views:StudentiListingView/>
             </DataTemplate>

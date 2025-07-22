@@ -33,6 +33,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
             <ui:Button Command="{Binding CreateInstruktorCommand}" x:Name="btnDodajUpis" Content="Novi upis" />
             <ui:Button Command="{Binding UrediOdabirCommand}" x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="20, 0, 0, 0"/>
+            <ui:Button Command="{Binding DeleteSelectionCommand}" x:Name="btnIzbrisiOdabir" Content="Izbrisi odabir" Margin="20, 0, 0, 0"/>
             <ui:Button Command="{Binding NavigateBackCommand}" x:Name="btnNatrag" Content="Natrag" Margin="20, 0, 0, 0"/>
         </StackPanel>
     </Grid>

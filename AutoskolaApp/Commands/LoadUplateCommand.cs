@@ -1,32 +1,36 @@
-﻿using System;
+﻿using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels.ListingViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.ListingViewModels;
 
 namespace AutoskolaApp.Commands
 {
     public class LoadUplateCommand : AsyncCommandBase
     {
         private readonly UplateListingViewModel _uplateListingViewModel;
-        private readonly UplataService _uplataService;
+        private readonly UplataStore _uplataStore;
 
-        public LoadUplateCommand(UplateListingViewModel uplateListingViewModel, UplataService uplataService)
+        public LoadUplateCommand(UplateListingViewModel uplateListingViewModel, UplataStore uplataStore)
         {
             _uplateListingViewModel = uplateListingViewModel;
-            _uplataService = uplataService;
+            _uplataStore = uplataStore;
         }
 
         public override async Task ExecuteAsync(object? parameter)
         {
             try
             {
-                await _uplataService.LoadUplate();
+                if (!_uplataStore.IsInitialized)
+                {
+                    await _uplataStore.Load();
+                }
 
-                _uplateListingViewModel.UpdateReservations(_uplataService.GetUplate());
+                _uplateListingViewModel.UpdateReservations(_uplataStore.Uplate);
             }
             catch (Exception ex)
             {

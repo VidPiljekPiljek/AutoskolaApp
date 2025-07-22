@@ -9,6 +9,8 @@ using AutoskolaApp.Models;
 using AutoskolaApp.Services;
 using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -31,15 +33,18 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand LoadStudentiCommand { get; }
         public ICommand CreateStudentCommand { get; }
         public ICommand NavigateBackCommand { get; }
+        public ICommand DeleteSelectionCommand { get; }
+        public bool IsLoaded { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public StudentiListingViewModel(StudentService studentService, NavigationService<StudentiFormViewModel> studentFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public StudentiListingViewModel(StudentService studentService, StudentStore studentStore, KorisnikService korisnikService, NavigationService<StudentiFormViewModel> studentFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _studentService = studentService;
             _studenti = new ObservableCollection<StudentViewModel>();
 
-            LoadStudentiCommand = new LoadStudentiCommand(this, studentService);
+            LoadStudentiCommand = new LoadStudentiCommand(this, studentStore);
             CreateStudentCommand = new NavigateCommand<StudentiFormViewModel>(studentFormNavigationService);
             NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            DeleteSelectionCommand = new DeleteStudentCommand(this, korisnikService, studentService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)
@@ -51,7 +56,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         //    return instruktoriPageViewModel;
         //}
 
-        public void UpdateReservations(IEnumerable<Student> studenti)
+        public void UpdateStudenti(IEnumerable<Student> studenti)
         {
             _studenti.Clear();
 

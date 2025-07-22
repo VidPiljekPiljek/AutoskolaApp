@@ -14,6 +14,12 @@ namespace AutoskolaApp.Commands.DeletionCommands
         private readonly UplateListingViewModel _formViewModel;
         private readonly UplataService _uplataService;
 
+        public DeleteUplateCommand(UplateListingViewModel formViewModel, UplataService uplataService)
+        {
+            _formViewModel = formViewModel;
+            _uplataService = uplataService;
+        }
+
         public override async Task ExecuteAsync(object? parameter)
         {
             try

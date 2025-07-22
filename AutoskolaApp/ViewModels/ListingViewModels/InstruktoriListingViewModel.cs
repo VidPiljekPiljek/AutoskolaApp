@@ -10,6 +10,8 @@ using AutoskolaApp.Services;
 using System.Windows.Input;
 using AutoskolaApp.Views.Forms;
 using AutoskolaApp.ViewModels.FormViewModels;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -33,15 +35,18 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand LoadInstruktoriCommand { get; }
         public ICommand CreateInstruktorCommand { get; }
         public ICommand NavigateBackCommand { get; }
+        public ICommand DeleteSelectionCommand { get; }
+        public bool IsLoaded { get; set; }
 
-        public InstruktoriListingViewModel(InstruktorService instruktorService, NavigationService<InstruktoriFormViewModel> instruktorFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public InstruktoriListingViewModel(InstruktorService instruktorService, InstruktorStore instruktorStore, KorisnikService korisnikService, NavigationService<InstruktoriFormViewModel> instruktorFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _instruktorService = instruktorService;
             _instruktori = new ObservableCollection<InstruktorViewModel>();
-
-            LoadInstruktoriCommand = new LoadInstruktoriCommand(this, _instruktorService);
+            IsLoaded = false;
+            LoadInstruktoriCommand = new LoadInstruktoriCommand(this, instruktorStore);
             CreateInstruktorCommand = new NavigateCommand<InstruktoriFormViewModel>(instruktorFormNavigationService);
             NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            DeleteSelectionCommand = new DeleteInstruktorCommand(this, instruktorService, korisnikService);
         }
 
         //public static InstruktoriListingViewModel LoadViewModel(InstruktorService instruktorService, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService)
@@ -53,7 +58,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         //    return instruktoriPageViewModel;
         //}
 
-        public void UpdateReservations(IEnumerable<Instruktor> instruktori)
+        public void UpdateInstruktori(IEnumerable<Instruktor> instruktori)
         {
             _instruktori.Clear();
 
@@ -77,6 +82,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public void LoadViewModel()
         {
             LoadInstruktoriCommand.Execute(null);
+            IsLoaded = true;
         }
     }
 }
