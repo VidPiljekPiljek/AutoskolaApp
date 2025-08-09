@@ -22,5 +22,9 @@ namespace AutoskolaApp.ViewModels
         {
             _uplata = uplata;
         }
+
+        public UplataViewModel()
+        {
+        }
     }
 }

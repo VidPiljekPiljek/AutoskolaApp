@@ -40,7 +40,7 @@ namespace AutoskolaApp.Commands.CreationalCommands
                 );
 
                 await _ispitService.AddIspit(ispit);
-                _ispitiListingViewModelNavigationService.Navigate();
+                _ispitiListingViewModelNavigationService.Navigate(null);
             }
             catch (Exception ex)
             {

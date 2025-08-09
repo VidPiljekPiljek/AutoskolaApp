@@ -62,7 +62,7 @@ namespace AutoskolaApp.Commands.CreationalCommands
                     );
 
                 await _studentService.AddStudent(student);
-                _studentiListingViewModelNavigationService.Navigate();
+                _studentiListingViewModelNavigationService.Navigate(null);
             }
             catch (Exception ex)
             {

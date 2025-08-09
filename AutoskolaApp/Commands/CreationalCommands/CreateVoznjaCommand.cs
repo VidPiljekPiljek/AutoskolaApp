@@ -48,7 +48,7 @@ namespace AutoskolaApp.Commands.CreationalCommands
                     );
 
                 await _voznjaService.AddVoznja(voznja);
-                _voznjeListingViewModelNavigationService.Navigate();
+                _voznjeListingViewModelNavigationService.Navigate(null);
             }
             catch (Exception ex)
             {

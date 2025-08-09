@@ -1,17 +1,18 @@
-﻿using System;
+﻿using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Commands.EditCommands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels.FormViewModels;
+using AutoskolaApp.Views.Forms;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Commands;
-using AutoskolaApp.Models;
-using AutoskolaApp.Services;
 using System.Windows.Input;
-using AutoskolaApp.Views.Forms;
-using AutoskolaApp.ViewModels.FormViewModels;
-using AutoskolaApp.Commands.DeletionCommands;
-using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -29,6 +30,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             {
                 _selectedInstruktor = value;
                 OnPropertyChanged(nameof(SelectedInstruktor));
+                EditInstruktorCommand.Parameter = _selectedInstruktor;
             }
         }
 
@@ -36,16 +38,19 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand CreateInstruktorCommand { get; }
         public ICommand NavigateBackCommand { get; }
         public ICommand DeleteSelectionCommand { get; }
+        public NavigateCommand<InstruktoriFormViewModel> EditInstruktorCommand { get; }
         public bool IsLoaded { get; set; }
 
         public InstruktoriListingViewModel(InstruktorService instruktorService, InstruktorStore instruktorStore, KorisnikService korisnikService, NavigationService<InstruktoriFormViewModel> instruktorFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _instruktorService = instruktorService;
             _instruktori = new ObservableCollection<InstruktorViewModel>();
+            _selectedInstruktor = new InstruktorViewModel();
             IsLoaded = false;
             LoadInstruktoriCommand = new LoadInstruktoriCommand(this, instruktorStore);
-            CreateInstruktorCommand = new NavigateCommand<InstruktoriFormViewModel>(instruktorFormNavigationService);
-            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            CreateInstruktorCommand = new NavigateCommand<InstruktoriFormViewModel>(instruktorFormNavigationService, null);
+            EditInstruktorCommand = new NavigateCommand<InstruktoriFormViewModel>(instruktorFormNavigationService, SelectedInstruktor);
+            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService, null);
             DeleteSelectionCommand = new DeleteInstruktorCommand(this, instruktorService, korisnikService);
         }
 
@@ -79,7 +84,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             throw new NotImplementedException();
         }
 
-        public void LoadViewModel()
+        public void LoadViewModel(object parameter)
         {
             LoadInstruktoriCommand.Execute(null);
             IsLoaded = true;

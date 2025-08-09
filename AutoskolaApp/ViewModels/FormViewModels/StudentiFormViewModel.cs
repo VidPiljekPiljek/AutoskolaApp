@@ -11,7 +11,7 @@ using AutoskolaApp.ViewModels.ListingViewModels;
 
 namespace AutoskolaApp.ViewModels.FormViewModels
 {
-    public class StudentiFormViewModel : ViewModelBase
+    public class StudentiFormViewModel : ViewModelBase, ILoadable
     {
         private string _korisnickoIme;
         public string KorisnickoIme
@@ -96,7 +96,20 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         public StudentiFormViewModel(KorisnikService korisnikService, StudentService studentService, NavigationService<StudentiListingViewModel> studentiListingViewModel)
         {
             SubmitCommand = new CreateStudentCommand(this, korisnikService, studentService, studentiListingViewModel);
-            CancelCommand = new NavigateCommand<StudentiListingViewModel>(studentiListingViewModel);
+            CancelCommand = new NavigateCommand<StudentiListingViewModel>(studentiListingViewModel, null);
+        }
+
+        public void LoadViewModel(object parameter)
+        {
+            if (parameter != null)
+            {
+                StudentViewModel student = (StudentViewModel)parameter;
+                OIB = student.OIB;
+                Ime = student.Ime;
+                Prezime = student.Prezime;
+                DatumPocetka = DateTime.Parse(student.DatumPocetka);
+                DatumRodjenja = DateTime.Parse(student.DatumRodjenja);
+            }
         }
     }
 }

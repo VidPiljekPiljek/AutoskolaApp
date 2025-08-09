@@ -18,5 +18,9 @@ namespace AutoskolaApp.ViewModels
         public int IDInstruktora => _ispit.IDInstruktora;
 
         public IspitViewModel(Ispit ispit) => _ispit = ispit;
+
+        public IspitViewModel()
+        {
+        }
     }
 }

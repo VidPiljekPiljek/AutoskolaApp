@@ -9,13 +9,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.FormViewModels
 {
-    public class VoznjeFormViewModel : ViewModelBase
+    public class VoznjeFormViewModel : ViewModelBase, ILoadable
     {
         private readonly ObservableCollection<StudentViewModel> _studenti;
         public IEnumerable<StudentViewModel> Studenti => _studenti;
@@ -83,7 +84,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
 
         public VoznjeFormViewModel(StudentService studentService, InstruktorService instruktorService, VoznjaService voznjaService, NavigationService<VoznjeListingViewModel> voznjeNavigationService) {
             SubmitCommand = new CreateVoznjaCommand(this, studentService, instruktorService, voznjaService, voznjeNavigationService);
-            CancelCommand = new NavigateCommand<VoznjeListingViewModel>(voznjeNavigationService);
+            CancelCommand = new NavigateCommand<VoznjeListingViewModel>(voznjeNavigationService, null);
             SearchCommand = new InstruktorStudentSearchCommand(this, studentService, instruktorService);
 
             _instruktori = new ObservableCollection<InstruktorViewModel>();
@@ -109,6 +110,15 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 InstruktorViewModel instruktorViewModel = new InstruktorViewModel(instruktor);
                 _instruktori.Add(instruktorViewModel);
+            }
+        }
+
+        public void LoadViewModel(object parameter)
+        {
+            if (parameter != null)
+            {
+                VoznjaViewModel voznja = (VoznjaViewModel)parameter;
+                DatumVoznje = voznja.DatumVoznje;
             }
         }
     }

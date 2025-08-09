@@ -8,6 +8,6 @@ namespace AutoskolaApp.ViewModels
 {
     public interface ILoadable
     {
-        public abstract void LoadViewModel();
+        public abstract void LoadViewModel(object parameter);
     }
 }

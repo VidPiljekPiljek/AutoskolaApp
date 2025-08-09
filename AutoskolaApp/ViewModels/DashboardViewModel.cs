@@ -87,6 +87,51 @@ namespace AutoskolaApp.ViewModels
             }
         }
 
+        public void LoadViewModel(object parameter)
+        {
+            Type tipKorisnika = _korisnikService.KorisnikAuthorization();
+            Console.WriteLine($"User role: {tipKorisnika}");
+            if (tipKorisnika == typeof(Administrator))
+            {
+                CanNavigateToInstruktori = true;
+                OnPropertyChanged(nameof(CanNavigateToInstruktori));
+                CanNavigateToIspiti = true;
+                OnPropertyChanged(nameof(CanNavigateToIspiti));
+                CanNavigateToStudenti = true;
+                OnPropertyChanged(nameof(CanNavigateToStudenti));
+                CanNavigateToUplate = true;
+                OnPropertyChanged(nameof(CanNavigateToUplate));
+                CanNavigateToVoznje = true;
+                OnPropertyChanged(nameof(CanNavigateToVoznje));
+            }
+            else if (tipKorisnika == typeof(Instruktor))
+            {
+                CanNavigateToInstruktori = false;
+                OnPropertyChanged(nameof(CanNavigateToInstruktori));
+                CanNavigateToIspiti = true;
+                OnPropertyChanged(nameof(CanNavigateToIspiti));
+                CanNavigateToStudenti = false;
+                OnPropertyChanged(nameof(CanNavigateToStudenti));
+                CanNavigateToUplate = false;
+                OnPropertyChanged(nameof(CanNavigateToUplate));
+                CanNavigateToVoznje = true;
+                OnPropertyChanged(nameof(CanNavigateToVoznje));
+            }
+            else if (tipKorisnika == typeof(Student))
+            {
+                CanNavigateToInstruktori = false;
+                OnPropertyChanged(nameof(CanNavigateToInstruktori));
+                CanNavigateToIspiti = true;
+                OnPropertyChanged(nameof(CanNavigateToIspiti));
+                CanNavigateToStudenti = false;
+                OnPropertyChanged(nameof(CanNavigateToStudenti));
+                CanNavigateToUplate = true;
+                OnPropertyChanged(nameof(CanNavigateToUplate));
+                CanNavigateToVoznje = true;
+                OnPropertyChanged(nameof(CanNavigateToVoznje));
+            }
+        }
+
         public DashboardViewModel(KorisnikService korisnikService, NavigationService<InstruktoriListingViewModel> instruktoriNavigationService, NavigationService<IspitiListingViewModel> ispitiNavigationService, NavigationService<StudentiListingViewModel> studentiNavigationService, NavigationService<UplateListingViewModel> uplateNavigationService, NavigationService<VoznjeListingViewModel> voznjeNavigationService)
         {
             _korisnikService = korisnikService;

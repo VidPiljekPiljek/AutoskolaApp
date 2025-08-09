@@ -29,6 +29,21 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task UpdateInstruktor(Instruktor instruktor)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                var instruktorTemp = dbContext.Instruktori.Find(instruktor.IDInstruktora);
+                if (instruktorTemp != null)
+                {
+                    dbContext.Entry(instruktorTemp).CurrentValues.SetValues(instruktor);
+                    await dbContext.SaveChangesAsync();
+                }
+                //dbContext.Instruktori.Add(instruktor);
+                //await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task<IEnumerable<Instruktor>> GetAllInstruktori()
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())

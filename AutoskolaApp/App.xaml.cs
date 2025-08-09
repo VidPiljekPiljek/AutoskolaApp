@@ -108,7 +108,7 @@ public partial class App : Application
         }
 
         NavigationService<LoginViewModel> navigationService = _host.Services.GetService<NavigationService<LoginViewModel>>();
-        navigationService.Navigate();
+        navigationService.Navigate(null);
 
         MainWindow = _host.Services.GetService<MainWindow>();
         MainWindow.Show();

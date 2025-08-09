@@ -1,16 +1,17 @@
-﻿using System;
+﻿using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Commands.EditCommands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels.FormViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Commands;
-using AutoskolaApp.Models;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
-using AutoskolaApp.Commands.DeletionCommands;
-using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -27,6 +28,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             {
                 _selectedStudent = value;
                 OnPropertyChanged(nameof(SelectedStudent));
+                EditStudentCommand.Parameter = _selectedStudent;
             }
         }
 
@@ -34,16 +36,18 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         public ICommand CreateStudentCommand { get; }
         public ICommand NavigateBackCommand { get; }
         public ICommand DeleteSelectionCommand { get; }
+        public NavigateCommand<StudentiFormViewModel> EditStudentCommand { get; }
         public bool IsLoaded { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public StudentiListingViewModel(StudentService studentService, StudentStore studentStore, KorisnikService korisnikService, NavigationService<StudentiFormViewModel> studentFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _studentService = studentService;
             _studenti = new ObservableCollection<StudentViewModel>();
-
+            _selectedStudent = new StudentViewModel();
             LoadStudentiCommand = new LoadStudentiCommand(this, studentStore);
-            CreateStudentCommand = new NavigateCommand<StudentiFormViewModel>(studentFormNavigationService);
-            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            CreateStudentCommand = new NavigateCommand<StudentiFormViewModel>(studentFormNavigationService, null);
+            EditStudentCommand = new NavigateCommand<StudentiFormViewModel>(studentFormNavigationService, SelectedStudent);
+            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService, null);
             DeleteSelectionCommand = new DeleteStudentCommand(this, korisnikService, studentService);
         }
 
@@ -77,7 +81,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             throw new NotImplementedException();
         }
 
-        public void LoadViewModel()
+        public void LoadViewModel(object parameter)
         {
             LoadStudentiCommand.Execute(null);
         }

@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.FormViewModels
 {
-    public class UplateFormViewModel : ViewModelBase
+    public class UplateFormViewModel : ViewModelBase, ILoadable
     {
         private readonly ObservableCollection<StudentViewModel> _studenti;
         public IEnumerable<StudentViewModel> Studenti => _studenti;
@@ -71,7 +72,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         public UplateFormViewModel(StudentService studentService, UplataService uplataService, NavigationService<UplateListingViewModel> uplateListingViewModel)
         {
             SubmitCommand = new CreateUplataCommand(this, studentService, uplataService, uplateListingViewModel);
-            CancelCommand = new NavigateCommand<UplateListingViewModel>(uplateListingViewModel);
+            CancelCommand = new NavigateCommand<UplateListingViewModel>(uplateListingViewModel, null);
             SearchCommand = new KorisnikSearchCommand(this, studentService);
             _studenti = new ObservableCollection<StudentViewModel>();
         }
@@ -87,5 +88,15 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             }
         }
 
+        public void LoadViewModel(object parameter)
+        {
+            if (parameter != null)
+            {
+                UplataViewModel uplata = (UplataViewModel)parameter;
+                DatumUplate = uplata.DatumUplate;
+                Iznos = uplata.Iznos.ToString();
+                NacinUplate = uplata.NacinUplate;
+            }
+        }
     }
 }

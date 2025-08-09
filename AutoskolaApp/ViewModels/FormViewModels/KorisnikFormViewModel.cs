@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoskolaApp.ViewModels.FormViewModels
 {
-    public class KorisnikFormViewModel : ViewModelBase
+    public class KorisnikFormViewModel : ViewModelBase, ILoadable
     {
         private string _korisnickoIme;
         public string KorisnickoIme
@@ -39,6 +39,11 @@ namespace AutoskolaApp.ViewModels.FormViewModels
                 _uloga = value;
                 OnPropertyChanged(nameof(Uloga));
             }
+        }
+
+        public void LoadViewModel(object parameter)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -28,22 +28,26 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             {
                 _selectedIspit = value;
                 OnPropertyChanged(nameof(SelectedIspit));
+                EditIspitCommand.Parameter = _selectedIspit;
             }
         }
         public ICommand LoadIspitiCommand { get; }
         public ICommand CreateIspitCommand { get; }
         public ICommand NavigateBackCommand { get; }
         public ICommand DeleteSelectionCommand { get; }
+        public NavigateCommand<IspitiFormViewModel> EditIspitCommand { get; }
         public bool IsLoaded { get; set; }
 
-        public IspitiListingViewModel(IspitService ispitService, IspitStore ispitStore, NavigationService<KorisnikFormViewModel> korisnikFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
+        public IspitiListingViewModel(IspitService ispitService, IspitStore ispitStore, NavigationService<IspitiFormViewModel> ispitiFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _ispitService = ispitService;
             _ispiti = new ObservableCollection<IspitViewModel>();
+            _selectedIspit = new IspitViewModel();
             IsLoaded = false;
             LoadIspitiCommand = new LoadIspitiCommand(null, ispitStore);
-            CreateIspitCommand = new NavigateCommand<KorisnikFormViewModel>(korisnikFormNavigationService);
-            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            CreateIspitCommand = new NavigateCommand<IspitiFormViewModel>(ispitiFormNavigationService, null);
+            EditIspitCommand = new NavigateCommand<IspitiFormViewModel>(ispitiFormNavigationService, SelectedIspit);
+            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService, null);
             DeleteSelectionCommand = new DeleteIspitCommand(this, ispitService);
         }
 
@@ -68,7 +72,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             throw new NotImplementedException();
         }
 
-        public void LoadViewModel()
+        public void LoadViewModel(object parameter)
         {
             LoadIspitiCommand.Execute(null);
             IsLoaded = true;

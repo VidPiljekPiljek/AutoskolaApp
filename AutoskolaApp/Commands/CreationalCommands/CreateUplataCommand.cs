@@ -47,7 +47,7 @@ namespace AutoskolaApp.Commands.CreationalCommands
                     );
 
                 await _uplataService.AddUplata(uplata);
-                _uplateListingViewModelNavigationService.Navigate();
+                _uplateListingViewModelNavigationService.Navigate(null);
             }
             catch (Exception ex)
             {

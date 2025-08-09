@@ -1,16 +1,17 @@
-﻿using System;
+﻿using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Commands.EditCommands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels.FormViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Commands;
-using AutoskolaApp.Models;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
-using AutoskolaApp.Commands.DeletionCommands;
-using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -27,21 +28,24 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             {
                 _selectedUplata = value;
                 OnPropertyChanged(nameof(SelectedUplata));
+                EditUplataCommand.Parameter = _selectedUplata;
             }
         }
         public ICommand LoadUplateCommand { get; }
         public ICommand CreateUplataCommand { get; }
         public ICommand NavigateBackCommand { get; }
         public ICommand DeleteSelectionCommand { get; }
+        public NavigateCommand<UplateFormViewModel> EditUplataCommand { get; }
 
         public UplateListingViewModel(UplataService uplataService, UplataStore uplataStore, NavigationService<UplateFormViewModel> uplateFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _uplataService = uplataService;
             _uplate = new ObservableCollection<UplataViewModel>();
-
+            _selectedUplata = new UplataViewModel();
             LoadUplateCommand = new LoadUplateCommand(this, uplataStore);
-            CreateUplataCommand = new NavigateCommand<UplateFormViewModel>(uplateFormNavigationService);
-            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            CreateUplataCommand = new NavigateCommand<UplateFormViewModel>(uplateFormNavigationService, null);
+            EditUplataCommand = new NavigateCommand<UplateFormViewModel>(uplateFormNavigationService, SelectedUplata);
+            NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService, null);
             DeleteSelectionCommand = new DeleteUplateCommand(this, uplataService);
         }
 
@@ -75,7 +79,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             throw new NotImplementedException();
         }
 
-        public void LoadViewModel()
+        public void LoadViewModel(object parameter)
         {
             LoadUplateCommand.Execute(null);
         }

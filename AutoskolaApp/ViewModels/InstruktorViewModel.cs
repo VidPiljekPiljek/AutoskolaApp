@@ -24,5 +24,9 @@ namespace AutoskolaApp.ViewModels
         {
             _instruktor = instruktor;
         }
+
+        public InstruktorViewModel()
+        {
+        }
     }
 }

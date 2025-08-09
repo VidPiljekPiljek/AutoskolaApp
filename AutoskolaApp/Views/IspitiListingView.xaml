@@ -43,7 +43,7 @@ Foreground="{DynamicResource TextFillColorPrimaryBrush}"
 
         <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
             <Button Margin="0, 0, 0, 0" Content="Dodaj" Command="{Binding CreateIspitCommand}"/>
-            <ui:Button x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="5, 0, 0, 0"/>
+            <ui:Button Command="{Binding EditIspitCommand}" x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="5, 0, 0, 0"/>
             <ui:Button Command="{Binding DeleteSelectionCommand}" x:Name="btnIzbrisiOdabir" Content="Izbrisi odabir" Margin="5, 0, 0, 0"/>
         </StackPanel>
 

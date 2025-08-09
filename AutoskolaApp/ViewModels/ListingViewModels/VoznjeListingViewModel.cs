@@ -1,16 +1,17 @@
-﻿using System;
+﻿using AutoskolaApp.Commands;
+using AutoskolaApp.Commands.DeletionCommands;
+using AutoskolaApp.Commands.EditCommands;
+using AutoskolaApp.Models;
+using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels.FormViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoskolaApp.Commands;
-using AutoskolaApp.Models;
-using AutoskolaApp.Services;
-using AutoskolaApp.ViewModels.FormViewModels;
 using System.Windows.Input;
-using AutoskolaApp.Commands.DeletionCommands;
-using AutoskolaApp.Stores;
 
 namespace AutoskolaApp.ViewModels.ListingViewModels
 {
@@ -27,21 +28,24 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             {
                 _selectedVoznja = value;
                 OnPropertyChanged(nameof(SelectedVoznja));
+                EditVoznjaCommand.Parameter = _selectedVoznja;
             }
         }
         public ICommand LoadVoznjeCommand { get; }
         public ICommand CreateVoznjaCommand { get; }
         public ICommand NatragCommand { get; }
         public ICommand DeleteSelectionCommand { get; }
+        public NavigateCommand<VoznjeFormViewModel> EditVoznjaCommand { get; }
 
         public VoznjeListingViewModel(VoznjaService voznjaService, VoznjaStore voznjaStore, NavigationService<VoznjeFormViewModel> voznjaFormNavigationService, NavigationService<DashboardViewModel> dashboardNavigationService) // TO DO: ADD NAVIGATION SERVICE
         {
             _voznjaService = voznjaService;
             _voznje = new ObservableCollection<VoznjaViewModel>();
-
+            _selectedVoznja = new VoznjaViewModel();
             LoadVoznjeCommand = new LoadVoznjeCommand(this, voznjaStore);
-            CreateVoznjaCommand = new NavigateCommand<VoznjeFormViewModel>(voznjaFormNavigationService);
-            NatragCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService);
+            CreateVoznjaCommand = new NavigateCommand<VoznjeFormViewModel>(voznjaFormNavigationService, null);
+            EditVoznjaCommand = new NavigateCommand<VoznjeFormViewModel>(voznjaFormNavigationService, SelectedVoznja);
+            NatragCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService, null);
             DeleteSelectionCommand = new DeleteVoznjaCommand(this, voznjaService);
         }
 
@@ -75,7 +79,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             throw new NotImplementedException();
         }
 
-        public void LoadViewModel()
+        public void LoadViewModel(object parameter)
         {
             LoadVoznjeCommand.Execute(null);
         }

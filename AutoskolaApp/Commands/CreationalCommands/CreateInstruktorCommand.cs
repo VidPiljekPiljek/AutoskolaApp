@@ -29,13 +29,11 @@ namespace AutoskolaApp.Commands.CreationalCommands
 
         public override bool CanExecute(object? parameter)
         {
-            return true;
+            return !_formViewModel.IsEditMode;
         }
 
         public override async Task ExecuteAsync(object? parameter)
         {
-            
-
             try
             {
                 Korisnik korisnik = new Korisnik(
@@ -43,10 +41,6 @@ namespace AutoskolaApp.Commands.CreationalCommands
                     _formViewModel.Lozinka,
                     2
                 );
-
-                
-
-                
 
                 await _korisnikService.AddKorisnik(korisnik);
 
@@ -62,11 +56,11 @@ namespace AutoskolaApp.Commands.CreationalCommands
                     );
 
                 await _instruktorService.AddInstruktor(instruktor);
-                _instruktoriListingViewModelNavigationService.Navigate();
+                _instruktoriListingViewModelNavigationService.Navigate(null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + " " + ex.InnerException.Message);
             }
         }
     }

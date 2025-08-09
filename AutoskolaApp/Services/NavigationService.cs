@@ -21,14 +21,22 @@ namespace AutoskolaApp.Services
             _createViewModel = createViewModel;
         }
 
-        public void Navigate()
+        public void Navigate(object parameter)
         {
             var viewModel = _createViewModel();
 
             var loadableViewModel = viewModel as ILoadable;
             if (loadableViewModel != null)
             {
-                loadableViewModel.LoadViewModel();
+                loadableViewModel.LoadViewModel(parameter);
+                //if (parameter != null)
+                //{
+                //    loadableViewModel.LoadViewModel(parameter);
+                //}
+                //else
+                //{
+                //    loadableViewModel.LoadViewModel(null);
+                //} 
             }
 
             _navigationStore.CurrentViewModel = viewModel;

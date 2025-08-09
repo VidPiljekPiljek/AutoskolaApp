@@ -17,5 +17,9 @@ namespace AutoskolaApp.ViewModels
         public int IDInstruktora => _voznja.IDInstruktora;
 
         public VoznjaViewModel(Voznja voznja) => _voznja = voznja;
+
+        public VoznjaViewModel()
+        {
+        }
     }
 }

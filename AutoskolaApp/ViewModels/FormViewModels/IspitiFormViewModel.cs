@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace AutoskolaApp.ViewModels.FormViewModels
 {
-    public class IspitiFormViewModel : ViewModelBase
+    public class IspitiFormViewModel : ViewModelBase, ILoadable
     {
         private readonly ObservableCollection<InstruktorViewModel> _instruktori;
         public IEnumerable<InstruktorViewModel> Instruktori => _instruktori;
@@ -81,7 +82,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         public IspitiFormViewModel(IspitService ispitService, InstruktorService instruktorService, NavigationService<IspitiListingViewModel> ispitiListingViewModelNavigationService)
         {
             SubmitCommand = new CreateIspitCommand(this, ispitService, ispitiListingViewModelNavigationService);
-            CancelCommand = new NavigateCommand<IspitiListingViewModel>(ispitiListingViewModelNavigationService);
+            CancelCommand = new NavigateCommand<IspitiListingViewModel>(ispitiListingViewModelNavigationService, null);
             SearchCommand = new InstruktorSearchCommand(this, instruktorService);
             _instruktori = new ObservableCollection<InstruktorViewModel>();
         }
@@ -94,6 +95,17 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 InstruktorViewModel instruktorViewModel = new InstruktorViewModel(instruktor);
                 _instruktori.Add(instruktorViewModel);
+            }
+        }
+
+        public void LoadViewModel(object parameter)
+        {
+            if (parameter != null)
+            {
+                IspitViewModel ispit = (IspitViewModel)parameter;
+                DateTime = ispit.DateTime;
+                VrstaIspita = ispit.VrstaIspita;
+                IDInstruktora = ispit.IDInstruktora;
             }
         }
     }

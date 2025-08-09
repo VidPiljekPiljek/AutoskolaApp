@@ -58,6 +58,15 @@ namespace AutoskolaApp.Stores
             OnInstruktorCreated(instruktor);
         }
 
+        public async Task EditInstruktor(Instruktor instruktor)
+        {
+            await _instruktorRepository.UpdateInstruktor(instruktor);
+
+            _instruktori.Add(instruktor);
+
+            OnInstruktorCreated(instruktor);
+        }
+
         public async Task DeleteInstruktor(int instruktorID)
         {
             await _instruktorRepository.DeleteInstruktor(instruktorID);

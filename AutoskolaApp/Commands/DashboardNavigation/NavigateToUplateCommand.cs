@@ -30,7 +30,7 @@ namespace AutoskolaApp.Commands.DashboardNavigation
         {
             try
             {
-                _uplateListingViewNavigationService.Navigate();
+                _uplateListingViewNavigationService.Navigate(null);
             }
             catch (Exception ex)
             {
