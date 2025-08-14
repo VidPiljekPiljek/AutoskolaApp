@@ -1,5 +1,6 @@
 ﻿using AutoskolaApp.Commands;
 using AutoskolaApp.Commands.CreationalCommands;
+using AutoskolaApp.Commands.EditCommands;
 using AutoskolaApp.Commands.SearchCommands;
 using AutoskolaApp.Models;
 using AutoskolaApp.Services;
@@ -18,6 +19,17 @@ namespace AutoskolaApp.ViewModels.FormViewModels
 {
     public class VoznjeFormViewModel : ViewModelBase, ILoadable
     {
+        private Voznja _voznja;
+        public Voznja Voznja 
+        {
+            get { return _voznja; }
+            set
+            {
+                _voznja = value;
+                OnPropertyChanged(nameof(Voznja));
+            }
+        }
+
         private readonly ObservableCollection<StudentViewModel> _studenti;
         public IEnumerable<StudentViewModel> Studenti => _studenti;
         private readonly ObservableCollection<InstruktorViewModel> _instruktori;
@@ -30,6 +42,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 _selectedStudent = value;
                 OnPropertyChanged(nameof(SelectedStudent));
+                _voznja.IDStudenta = value.IDStudenta;
             }
         }
         private InstruktorViewModel _selectedInstruktor;
@@ -40,6 +53,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 _selectedInstruktor = value;
                 OnPropertyChanged(nameof(SelectedInstruktor));
+                _voznja.IDInstruktora = value.IDInstruktora;
             }
         }
 
@@ -47,14 +61,23 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         public DateTime DatumVoznje
         {
             get { return _datumVoznje; }
-            set { _datumVoznje = value; OnPropertyChanged(nameof(DatumVoznje)); }
+            set 
+            { 
+                _datumVoznje = value; 
+                OnPropertyChanged(nameof(DatumVoznje)); 
+                _voznja.DatumVoznje = value;
+            }
         }
 
         private string _studentIme;
         public string StudentIme
         {
             get { return _studentIme; }
-            set { _studentIme = value; OnPropertyChanged(nameof(StudentIme)); }
+            set 
+            { 
+                _studentIme = value; 
+                OnPropertyChanged(nameof(StudentIme)); 
+            }
         }
 
         private string _studentPrezime;
@@ -78,7 +101,19 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             set { _instruktorPrezime = value; OnPropertyChanged(nameof(InstruktorPrezime)); }
         }
 
+        private bool _isEditMode;
+        public bool IsEditMode
+        {
+            get { return _isEditMode; }
+            set
+            {
+                _isEditMode = value;
+                OnPropertyChanged(nameof(IsEditMode));
+            }
+        }
+
         public AsyncCommandBase SubmitCommand { get; set; }
+        public AsyncCommandBase EditCommand { get; set; }
         public AsyncCommandBase SearchCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
@@ -86,7 +121,8 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             SubmitCommand = new CreateVoznjaCommand(this, studentService, instruktorService, voznjaService, voznjeNavigationService);
             CancelCommand = new NavigateCommand<VoznjeListingViewModel>(voznjeNavigationService, null);
             SearchCommand = new InstruktorStudentSearchCommand(this, studentService, instruktorService);
-
+            _isEditMode = false;
+            EditCommand = new EditVoznjaCommand(this, voznjaService, voznjeNavigationService);
             _instruktori = new ObservableCollection<InstruktorViewModel>();
             _studenti = new ObservableCollection<StudentViewModel>();
         }

@@ -28,6 +28,21 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task UpdateVoznja(Voznja voznja)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                var voznjaTemp = dbContext.Voznje.Find(voznja.IDVoznje);
+                if (voznjaTemp != null)
+                {
+                    dbContext.Entry(voznjaTemp).CurrentValues.SetValues(voznja);
+                    await dbContext.SaveChangesAsync();
+                }
+                //dbContext.Instruktori.Add(instruktor);
+                //await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task DeleteVoznja(int voznjaID)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())

@@ -18,6 +18,7 @@ namespace AutoskolaApp.Stores
         public bool IsInitialized => _isInitialized;
 
         public event Action<Student> StudentCreated;
+        public event Action<Student> StudentEdited;
         public event Action<Student> StudentDeleted;
 
         public StudentStore(StudentRepository studentRepository)
@@ -53,6 +54,11 @@ namespace AutoskolaApp.Stores
             StudentCreated?.Invoke(instruktor);
         }
 
+        private void OnStudentEdited(Student instruktor)
+        {
+            StudentEdited?.Invoke(instruktor);
+        }
+
         private void OnStudentDeleted(Student instruktor)
         {
             StudentDeleted?.Invoke(instruktor);
@@ -65,6 +71,23 @@ namespace AutoskolaApp.Stores
             _studenti.Add(student);
 
             OnStudentCreated(student);
+        }
+
+        public async Task EditStudent(Student student)
+        {
+            await _studentRepository.UpdateStudent(student);
+
+            var existingStudent = _studenti.FirstOrDefault(s => s.IDStudenta == student.IDStudenta);
+            if (existingStudent != null)
+            {
+                existingStudent.GetType().GetProperties()
+                    .Where(p => p.CanWrite)
+                    .ToList()
+                    .ForEach(p => p.SetValue(existingStudent, p.GetValue(student)));
+                await _studentRepository.UpdateStudent(existingStudent);
+
+                OnStudentEdited(existingStudent);
+            }
         }
 
         public async Task DeleteStudent(int studentID)

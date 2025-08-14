@@ -44,7 +44,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
             _ispiti = new ObservableCollection<IspitViewModel>();
             _selectedIspit = new IspitViewModel();
             IsLoaded = false;
-            LoadIspitiCommand = new LoadIspitiCommand(null, ispitStore);
+            LoadIspitiCommand = new LoadIspitiCommand(this, ispitStore);
             CreateIspitCommand = new NavigateCommand<IspitiFormViewModel>(ispitiFormNavigationService, null);
             EditIspitCommand = new NavigateCommand<IspitiFormViewModel>(ispitiFormNavigationService, SelectedIspit);
             NavigateBackCommand = new NavigateCommand<DashboardViewModel>(dashboardNavigationService, null);

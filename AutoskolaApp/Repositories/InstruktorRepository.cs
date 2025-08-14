@@ -39,8 +39,6 @@ namespace AutoskolaApp.Repositories
                     dbContext.Entry(instruktorTemp).CurrentValues.SetValues(instruktor);
                     await dbContext.SaveChangesAsync();
                 }
-                //dbContext.Instruktori.Add(instruktor);
-                //await dbContext.SaveChangesAsync();
             }
         }
 

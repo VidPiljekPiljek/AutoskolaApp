@@ -34,15 +34,19 @@ namespace AutoskolaApp.HostBuilders
                 services.AddTransient<InstruktoriListingViewModel>();
                 services.AddSingleton<Func<InstruktoriListingViewModel>>(s => () => s.GetRequiredService<InstruktoriListingViewModel>());
                 services.AddSingleton<NavigationService<InstruktoriListingViewModel>>();
+
                 services.AddTransient<IspitiListingViewModel>();
                 services.AddSingleton<Func<IspitiListingViewModel>>(s => () => s.GetRequiredService<IspitiListingViewModel>());
                 services.AddSingleton<NavigationService<IspitiListingViewModel>>();
+
                 services.AddTransient<StudentiListingViewModel>();
                 services.AddSingleton<Func<StudentiListingViewModel>>(s => () => s.GetRequiredService<StudentiListingViewModel>());
                 services.AddSingleton<NavigationService<StudentiListingViewModel>>();
+
                 services.AddTransient<UplateListingViewModel>();
                 services.AddSingleton<Func<UplateListingViewModel>>(s => () => s.GetRequiredService<UplateListingViewModel>());
                 services.AddSingleton<NavigationService<UplateListingViewModel>>();
+
                 services.AddTransient<VoznjeListingViewModel>();
                 services.AddSingleton<Func<VoznjeListingViewModel>>(s => () => s.GetRequiredService<VoznjeListingViewModel>());
                 services.AddSingleton<NavigationService<VoznjeListingViewModel>>();

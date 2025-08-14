@@ -18,6 +18,7 @@ namespace AutoskolaApp.Stores
         public bool IsInitialized => _isInitialized;
 
         public event Action<Uplata> UplataCreated;
+        public event Action<Uplata> UplataEdited;
         public event Action<Uplata> UplataDeleted;
 
         public UplataStore(UplataRepository studentRepository)
@@ -48,6 +49,11 @@ namespace AutoskolaApp.Stores
             UplataCreated?.Invoke(uplata);
         }
 
+        private void OnUplataEdited(Uplata uplata)
+        {
+            UplataCreated?.Invoke(uplata);
+        }
+
         private void OnUplataDeleted(Uplata uplata)
         {
             UplataDeleted?.Invoke(uplata);
@@ -60,6 +66,23 @@ namespace AutoskolaApp.Stores
             _uplate.Add(uplata);
 
             OnUplataCreated(uplata);
+        }
+
+        public async Task EditUplata(Uplata uplata)
+        {
+            await _uplateRepository.UpdateUplata(uplata);
+
+            var existingUplata = _uplate.FirstOrDefault(s => s.IDUplate == uplata.IDUplate);
+            if (existingUplata != null)
+            {
+                existingUplata.GetType().GetProperties()
+                    .Where(p => p.CanWrite)
+                    .ToList()
+                    .ForEach(p => p.SetValue(existingUplata, p.GetValue(uplata)));
+                await _uplateRepository.UpdateUplata(existingUplata);
+
+                OnUplataEdited(existingUplata);
+            }
         }
 
         public async Task DeleteUplata(int uplataID)

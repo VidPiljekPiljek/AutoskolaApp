@@ -21,6 +21,7 @@ Foreground="{DynamicResource TextFillColorPrimaryBrush}"
             <RowDefinition Height="30" />
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="35" />
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
@@ -38,15 +39,15 @@ Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         <Label Content="Rezultati" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" />
         <Label Content="Statistika" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" />
 
-        <ui:DataGrid Grid.Row="3" Grid.Column="1" SelectedItem="{Binding SelectedIspit}" ItemsSource="{Binding Ispiti}"/>
+        <ui:DataGrid Grid.Row="3" Grid.Column="1" Grid.RowSpan="5" SelectedItem="{Binding SelectedIspit}" ItemsSource="{Binding Ispiti}"/>
         <ui:DataGrid Grid.Row="3" Grid.Column="3" ItemsSource="{Binding}"/>
 
-        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
             <Button Margin="0, 0, 0, 0" Content="Dodaj" Command="{Binding CreateIspitCommand}"/>
             <ui:Button Command="{Binding EditIspitCommand}" x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="5, 0, 0, 0"/>
             <ui:Button Command="{Binding DeleteSelectionCommand}" x:Name="btnIzbrisiOdabir" Content="Izbrisi odabir" Margin="5, 0, 0, 0"/>
         </StackPanel>
 
-        <ui:Button Grid.Row="9" Grid.Column="1" Command="{Binding NavigateBackCommand}" x:Name="btnNatrag" Content="Natrag" HorizontalAlignment="Center"/>
+        <ui:Button Grid.Row="10" Grid.Column="1" Command="{Binding NavigateBackCommand}" x:Name="btnNatrag" Content="Natrag" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

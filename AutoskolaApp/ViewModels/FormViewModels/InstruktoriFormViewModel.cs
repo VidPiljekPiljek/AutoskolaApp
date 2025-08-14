@@ -155,7 +155,6 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             else
             {
                 _isEditMode = false;
-
             }
         }
     }

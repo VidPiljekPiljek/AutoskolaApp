@@ -46,18 +46,18 @@
         <Label Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="3" Content="Prezime Studenta"/>
 
         <ui:TextBox Text="{Binding Iznos, UpdateSourceTrigger=PropertyChanged}" x:Name="txtIznos" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3"/>
-        <ComboBox SelectedValue="{Binding NacinUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="cmbNacinUplate" Grid.Column="7" Grid.Row="2">
-            <ComboBoxItem Content="Kartica" Name="Kartica"/>
-            <ComboBoxItem Name="Gotovina">Gotovina</ComboBoxItem>
-        </ComboBox>
+        <ComboBox ItemsSource="{Binding NaciniUplate}" SelectedValue="{Binding NacinUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="cmbNacinUplate" Grid.Column="7" Grid.Row="2"/>
         <ui:TextBox Text="{Binding ImeStudenta, UpdateSourceTrigger=PropertyChanged}" x:Name="txtStudentIme" Grid.Column="1" Grid.Row="5"/>
         <ui:TextBox Text="{Binding PrezimeStudenta, UpdateSourceTrigger=PropertyChanged}" x:Name="txtStudentPrezime" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5"/>
 
         <DatePicker SelectedDate="{Binding DatumUplate, UpdateSourceTrigger=PropertyChanged}" x:Name="dtpDatumUplacenja" Grid.Column="1" Grid.Row="2"/>
         <DataGrid SelectedItem="{Binding SelectedStudent}" ItemsSource="{Binding Studenti}" Grid.Column="9" Grid.Row="2" Grid.RowSpan="3"></DataGrid>
 
-        <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Grid.Column="3" Grid.Row="7"/>
-        <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Grid.Column="5" Grid.Row="7"/>
+        <StackPanel Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Margin="0 0 0 0"/>
+            <Button Command="{Binding EditCommand}" x:Name="btnEdit" Content="Uredi" Margin="5 0 0 0"/>
+            <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Margin="5 0 0 0"/>
+        </StackPanel>
         <Button Command="{Binding SearchCommand}" x:Name="btnSearch" Content="Traži" Grid.Column="7" Grid.Row="5" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

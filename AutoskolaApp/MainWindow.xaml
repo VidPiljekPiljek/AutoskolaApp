@@ -51,6 +51,9 @@
             <DataTemplate DataType="{x:Type formviewmodels:UplateFormViewModel}">
                 <forms:UplateForm/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type formviewmodels:IspitiFormViewModel}">
+                <forms:IspitForm/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type formviewmodels:VoznjeFormViewModel}">
                 <forms:VoznjeForm/>
             </DataTemplate>

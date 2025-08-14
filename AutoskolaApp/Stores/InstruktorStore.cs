@@ -19,6 +19,7 @@ namespace AutoskolaApp.Stores
         public bool IsInitialized => _isInitialized;
 
         public event Action<Instruktor> InstruktorCreated;
+        public event Action<Instruktor> InstruktorEdited;
         public event Action<Instruktor> InstruktorDeleted;
 
         public InstruktorStore(InstruktorRepository instruktorRepository)
@@ -62,9 +63,17 @@ namespace AutoskolaApp.Stores
         {
             await _instruktorRepository.UpdateInstruktor(instruktor);
 
-            _instruktori.Add(instruktor);
+            var existingInstruktor = _instruktori.FirstOrDefault(i => i.IDInstruktora == instruktor.IDInstruktora);
+            if (existingInstruktor != null)
+            {
+                existingInstruktor.GetType().GetProperties()
+                    .Where(p => p.CanWrite)
+                    .ToList()
+                    .ForEach(p => p.SetValue(existingInstruktor, p.GetValue(instruktor)));
+                await _instruktorRepository.UpdateInstruktor(existingInstruktor);
 
-            OnInstruktorCreated(instruktor);
+                OnInstruktorEdited(existingInstruktor);
+            }
         }
 
         public async Task DeleteInstruktor(int instruktorID)
@@ -84,6 +93,11 @@ namespace AutoskolaApp.Stores
         }
 
         private void OnInstruktorCreated(Instruktor instruktor)
+        {
+            InstruktorCreated?.Invoke(instruktor);
+        }
+
+        private void OnInstruktorEdited(Instruktor instruktor)
         {
             InstruktorCreated?.Invoke(instruktor);
         }

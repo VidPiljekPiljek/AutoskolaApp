@@ -57,8 +57,8 @@
         <DatePicker x:Name="dtpDatumZaposlenja" Grid.Column="1" Grid.Row="8" SelectedDate="{Binding DatumPocetka, UpdateSourceTrigger=PropertyChanged}"/>
         <ui:TextBox x:Name="txtNapomena" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3" Text="{Binding Napomena, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <StackPanel Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Margin="5 0 0 0"/>
+        <StackPanel Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Command="{Binding SubmitCommand}" x:Name="btnDodaj" Content="Dodaj" Margin="0 0 0 0"/>
             <Button Command="{Binding EditCommand}" x:Name="btnEdit" Content="Uredi" Margin="5 0 0 0"/>
             <Button Command="{Binding CancelCommand}" x:Name="btnOtkaži" Content="Otkaži" Margin="5 0 0 0"/>
         </StackPanel>

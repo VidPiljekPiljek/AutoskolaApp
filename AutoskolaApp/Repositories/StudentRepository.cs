@@ -29,6 +29,21 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task UpdateStudent(Student student)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                var studentTemp = dbContext.Studenti.Find(student.IDStudenta);
+                if (studentTemp != null)
+                {
+                    dbContext.Entry(studentTemp).CurrentValues.SetValues(student);
+                    await dbContext.SaveChangesAsync();
+                }
+                //dbContext.Instruktori.Add(instruktor);
+                //await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task DeleteStudent(int studentID)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
@@ -51,7 +66,6 @@ namespace AutoskolaApp.Repositories
                 IEnumerable<Student> studenti = await dbContext.Studenti.ToListAsync();
 
                 return studenti;
-
             }
         }
 

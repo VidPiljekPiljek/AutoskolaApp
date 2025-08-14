@@ -17,6 +17,9 @@ namespace AutoskolaApp.ViewModels.FormViewModels
 {
     public class IspitiFormViewModel : ViewModelBase, ILoadable
     {
+        private readonly ObservableCollection<string> _vrsteIspita = new ObservableCollection<string> { "Propisi", "Prva Pomoc", "Vozacki" };
+        public IEnumerable<string> VrsteIspita => _vrsteIspita;
+
         private readonly ObservableCollection<InstruktorViewModel> _instruktori;
         public IEnumerable<InstruktorViewModel> Instruktori => _instruktori;
         private InstruktorViewModel _selectedInstruktor;
@@ -27,8 +30,21 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 _selectedInstruktor = value;
                 OnPropertyChanged(nameof(SelectedInstruktor));
+                _ispit.IDInstruktora = value.IDInstruktora;
             }
         }
+
+        private Ispit _ispit;
+        public Ispit Ispit
+        {
+            get { return _ispit; }
+            set
+            {
+                _ispit = value;
+                OnPropertyChanged(nameof(Uplata));
+            }
+        }
+
         private DateTime _dateTime;
         public DateTime DateTime
         {
@@ -37,8 +53,10 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 _dateTime = value;
                 OnPropertyChanged(nameof(DateTime));
+                _ispit.DateTime = value;
             }
         }
+
         private string _vrstaIspita;
         public string VrstaIspita
         {
@@ -47,17 +65,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             {
                 _vrstaIspita = value;
                 OnPropertyChanged(nameof(VrstaIspita));
-            }
-        }
-        private int _idInstruktora;
-
-        public int IDInstruktora
-        {
-            get { return _idInstruktora; }
-            set
-            {
-                _idInstruktora = value;
-                OnPropertyChanged(nameof(IDInstruktora));
+                _ispit.VrstaIspita = value;
             }
         }
 
@@ -65,14 +73,22 @@ namespace AutoskolaApp.ViewModels.FormViewModels
         public string ImeInstruktora
         {
             get { return _imeInstruktora; }
-            set { _imeInstruktora = value; OnPropertyChanged(nameof(ImeInstruktora)); }
+            set 
+            { 
+                _imeInstruktora = value; 
+                OnPropertyChanged(nameof(ImeInstruktora));
+            }
         }
 
         private string _prezimeInstruktora;
         public string PrezimeInstruktora
         {
             get { return _prezimeInstruktora; }
-            set { _prezimeInstruktora = value; OnPropertyChanged(nameof(PrezimeInstruktora)); }
+            set 
+            { 
+                _prezimeInstruktora = value; 
+                OnPropertyChanged(nameof(PrezimeInstruktora)); 
+            }
         }
 
         public AsyncCommandBase SubmitCommand { get; set; }
@@ -105,7 +121,10 @@ namespace AutoskolaApp.ViewModels.FormViewModels
                 IspitViewModel ispit = (IspitViewModel)parameter;
                 DateTime = ispit.DateTime;
                 VrstaIspita = ispit.VrstaIspita;
-                IDInstruktora = ispit.IDInstruktora;
+                _ispit.IDIspita = ispit.IDIspita;
+                _ispit.DateTime = ispit.DateTime;
+                _ispit.VrstaIspita = ispit.VrstaIspita;
+                _ispit.IDInstruktora = ispit.IDInstruktora;
             }
         }
     }

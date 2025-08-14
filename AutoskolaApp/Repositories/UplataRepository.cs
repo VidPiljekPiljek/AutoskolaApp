@@ -29,6 +29,21 @@ namespace AutoskolaApp.Repositories
             }
         }
 
+        public async Task UpdateUplata(Uplata uplata)
+        {
+            using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
+            {
+                var uplataTemp = dbContext.Uplate.Find(uplata.IDUplate);
+                if (uplataTemp != null)
+                {
+                    dbContext.Entry(uplataTemp).CurrentValues.SetValues(uplata);
+                    await dbContext.SaveChangesAsync();
+                }
+                //dbContext.Instruktori.Add(instruktor);
+                //await dbContext.SaveChangesAsync();
+            }
+        }
+
         public async Task DeleteUplata(int uplataID)
         {
             using (AutoskolaDbContext dbContext = _dbContextFactory.CreateDbContext())
