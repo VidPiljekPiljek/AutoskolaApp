@@ -16,5 +16,5 @@ C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
 250104178156
 Components\BindablePasswordBox.xaml;MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\IspitForm.xaml;Views\Forms\KorisnikForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\InstruktoriListingView.xaml;Views\IspitiListingView.xaml;Views\LoginView.xaml;Views\StudentiListingView.xaml;Views\UplateListingView.xaml;Views\VoznjeListingView.xaml;
 
-True
+False
 
