@@ -1174,22 +1174,7 @@
         }
       },
       "System.Diagnostics.DiagnosticSource/8.0.1": {},
-      "System.Diagnostics.EventLog/9.0.3": {
-        "runtime": {
-          "lib/net9.0/System.Diagnostics.EventLog.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.325.11113"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/net9.0/System.Diagnostics.EventLog.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.325.11113"
-          }
-        }
-      },
+      "System.Diagnostics.EventLog/9.0.3": {},
       "System.IO.Pipelines/7.0.0": {},
       "System.Memory/4.5.3": {},
       "System.Reflection.Metadata/8.0.1": {},

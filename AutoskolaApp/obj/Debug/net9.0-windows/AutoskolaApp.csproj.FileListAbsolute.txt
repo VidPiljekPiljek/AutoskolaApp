@@ -84,7 +84,6 @@ C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\S
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\System.Composition.Hosting.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\System.Composition.Runtime.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\System.Composition.TypedParts.dll
-C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\System.Diagnostics.EventLog.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\Wpf.Ui.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\Wpf.Ui.Abstractions.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
@@ -173,7 +172,6 @@ C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\r
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\bin\Debug\net9.0-windows\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\App.baml
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\MainWindow.baml
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\DashboardView.baml
@@ -204,3 +202,5 @@ C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\V
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\VoznjeListingView.baml
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\IspitForm.g.cs
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Views\Forms\IspitForm.baml
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Components\BindablePasswordBox.g.cs
+C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\obj\Debug\net9.0-windows\Components\BindablePasswordBox.baml

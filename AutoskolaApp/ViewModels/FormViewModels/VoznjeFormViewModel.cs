@@ -124,6 +124,7 @@ namespace AutoskolaApp.ViewModels.FormViewModels
             _isEditMode = false;
             EditCommand = new EditVoznjaCommand(this, voznjaService, voznjeNavigationService);
             _instruktori = new ObservableCollection<InstruktorViewModel>();
+            _voznja = new Voznja();
             _studenti = new ObservableCollection<StudentViewModel>();
         }
 

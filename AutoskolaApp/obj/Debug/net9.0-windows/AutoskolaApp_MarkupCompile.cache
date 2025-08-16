@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\pilje\source\repos\AutoskolaApp\AutoskolaApp\App.xaml
-15220629635
+16-1582837973
 
-115275604500
-25092292349
-MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\IspitForm.xaml;Views\Forms\KorisnikForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\InstruktoriListingView.xaml;Views\IspitiListingView.xaml;Views\LoginView.xaml;Views\StudentiListingView.xaml;Views\UplateListingView.xaml;Views\VoznjeListingView.xaml;
+116222528537
+250104178156
+Components\BindablePasswordBox.xaml;MainWindow.xaml;Styles\ButtonStyles.xaml;Views\DashboardView.xaml;Views\Forms\InstruktoriForm.xaml;Views\Forms\IspitForm.xaml;Views\Forms\KorisnikForm.xaml;Views\Forms\StudentiForm.xaml;Views\Forms\UplateForm.xaml;Views\Forms\VoznjeForm.xaml;Views\InstruktoriListingView.xaml;Views\IspitiListingView.xaml;Views\LoginView.xaml;Views\StudentiListingView.xaml;Views\UplateListingView.xaml;Views\VoznjeListingView.xaml;
 
 False
 

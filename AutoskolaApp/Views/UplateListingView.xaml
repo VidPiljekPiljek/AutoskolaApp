@@ -29,7 +29,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Uplate" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
-        <ui:DataGrid Grid.Row="3" Grid.Column="1" SelectedItem="{Binding SelectedUplata}" ItemsSource="{Binding Uplate}"/>
+        <ui:DataGrid CanUserAddRows="False" Grid.Row="3" Grid.Column="1" SelectedItem="{Binding SelectedUplata}" ItemsSource="{Binding Uplate}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
             <ui:Button Command="{Binding CreateUplataCommand}"  x:Name="btnDodajUpis" Content="Novi upis" />
             <ui:Button Command="{Binding EditUplataCommand}" x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="20, 0, 0, 0"/>

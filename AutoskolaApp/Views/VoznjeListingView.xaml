@@ -29,7 +29,7 @@ Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         </Grid.ColumnDefinitions>
 
         <Label Content="Voznje" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
-        <DataGrid Grid.Row="3" Grid.Column="1" SelectedItem="{Binding SelectedVoznja}" ItemsSource="{Binding Voznje}"/>
+        <DataGrid CanUserAddRows="False" Grid.Row="3" Grid.Column="1" SelectedItem="{Binding SelectedVoznja}" ItemsSource="{Binding Voznje}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
             <ui:Button Command="{Binding CreateVoznjaCommand}" x:Name="btnDodajUpis" Content="Novi upis" />
             <ui:Button x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="20, 0, 0, 0"/>

@@ -41,6 +41,7 @@ namespace AutoskolaApp.ViewModels.ListingViewModels
         {
             _uplataService = uplataService;
             _uplate = new ObservableCollection<UplataViewModel>();
+            
             _selectedUplata = new UplataViewModel();
             LoadUplateCommand = new LoadUplateCommand(this, uplataStore);
             CreateUplataCommand = new NavigateCommand<UplateFormViewModel>(uplateFormNavigationService, null);

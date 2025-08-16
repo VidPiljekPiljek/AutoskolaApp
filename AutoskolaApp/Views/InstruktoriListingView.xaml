@@ -29,7 +29,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Instruktori" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" />
-        <DataGrid SelectedItem="{Binding SelectedInstruktor}" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Instruktori}"/>
+        <DataGrid CanUserAddRows="False" SelectedItem="{Binding SelectedInstruktor}" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Instruktori}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
             <ui:Button Command="{Binding CreateInstruktorCommand}" x:Name="btnDodajUpis" Content="Novi upis" />
             <ui:Button Command="{Binding EditInstruktorCommand}" x:Name="btnUrediOdabir" Content="Uredi odabir" Margin="20, 0, 0, 0"/>

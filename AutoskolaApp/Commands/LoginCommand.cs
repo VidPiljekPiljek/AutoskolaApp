@@ -1,14 +1,15 @@
-﻿using System;
+﻿using AutoskolaApp.Services;
+using AutoskolaApp.Stores;
+using AutoskolaApp.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
-using AutoskolaApp.Services;
-using AutoskolaApp.Stores;
-using AutoskolaApp.ViewModels;
 
 namespace AutoskolaApp.Commands
 {
@@ -27,7 +28,7 @@ namespace AutoskolaApp.Commands
 
         public override bool CanExecute(object? parameter)
         {
-            return true;
+            return !string.IsNullOrEmpty(_loginViewModel.KorisnickoIme) || !string.IsNullOrEmpty(_loginViewModel.Lozinka);
         }
 
         public override async Task ExecuteAsync(object? parameter)

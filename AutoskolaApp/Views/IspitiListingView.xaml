@@ -39,7 +39,7 @@ Foreground="{DynamicResource TextFillColorPrimaryBrush}"
         <Label Content="Rezultati" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" />
         <Label Content="Statistika" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" />
 
-        <ui:DataGrid Grid.Row="3" Grid.Column="1" Grid.RowSpan="5" SelectedItem="{Binding SelectedIspit}" ItemsSource="{Binding Ispiti}"/>
+        <ui:DataGrid CanUserAddRows="False" Grid.Row="3" Grid.Column="1" Grid.RowSpan="5" SelectedItem="{Binding SelectedIspit}" ItemsSource="{Binding Ispiti}"/>
         <ui:DataGrid Grid.Row="3" Grid.Column="3" ItemsSource="{Binding}"/>
 
         <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
